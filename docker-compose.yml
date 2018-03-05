@@ -5,7 +5,6 @@ services:
     image: news-stories-expr-server:latest
     build:
       context: .
-      dockerfile: Dockerfile.server
     ports:
       - "11111:5000"
     volumes:

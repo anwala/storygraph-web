@@ -1,0 +1,1021 @@
+{
+    "links": [
+        {
+            "source": 9,
+            "target": 24,
+            "distance": 0.56,
+            "rank": 1,
+            "label": "1 (0.56)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 39,
+            "target": 40,
+            "distance": 0.59,
+            "rank": 2,
+            "label": "2 (0.59)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 8,
+            "target": 54,
+            "distance": 0.6,
+            "rank": 3,
+            "label": "3 (0.6)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 11,
+            "target": 38,
+            "distance": 0.6,
+            "rank": 4,
+            "label": "4 (0.6)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 14,
+            "target": 40,
+            "distance": 0.61,
+            "rank": 5,
+            "label": "5 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 45,
+            "target": 50,
+            "distance": 0.62,
+            "rank": 6,
+            "label": "6 (0.62)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 28,
+            "target": 44,
+            "distance": 0.63,
+            "rank": 7,
+            "label": "7 (0.63)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 4,
+            "target": 7,
+            "distance": 0.64,
+            "rank": 8,
+            "label": "8 (0.64)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 4,
+            "target": 46,
+            "distance": 0.65,
+            "rank": 9,
+            "label": "9 (0.65)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 4,
+            "target": 50,
+            "distance": 0.65,
+            "rank": 10,
+            "label": "10 (0.65)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 19,
+            "target": 49,
+            "distance": 0.65,
+            "rank": 11,
+            "label": "11 (0.65)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 14,
+            "target": 39,
+            "distance": 0.66,
+            "rank": 12,
+            "label": "12 (0.66)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 22,
+            "target": 27,
+            "distance": 0.66,
+            "rank": 13,
+            "label": "13 (0.66)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 28,
+            "target": 45,
+            "distance": 0.66,
+            "rank": 14,
+            "label": "14 (0.66)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 4,
+            "target": 38,
+            "distance": 0.67,
+            "rank": 15,
+            "label": "15 (0.67)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 5,
+            "target": 44,
+            "distance": 0.67,
+            "rank": 16,
+            "label": "16 (0.67)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 0,
+            "target": 51,
+            "distance": 0.68,
+            "rank": 17,
+            "label": "17 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 5,
+            "target": 28,
+            "distance": 0.68,
+            "rank": 18,
+            "label": "18 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 5,
+            "target": 45,
+            "distance": 0.68,
+            "rank": 19,
+            "label": "19 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 38,
+            "target": 39,
+            "distance": 0.68,
+            "rank": 20,
+            "label": "20 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 38,
+            "target": 49,
+            "distance": 0.68,
+            "rank": 21,
+            "label": "21 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 44,
+            "target": 45,
+            "distance": 0.68,
+            "rank": 22,
+            "label": "22 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 7,
+            "target": 46,
+            "distance": 0.69,
+            "rank": 23,
+            "label": "23 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 14,
+            "target": 44,
+            "distance": 0.69,
+            "rank": 24,
+            "label": "24 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 31,
+            "target": 46,
+            "distance": 0.69,
+            "rank": 25,
+            "label": "25 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 38,
+            "target": 40,
+            "distance": 0.69,
+            "rank": 26,
+            "label": "26 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 38,
+            "target": 50,
+            "distance": 0.69,
+            "rank": 27,
+            "label": "27 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 14,
+            "target": 31,
+            "distance": 0.7,
+            "rank": 28,
+            "label": "28 (0.7)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 24,
+            "target": 45,
+            "distance": 0.7,
+            "rank": 29,
+            "label": "29 (0.7)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 26,
+            "target": 48,
+            "distance": 0.7,
+            "rank": 30,
+            "label": "30 (0.7)",
+            "label-description": "rank (distance)"
+        }
+    ],
+    "nodes": [
+        {
+            "id": "bbc.co.uk-1",
+            "title": "Paris attack: Hunt for car driven at soldiers injuring six - BBC News",
+            "published": "Wed, 09 Aug 2017 08:38:25 GMT",
+            "link": "http://www.bbc.co.uk/news/world-europe-40873801",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:14.872142"
+        },
+        {
+            "id": "bbc.co.uk-2",
+            "title": "Darling: 'Alarm bells ringing' for UK economy - BBC News",
+            "published": "Wed, 09 Aug 2017 01:07:53 GMT",
+            "link": "http://www.bbc.co.uk/news/business-40869363",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:17.487837"
+        },
+        {
+            "id": "bbc.co.uk-3",
+            "title": "Country star Glen Campbell dies at 81 - BBC News",
+            "published": "Wed, 09 Aug 2017 03:53:41 GMT",
+            "link": "http://www.bbc.co.uk/news/entertainment-arts-40870474",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:20.087886"
+        },
+        {
+            "id": "bbc.co.uk-4",
+            "title": "World Championships: Isaac Makwala withdrawal decision defended by IAAF - BBC Sport",
+            "published": "Wed, 09 Aug 2017 06:40:30 GMT",
+            "link": "http://www.bbc.co.uk/sport/athletics/40870600",
+            "favicon": "http://static.bbci.co.uk/onesport/2.11.199/images/web-icons/bbc-sport-180.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:22.741979"
+        },
+        {
+            "id": "cnn.com-1",
+            "title": "Trump's credibility crisis goes nuclear - CNNPolitics",
+            "published": "Wed, 09 Aug 2017 08:06:41 GMT",
+            "link": "http://www.cnn.com/2017/08/09/politics/trump-rhetoric-north-korea/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:24.958187"
+        },
+        {
+            "id": "cnn.com-2",
+            "title": "North Korea says it's weighing a preemptive strike on Guam - CNNPolitics",
+            "published": "Wed, 09 Aug 2017 06:12:00 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/north-korea-considering-guam-strike-trump/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:27.158121"
+        },
+        {
+            "id": "cnn.com-3",
+            "title": "Why does North Korea hate the US? - CNN Video",
+            "published": "Tue, 04 Jul 2017 07:28:08 GMT",
+            "link": "http://www.cnn.com/videos/world/2017/07/04/why-north-korea-hates-the-us-ejk-lon-orig.cnn?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:29.144051"
+        },
+        {
+            "id": "cnn.com-4",
+            "title": "Lawmakers slam Trump's 'fire and fury' toward North Korea - CNNPolitics",
+            "published": "Wed, 09 Aug 2017 08:09:54 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/lawmakers-trump-fire-fury-north-korea-mccain/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:31.409466"
+        },
+        {
+            "id": "foxnews.com-1",
+            "title": "Trump draws attention to opioid crisis, says 'nobody is safe from this epidemic' | Fox News",
+            "published": "Wed, 09 Aug 2017 03:55:44 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/08/trump-draws-attention-to-opioid-crisis-says-nobody-is-safe-from-this-epidemic.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:33.546656"
+        },
+        {
+            "id": "foxnews.com-2",
+            "title": "Nagasaki marks anniversary of bombing amid US-North Korea nuclear tensions | Fox News",
+            "published": "Wed, 09 Aug 2017 03:55:45 EDT",
+            "link": "http://www.foxnews.com/world/2017/08/09/nagasaki-marks-anniversary-bombing-amid-us-north-korea-nuclear-tensions.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:35.791259"
+        },
+        {
+            "id": "foxnews.com-3",
+            "title": "Google may face lawsuit alleging gender discrimination | Fox News",
+            "published": "Wed, 09 Aug 2017 03:55:44 EDT",
+            "link": "http://www.foxnews.com/tech/2017/08/09/google-may-face-lawsuit-alleging-gender-discrimination.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:37.998457"
+        },
+        {
+            "id": "foxnews.com-4",
+            "title": "Amb. Nikki Haley: A win at the UN, but North Korea threat continues | Fox News",
+            "published": "Wed, 09 Aug 2017 03:55:44 EDT",
+            "link": "http://www.foxnews.com/opinion/2017/08/08/amb-nikki-haley-win-at-un-but-north-korea-threat-continues.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:40.269158"
+        },
+        {
+            "id": "npr.org-1",
+            "title": "'Financial Times' Issues 103-Year-Old Correction : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 19:40:00 -0400",
+            "link": "http://www.npr.org/2017/08/08/542238978/-financial-times-issues-103-year-old-correction?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:42.659343"
+        },
+        {
+            "id": "npr.org-2",
+            "title": "PHOTOS: A 'Massive' Wildfire Is Now Blazing In Greenland : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 18:54:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/08/542305822/photos-a-massive-wildfire-is-now-blazing-in-greenland?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:45.005610"
+        },
+        {
+            "id": "npr.org-3",
+            "title": "North Korea Reportedly Capable Of Making Nuclear-Tipped Missiles : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 18:30:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/08/542316482/north-korea-reportedly-capable-of-making-nuclear-tipped-missiles?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:47.297207"
+        },
+        {
+            "id": "npr.org-4",
+            "title": "Hill Democrats Launch Investigation Of Federal Spending At Trump Businesses : NPR",
+            "published": "Tue, 08 Aug 2017 18:22:00 -0400",
+            "link": "http://www.npr.org/2017/08/08/542296258/hill-democrats-launch-investigation-of-federal-spending-at-trump-businesses?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:49.615454"
+        },
+        {
+            "id": "nytimes.com-1",
+            "title": "Trump Threatens North Korea With ‘Fire and Fury’ - Video - NYTimes.com",
+            "published": "Tue, 08 Aug 2017 20:30:45 GMT",
+            "link": "https://www.nytimes.com/video/us/politics/100000005346140/north-korea-trump-threat-fire-fury.html?partner=rss&emc=rss",
+            "favicon": "https://css.nyt.com/images/icons/nyt.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:51.596540"
+        },
+        {
+            "id": "nytimes.com-2",
+            "title": "Trump’s Harsh Language on North Korea Has Little Precedent, Experts Say - The New York Times",
+            "published": "Wed, 09 Aug 2017 03:02:19 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/us/politics/trumps-harsh-language-on-north-korea-has-little-precedent-experts-say.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:53.834880"
+        },
+        {
+            "id": "nytimes.com-3",
+            "title": "Right and Left React to the Tensions With North Korea - The New York Times",
+            "published": "Wed, 09 Aug 2017 01:33:35 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/us/politics/right-and-left-react-to-the-tensions-with-north-korea.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:43:56.296486"
+        },
+        {
+            "id": "nytimes.com-4",
+            "title": "North Korea’s Alarmed Neighbors Consider Deploying Deadlier Weapons - The New York Times",
+            "published": "Wed, 09 Aug 2017 01:14:51 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/world/asia/north-korea-japan-missile-south.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:43:58.571545"
+        },
+        {
+            "id": "reuters.com-1",
+            "title": "Disney to pull movies from Netflix, plans own streaming service | Reuters",
+            "published": "Tue, 08 Aug 2017 19:43:45 -0400",
+            "link": "http://www.reuters.com/article/us-walt-disney-results-idUSKBN1AO2C4?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:00.966619"
+        },
+        {
+            "id": "reuters.com-2",
+            "title": "Exclusive: U.S. envoys told to be coy on re-engaging in Paris climate deal - cable | Reuters",
+            "published": "Tue, 08 Aug 2017 15:29:08 -0400",
+            "link": "http://www.reuters.com/article/us-usa-climate-diplomacy-idUSKBN1AO276?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:03.271991"
+        },
+        {
+            "id": "reuters.com-3",
+            "title": "Quake in China's Sichuan kills 19, including tourists, injures 247 | Reuters",
+            "published": "Wed, 09 Aug 2017 03:38:04 -0400",
+            "link": "http://www.reuters.com/article/us-china-quake-idUSKBN1AP005?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:05.478032"
+        },
+        {
+            "id": "reuters.com-4",
+            "title": "U.N. decries excessive force in Venezuela's crackdown on protests | Reuters",
+            "published": "Wed, 09 Aug 2017 01:31:32 -0400",
+            "link": "http://www.reuters.com/article/us-venezuela-politics-idUSKBN1AO17X?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:07.742241"
+        },
+        {
+            "id": "aljazeera.com-1",
+            "title": "Nagasaki mayor: Threat of new nuclear attack growing | Japan News | Al Jazeera",
+            "published": "Wed, 09 Aug 2017 07:47:21 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/nagasaki-mayor-threat-nuclear-attack-growing-170809052604535.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:09.991119"
+        },
+        {
+            "id": "aljazeera.com-2",
+            "title": "Mexico: Ritual flying in magical town Cuetzalan | Mexico | Al Jazeera",
+            "published": "Wed, 09 Aug 2017 06:55:47 GMT",
+            "link": "http://www.aljazeera.com/indepth/inpictures/2017/07/mexico-ritual-flying-magical-town-cuetzalan-170719082759286.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:12.308960"
+        },
+        {
+            "id": "aljazeera.com-3",
+            "title": "President Kenyatta takes early lead against Odinga | Kenya News | Al Jazeera",
+            "published": "Wed, 09 Aug 2017 05:24:23 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/president-kenyatta-takes-early-lead-odinga-170808203706716.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:14.895278"
+        },
+        {
+            "id": "aljazeera.com-4",
+            "title": "Deaths reported as quake hits China's Sichuan province | China News | Al Jazeera",
+            "published": "Wed, 09 Aug 2017 04:14:14 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/deaths-reported-quake-hits-china-sichuan-province-170808160907772.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:17.168253"
+        },
+        {
+            "id": "usatoday.com-1",
+            "title": "Guam reacts to North Korea nuclear threat with faith in U.S. military",
+            "published": "Wed, 9 Aug 2017 01:07:57 -0400",
+            "link": "https://www.usatoday.com/story/life/nation-now/2017/08/08/guam-reacts-north-korea-nuclear-threatilitary/551184001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:19.723736"
+        },
+        {
+            "id": "usatoday.com-2",
+            "title": "Donald Trump sent private messages to special counsel Mueller",
+            "published": "Tue, 8 Aug 2017 18:45:23 -0400",
+            "link": "https://www.usatoday.com/story/news/politics/2017/08/08/donald-trump-exchanged-private-messages-special-counsel-mueller/547917001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:22.060116"
+        },
+        {
+            "id": "usatoday.com-3",
+            "title": "Dinosaur that weighed the same as a Boeing 737 is biggest ever found",
+            "published": "Tue, 8 Aug 2017 20:19:52 -0400",
+            "link": "https://www.usatoday.com/story/tech/science/2017/08/08/dinosaur-weighed-same-boeing-737-biggest-ever-found/546630001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:24.306607"
+        },
+        {
+            "id": "usatoday.com-4",
+            "title": "North Korea threat and President Trump: 5  things to know Wednesday",
+            "published": "Wed, 9 Aug 2017 04:00:57 -0400",
+            "link": "https://www.usatoday.com/story/news/2017/08/09/5-things-you-need-know-wednesday/548414001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:30.330007"
+        },
+        {
+            "id": "boston.com-1",
+            "title": "Police: Man kicks girl for picking up his Chuck E. Cheese's tokens",
+            "published": "Tue, 08 Aug 2017 20:14:27 +0000",
+            "link": "https://www.boston.com/news/local-news/2017/08/08/cops-man-kicks-girl-for-picking-up-his-chuck-e-cheeses-tokens",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:32.432590"
+        },
+        {
+            "id": "boston.com-2",
+            "title": "The Patriots are reportedly the first NFL team to buy its own jets",
+            "published": "Thu, 01 Jan 1970 00:00:00 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/08/patriots-reportedly-bought-two-767-boeing-jets-for-team-travel",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:34.545040"
+        },
+        {
+            "id": "boston.com-3",
+            "title": "Bill Belichick says Jason Taylor's Hall of Fame speech was 'tremendously flattering'",
+            "published": "Tue, 08 Aug 2017 18:39:44 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/08/bill-belichick-says-jason-taylors-hall-of-fame-speech-was-tremendously-flattering",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:36.817672"
+        },
+        {
+            "id": "boston.com-4",
+            "title": "Union Oyster House reopens after fire",
+            "published": "Tue, 08 Aug 2017 17:02:39 +0000",
+            "link": "https://www.boston.com/news/restaurants/2017/08/08/union-oyster-house-reopens-after-fire",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:38.965543"
+        },
+        {
+            "id": "washingtonpost.com-1",
+            "title": "Trump, Russia and the opposition research firm run by ex-journalists - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/fact-checker/wp/2017/08/09/trump-russia-and-the-opposition-research-firm-run-by-ex-journalists/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:41.844183"
+        },
+        {
+            "id": "washingtonpost.com-2",
+            "title": "Trump endorses Strange a week ahead of GOP primary in Alabama Senate race - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/post-politics/wp/2017/08/08/trump-endorses-strange-a-week-ahead-of-gop-primary-in-alabama-senate-race/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:44.024607"
+        },
+        {
+            "id": "washingtonpost.com-3",
+            "title": "Trump threatens ‘fire and fury’ in response to North Korean threats - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/trump-tweets-news-report-citing-anonymous-sources-on-n-korea-movements/2017/08/08/47a9b9c0-7c48-11e7-83c7-5bd5460f0d7e_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:46.628436"
+        },
+        {
+            "id": "washingtonpost.com-4",
+            "title": "North Korea is fast approaching Trump’s red line - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/the-fix/wp/2017/08/08/north-korea-is-fast-approaching-trumps-red-line/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:48.990382"
+        },
+        {
+            "id": "washingtonpost.com-5",
+            "title": "North Korea now making missile-ready nuclear weapons, U.S. analysts say - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/national-security/north-korea-now-making-missile-ready-nuclear-weapons-us-analysts-say/2017/08/08/e14b882a-7b6b-11e7-9d08-b79f191668ed_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:44:51.655935"
+        },
+        {
+            "id": "washingtonpost.com-6",
+            "title": "Two months into Saudi-led boycott, tiny Qatar goes on the offensive - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/two-months-into-saudi-led-boycott-tiny-qatar-goes-on-the-offensive/2017/08/08/de7ea3e0-7880-11e7-8c17-533c52b2f014_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:54.113304"
+        },
+        {
+            "id": "washingtonpost.com-7",
+            "title": "South African President Jacob Zuma survives no-confidence vote by Parliament - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/weakened-south-africa-president-faces-new-no-confidence-vote-by-parliament/2017/08/08/b1524160-7baf-11e7-b2b1-aeba62854dfa_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:56.537848"
+        },
+        {
+            "id": "washingtonpost.com-8",
+            "title": "Did Tillerson and Duterte discuss human rights? Depends on which side you ask. - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/did-tillerson-and-duterte-discuss-human-rights-depends-on-which-side-you-ask/2017/08/08/6eac13af-1046-4bf1-b971-7a4c8a91e8d1_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:44:58.896330"
+        },
+        {
+            "id": "washingtonpost.com-9",
+            "title": "Why North Korea threatened Guam, the tiny U.S. territory with big military power - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/worldviews/wp/2017/08/09/why-north-korea-threatened-guam-the-tiny-u-s-territory-with-big-military-power/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:01.367499"
+        },
+        {
+            "id": "bbc.co.uk-0",
+            "title": "North Korea says considering missile strike on Guam - BBC News",
+            "published": "Wed, 09 Aug 2017 06:43:00 GMT",
+            "link": "http://www.bbc.co.uk/news/world-asia-40871416",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:04.495938"
+        },
+        {
+            "id": "cnn.com-0",
+            "title": "North Korea ups rhetoric following President Trump's threat of 'fire and fury' - CNNPolitics",
+            "published": "Wed, 09 Aug 2017 07:08:41 GMT",
+            "link": "http://www.cnn.com/2017/08/09/politics/north-korea-donald-trump/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:06.689999"
+        },
+        {
+            "id": "foxnews.com-0",
+            "title": "Pilotless planes are coming, but no one wants to be on them | Fox News",
+            "published": "Wed, 09 Aug 2017 03:55:44 EDT",
+            "link": "http://www.foxnews.com/travel/2017/08/08/pilotless-planes-are-coming-but-no-one-wants-to-be-on-them.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:45:08.759581"
+        },
+        {
+            "id": "npr.org-0",
+            "title": "Kenyan Presidential Challenger Calls Vote Tally 'Fake' : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 20:00:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/08/542329770/kenyan-presidential-challenger-calls-vote-tally-fake?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:11.009294"
+        },
+        {
+            "id": "nytimes.com-0",
+            "title": "Trump Threatens ‘Fire and Fury’ Against North Korea if It Endangers U.S. - The New York Times",
+            "published": "Wed, 09 Aug 2017 07:09:46 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/world/asia/north-korea-un-sanctions-nuclear-missile-united-nations.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:13.330250"
+        },
+        {
+            "id": "reuters.com-0",
+            "title": "North Korea considers missile strike on Guam after Trump's 'fire and fury' warning | Reuters",
+            "published": "Wed, 09 Aug 2017 03:56:45 -0400",
+            "link": "http://www.reuters.com/article/us-northkorea-missiles-china-idUSKBN1AO011?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:15.945385"
+        },
+        {
+            "id": "aljazeera.com-0",
+            "title": "French police seek vehicle after soldiers hit in Paris | France News | Al Jazeera",
+            "published": "Wed, 09 Aug 2017 07:54:31 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/officials-french-soldiers-hit-vehicle-paris-170809071752400.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:18.101353"
+        },
+        {
+            "id": "usatoday.com-0",
+            "title": "Global financial crisis: What's changed in 10 years",
+            "published": "Tue, 8 Aug 2017 20:30:00 -0400",
+            "link": "https://www.usatoday.com/story/news/world/2017/08/09/global-financial-crisis-whats-changed-10-years/547806001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:45:20.418750"
+        },
+        {
+            "id": "boston.com-0",
+            "title": "The ACLU is suing Paul LePage over his Facebook page",
+            "published": "Tue, 08 Aug 2017 20:25:03 +0000",
+            "link": "https://www.boston.com/news/politics/2017/08/08/the-aclu-is-suing-paul-lepage-over-his-facebook-page",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-09T08:45:22.638910"
+        },
+        {
+            "id": "washingtonpost.com-0",
+            "title": "Trump holds off on declaring opioid crisis a national emergency - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/trump-to-hold-major-briefing-on-opiod-crisis/2017/08/08/8b7cd146-7c2f-11e7-9d08-b79f191668ed_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-09T08:45:25.280370"
+        }
+    ],
+    "connected-comps": [
+        {
+            "nodes": [
+                4,
+                5,
+                38,
+                7,
+                39,
+                9,
+                40,
+                11,
+                44,
+                45,
+                14,
+                46,
+                49,
+                50,
+                19,
+                24,
+                28,
+                31
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 2.888888888888889,
+            "density": 0.16993464052287582,
+            "unique-source-count": 9
+        },
+        {
+            "nodes": [
+                8,
+                54
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                27,
+                22
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                0,
+                51
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                48,
+                26
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        }
+    ],
+    "timestamp": "2017-08-09T08:45:25.485996Z"
+}

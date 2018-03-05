@@ -1,0 +1,75 @@
+body {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-size: 14px;
+      background-color: #EEE;
+}
+
+svg a text{
+    cursor: pointer;
+}
+
+
+#visContainer {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999999;
+    margin:0 auto;
+}
+
+/*for -dev-attempt-grid-graphs - start*/
+.visContainer {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999999;
+    margin:0 auto;
+}
+
+.gridtable td {
+  padding: 10px;
+}
+
+.gridtable{
+    width: 100%;
+    margin: 0px auto;
+    table-layout: fixed;
+  }
+/*for -dev-attempt-grid-graphs - end*/
+
+/* tip - start */
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+/* tip - end */
+
+hr.style13 {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}

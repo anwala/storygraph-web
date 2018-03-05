@@ -1,0 +1,885 @@
+{
+    "links": [
+        {
+            "source": 8,
+            "target": 26,
+            "distance": 0.39,
+            "rank": 1,
+            "label": "1 (0.39)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 24,
+            "target": 25,
+            "distance": 0.46,
+            "rank": 2,
+            "label": "2 (0.46)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 30,
+            "target": 47,
+            "distance": 0.5,
+            "rank": 3,
+            "label": "3 (0.5)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 19,
+            "target": 39,
+            "distance": 0.56,
+            "rank": 4,
+            "label": "4 (0.56)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 22,
+            "target": 39,
+            "distance": 0.57,
+            "rank": 5,
+            "label": "5 (0.57)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 19,
+            "target": 22,
+            "distance": 0.59,
+            "rank": 6,
+            "label": "6 (0.59)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 13,
+            "target": 19,
+            "distance": 0.61,
+            "rank": 7,
+            "label": "7 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 13,
+            "target": 39,
+            "distance": 0.61,
+            "rank": 8,
+            "label": "8 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 34,
+            "target": 44,
+            "distance": 0.61,
+            "rank": 9,
+            "label": "9 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 13,
+            "target": 22,
+            "distance": 0.62,
+            "rank": 10,
+            "label": "10 (0.62)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 20,
+            "target": 35,
+            "distance": 0.64,
+            "rank": 11,
+            "label": "11 (0.64)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 0,
+            "target": 22,
+            "distance": 0.65,
+            "rank": 12,
+            "label": "12 (0.65)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 34,
+            "target": 37,
+            "distance": 0.65,
+            "rank": 13,
+            "label": "13 (0.65)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 0,
+            "target": 13,
+            "distance": 0.66,
+            "rank": 14,
+            "label": "14 (0.66)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 9,
+            "target": 21,
+            "distance": 0.67,
+            "rank": 15,
+            "label": "15 (0.67)",
+            "label-description": "rank (distance)"
+        }
+    ],
+    "nodes": [
+        {
+            "id": "bbc.co.uk-1",
+            "title": "Zuma survives no-confidence vote - BBC News",
+            "published": "Tue, 08 Aug 2017 17:02:47 GMT",
+            "link": "http://www.bbc.co.uk/news/world-africa-40869269",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "extraction-time": "2017-08-08T17:34:55.998739"
+        },
+        {
+            "id": "bbc.co.uk-2",
+            "title": "PKU funding battle: Family wins High Court challenge over drug - BBC News",
+            "published": "Tue, 08 Aug 2017 12:01:44 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-40862045",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:34:59.022148"
+        },
+        {
+            "id": "cnn.com-1",
+            "title": "Voters to Trump: Never Tweet - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 12:56:34 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/trump-twitter-cnn-poll/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:01.300625"
+        },
+        {
+            "id": "cnn.com-2",
+            "title": "Poll: 72% of Americans uneasy about North Korea - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 13:59:46 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/north-korea-cbs-poll-donald-trump/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:03.492617"
+        },
+        {
+            "id": "cnn.com-3",
+            "title": "Americans don't trust Donald Trump. They never really have. - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 15:25:15 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/donald-trump-trust/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:05.716734"
+        },
+        {
+            "id": "cnn.com-4",
+            "title": "Panel erupts over Trump's credibility  - CNN Video",
+            "published": "Tue, 08 Aug 2017 12:09:56 GMT",
+            "link": "http://www.cnn.com/videos/politics/2017/08/08/trump-white-house-credibility-navarro-schlapp-newday.cnn?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:07.667225"
+        },
+        {
+            "id": "foxnews.com-1",
+            "title": "Painting of Statue of Liberty as Muslim woman in Democratic congressman’s office stirs controversy | Fox News",
+            "published": "Tue, 08 Aug 2017 12:38:09 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/08/painting-statue-liberty-as-muslim-woman-in-democratic-congressman-s-office-stirs-controversy.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:09.858332"
+        },
+        {
+            "id": "foxnews.com-2",
+            "title": "America's most expensive home, as seen in 'The Beverly Hillbillies,' hits the market at $350 million | Fox News",
+            "published": "Tue, 08 Aug 2017 12:38:09 EDT",
+            "link": "http://www.foxnews.com/real-estate/2017/08/08/americas-most-expensive-home-as-seen-in-beverly-hillbillies-hits-market-at-350-million.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:11.985647"
+        },
+        {
+            "id": "foxnews.com-3",
+            "title": "Neighbors in uproar after San Francisco street sells for $90G | Fox News",
+            "published": "Tue, 08 Aug 2017 12:38:09 EDT",
+            "link": "http://www.foxnews.com/real-estate/2017/08/08/neighbors-in-uproar-after-san-francisco-street-sells-for-90g.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:14.175208"
+        },
+        {
+            "id": "foxnews.com-4",
+            "title": "Haley: North Korea needs to brace for combined pressure from US and the world | Fox News",
+            "published": "Tue, 08 Aug 2017 12:38:09 EDT",
+            "link": "http://www.foxnews.com/world/2017/08/07/haley-north-korea-needs-to-brace-for-combined-pressure-from-us-and-world.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:16.594085"
+        },
+        {
+            "id": "npr.org-1",
+            "title": "Google CEO Cuts Vacation Short To Deal With Crisis Over Diversity Memo : All Tech Considered : NPR",
+            "published": "Tue, 08 Aug 2017 12:53:50 -0400",
+            "link": "http://www.npr.org/sections/alltechconsidered/2017/08/08/542210855/google-ceo-cuts-vacation-short-to-deal-with-crisis-over-diversity-memo?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:18.825532"
+        },
+        {
+            "id": "npr.org-2",
+            "title": "Gnawing Questions: Is Sugar From Fruit The Same As Sugar From Candy? : The Salt : NPR",
+            "published": "Tue, 08 Aug 2017 12:29:00 -0400",
+            "link": "http://www.npr.org/sections/thesalt/2017/08/08/540923229/gnawing-questions-is-sugar-from-fruit-the-same-as-sugar-from-candy?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:21.145075"
+        },
+        {
+            "id": "npr.org-3",
+            "title": "Locals Escape Summer's Heat With A Dip In A Parisian Canal : Parallels : NPR",
+            "published": "Tue, 08 Aug 2017 11:31:46 -0400",
+            "link": "http://www.npr.org/sections/parallels/2017/08/08/542043212/locals-escape-summer-s-heat-with-a-dip-in-a-parisian-canal?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:23.652723"
+        },
+        {
+            "id": "npr.org-4",
+            "title": "Zuma Survives (Another) No-Confidence Vote In South Africa's Parliament : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 09:46:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/08/542183252/zuma-faces-another-no-confidence-vote-in-south-africas-parliament?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "extraction-time": "2017-08-08T17:35:26.138208"
+        },
+        {
+            "id": "nytimes.com-1",
+            "title": "California Today: The Dominating Dodgers - The New York Times",
+            "published": "Tue, 08 Aug 2017 12:27:47 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/us/california-today-la-dodgers-dominating.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:28.562701"
+        },
+        {
+            "id": "nytimes.com-2",
+            "title": "Trump Likes When C.I.A. Chief Gets Political, but Officers Are Wary - The New York Times",
+            "published": "Mon, 07 Aug 2017 23:01:15 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/us/politics/mike-pompeo-cia.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:30.925701"
+        },
+        {
+            "id": "nytimes.com-3",
+            "title": "Mike Pompeo, Trump’s Outspoken C.I.A. Director - Video - NYTimes.com",
+            "published": "Mon, 07 Aug 2017 23:40:23 GMT",
+            "link": "https://www.nytimes.com/video/us/politics/100000005343149/mike-pompeo-trumps-cia-director.html?partner=rss&emc=rss",
+            "favicon": "https://css.nyt.com/images/icons/nyt.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:32.905232"
+        },
+        {
+            "id": "nytimes.com-4",
+            "title": "Now Starring in the West Wing: Sarah Huckabee Sanders - The New York Times",
+            "published": "Tue, 08 Aug 2017 09:00:28 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/business/now-starring-in-the-west-wing-sarah-huckabee-sanders.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:35.170965"
+        },
+        {
+            "id": "reuters.com-1",
+            "title": "Fired Google memo writer draws scorn, cheers and a job offer | Reuters",
+            "published": "Tue, 08 Aug 2017 12:26:18 -0400",
+            "link": "http://www.reuters.com/article/us-google-diversity-idUSKBN1AO1WY?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:37.537468"
+        },
+        {
+            "id": "reuters.com-2",
+            "title": "South Africa's Zuma survives no-confidence motion | Reuters",
+            "published": "Tue, 08 Aug 2017 13:17:00 -0400",
+            "link": "http://www.reuters.com/article/us-safrica-politics-idUSKBN1AN2JY?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "extraction-time": "2017-08-08T17:35:39.695180"
+        },
+        {
+            "id": "reuters.com-3",
+            "title": "Trump plans 'major briefing' on opioid crisis | Reuters",
+            "published": "Tue, 08 Aug 2017 12:10:50 -0400",
+            "link": "http://www.reuters.com/article/us-usa-trump-opioid-idUSKBN1AO18A?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:41.976418"
+        },
+        {
+            "id": "reuters.com-4",
+            "title": "China vows to enforce U.N. curbs on North Korea as Trump praises cohesion | Reuters",
+            "published": "Tue, 08 Aug 2017 12:01:08 -0400",
+            "link": "http://www.reuters.com/article/us-northkorea-missiles-china-idUSKBN1AO011?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:44.412836"
+        },
+        {
+            "id": "aljazeera.com-1",
+            "title": "South Africa's Jacob Zuma survives no-confidence vote | South Africa News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 16:51:13 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/south-africa-jacob-zuma-survives-confidence-vote-170808131502614.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "extraction-time": "2017-08-08T17:35:46.612064"
+        },
+        {
+            "id": "aljazeera.com-2",
+            "title": "Typhoon Noru's epic journey comes to an end | Japan News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 16:39:46 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/typhoon-noru-epic-journey-170808084415838.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:48.791039"
+        },
+        {
+            "id": "aljazeera.com-3",
+            "title": "Kenya: Polls close in tightly contested elections | Kenya News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 16:36:09 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/kenya-polls-close-tightly-contested-elections-170808142329591.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:51.099749"
+        },
+        {
+            "id": "aljazeera.com-4",
+            "title": "Kenya goes to the polls in closely contested election | Kenya News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 14:50:24 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/kenya-polls-closely-contested-election-170807202930346.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:53.339793"
+        },
+        {
+            "id": "usatoday.com-1",
+            "title": "San Francisco residents mad after Presidio Terrace street sells for $90K",
+            "published": "Tue, 8 Aug 2017 12:03:44 -0400",
+            "link": "https://www.usatoday.com/story/money/nation-now/2017/08/08/san-francisco-residents-mad-after-presidio-terrace-street-sells-90-k/547872001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:35:55.533934"
+        },
+        {
+            "id": "usatoday.com-2",
+            "title": "Former Alabama quarterbacks voice frustration about Nick Saban",
+            "published": "Tue, 8 Aug 2017 11:12:08 -0400",
+            "link": "https://www.usatoday.com/story/sports/ncaaf/2017/08/08/former-alabama-quarterbacks-blake-barnett-cooper-bateman-nick-saban/548247001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:35:57.772251"
+        },
+        {
+            "id": "usatoday.com-3",
+            "title": "Arizona woman sentenced to death in murder of 10-year-old Ame Deal",
+            "published": "Tue, 8 Aug 2017 09:19:55 -0400",
+            "link": "https://www.usatoday.com/story/news/nation-now/2017/08/08/arizona-woman-sentenced-death-murder-10-year-old-ame-deal-locked-box/547891001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:00.050178"
+        },
+        {
+            "id": "usatoday.com-4",
+            "title": "8-year-old's suicide: Family sues school district, blames school bullying",
+            "published": "Tue, 8 Aug 2017 11:32:26 -0400",
+            "link": "https://www.usatoday.com/story/news/nation-now/2017/08/08/8-year-old-boy-suicide-lawsuit/548297001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:02.398736"
+        },
+        {
+            "id": "boston.com-1",
+            "title": "Government report finds drastic impact of climate change on U.S.",
+            "published": "Tue, 08 Aug 2017 14:20:08 +0000",
+            "link": "https://www.boston.com/news/national-news/2017/08/08/government-report-finds-drastic-impact-of-climate-change-on-u-s",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:04.694069"
+        },
+        {
+            "id": "boston.com-2",
+            "title": "Authorities arrest 10, seize 6K of heroin in western Mass.",
+            "published": "Tue, 08 Aug 2017 14:15:44 +0000",
+            "link": "https://www.boston.com/news/local-news/2017/08/08/authorities-arrest-10-seize-6k-of-heroin-in-western-mass",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:06.808622"
+        },
+        {
+            "id": "boston.com-3",
+            "title": "'Puppy Doe' dog abuse trial rescheduled for October",
+            "published": "Tue, 08 Aug 2017 14:09:59 +0000",
+            "link": "https://www.boston.com/news/local-news/2017/08/08/puppy-doe-dog-abuse-trial-rescheduled-for-october",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:08.886915"
+        },
+        {
+            "id": "boston.com-4",
+            "title": "Mass. General ranked fourth best hospital in the nation",
+            "published": "Tue, 08 Aug 2017 13:55:11 +0000",
+            "link": "https://www.boston.com/news/local-news/2017/08/08/mass-general-ranked-fourth-best-hospital-in-the-nation",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:11.103869"
+        },
+        {
+            "id": "washingtonpost.com-1",
+            "title": "Trump tweets news report citing anonymous sources on N. Korea movements - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/trump-tweets-news-report-citing-anonymous-sources-on-n-korea-movements/2017/08/08/47a9b9c0-7c48-11e7-83c7-5bd5460f0d7e_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:13.407472"
+        },
+        {
+            "id": "washingtonpost.com-2",
+            "title": "Trump to hold ‘major briefing’ on opioid crisis - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/trump-to-hold-major-briefing-on-opiod-crisis/2017/08/08/8b7cd146-7c2f-11e7-9d08-b79f191668ed_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:15.891088"
+        },
+        {
+            "id": "washingtonpost.com-3",
+            "title": "Club for Growth Action: 'Halloween' | Campaign 2018 - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/video/politics/club-for-growth-action-halloween--campaign-2018/2017/08/08/2d828e80-7c4a-11e7-b2b1-aeba62854dfa_video.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:18.164447"
+        },
+        {
+            "id": "washingtonpost.com-4",
+            "title": "North Korea is fast approaching Trump’s red line - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/the-fix/wp/2017/08/08/north-korea-is-fast-approaching-trumps-red-line/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:20.532746"
+        },
+        {
+            "id": "washingtonpost.com-5",
+            "title": "North Korea now making missile-ready nuclear weapons, U.S. analysts say - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/national-security/north-korea-now-making-missile-ready-nuclear-weapons-us-analysts-say/2017/08/08/e14b882a-7b6b-11e7-9d08-b79f191668ed_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:22.826349"
+        },
+        {
+            "id": "washingtonpost.com-6",
+            "title": "Jacob Zuma, South Africa's weakened president, faces new no-confidence vote by Parliament - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/weakened-south-africa-president-faces-new-no-confidence-vote-by-parliament/2017/08/08/b1524160-7baf-11e7-b2b1-aeba62854dfa_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "extraction-time": "2017-08-08T17:36:25.142264"
+        },
+        {
+            "id": "washingtonpost.com-7",
+            "title": "Did Tillerson and Duterte discuss human rights? Depends on which side you ask. - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/did-tillerson-and-duterte-discuss-human-rights-depends-on-which-side-you-ask/2017/08/08/6eac13af-1046-4bf1-b971-7a4c8a91e8d1_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:27.487370"
+        },
+        {
+            "id": "washingtonpost.com-8",
+            "title": "Taliban are sowing terror in remote, new areas of Afghanistan - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/asia_pacific/taliban-are-sowing-terror-in-remote-new-areas-of-afghanistan/2017/08/08/82715776-7b89-11e7-b2b1-aeba62854dfa_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:30.086947"
+        },
+        {
+            "id": "washingtonpost.com-9",
+            "title": "Do Americans actually care about the Qatar crisis? A new poll presents a mixed picture. - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/worldviews/wp/2017/08/08/do-americans-actually-care-about-the-qatar-crisis-a-new-poll-presents-a-mixed-picture/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:32.392729"
+        },
+        {
+            "id": "bbc.co.uk-0",
+            "title": "Manchester Airport pipe bomb plot: Nadeem Muhammad guilty - BBC News",
+            "published": "Tue, 08 Aug 2017 16:35:44 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-england-manchester-40851414",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:36.038315"
+        },
+        {
+            "id": "cnn.com-0",
+            "title": "Trump retweets Fox News story containing classified info - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 17:07:48 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/trump-retweet-fox-news-north-korea-story-haley/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:38.312136"
+        },
+        {
+            "id": "foxnews.com-0",
+            "title": "Trump's generals: President turns to military men for counsel, order | Fox News",
+            "published": "Tue, 08 Aug 2017 12:38:09 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/08/trumps-generals-president-turns-to-military-men-for-counsel-order.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:41.045493"
+        },
+        {
+            "id": "npr.org-0",
+            "title": "Haruo Nakajima, The Original Godzilla Actor, Dies  : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 13:04:07 -0400",
+            "link": "http://www.npr.org/2017/08/08/542198902/haruo-nakajima-the-original-godzilla-actor-dies?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:43.349770"
+        },
+        {
+            "id": "nytimes.com-0",
+            "title": "Scientists Fear Trump Will Dismiss Blunt Climate Report - The New York Times",
+            "published": "Tue, 08 Aug 2017 02:28:55 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/climate/climate-change-drastic-warming-trump.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T17:36:45.672721"
+        },
+        {
+            "id": "reuters.com-0",
+            "title": "Russia reacts to White House soap opera with a shrug | Reuters",
+            "published": "Tue, 08 Aug 2017 12:04:03 -0400",
+            "link": "http://www.reuters.com/article/us-usa-trump-russia-whitehouse-idUSKBN1AO1II?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:47.938437"
+        },
+        {
+            "id": "aljazeera.com-0",
+            "title": "Deaths reported as quake hits China's Sichuan province | China News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 16:53:58 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/deaths-reported-quake-hits-china-sichuan-province-170808160907772.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:50.133845"
+        },
+        {
+            "id": "usatoday.com-0",
+            "title": "War in Afghanistan: Trump White House weighs bold plan to privatize it",
+            "published": "Tue, 8 Aug 2017 11:49:18 -0400",
+            "link": "https://www.usatoday.com/story/news/world/2017/08/08/war-afghanistan-trump-white-house-weighs-bold-plan-privatize/548004001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:52.531734"
+        },
+        {
+            "id": "boston.com-0",
+            "title": "Cambridge bans retail sales of commercially-bred pets",
+            "published": "Tue, 08 Aug 2017 14:20:42 +0000",
+            "link": "https://www.boston.com/news/business/2017/08/08/cambridge-bans-retail-sales-of-commercially-bred-pets",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:54.709435"
+        },
+        {
+            "id": "washingtonpost.com-0",
+            "title": "The curious case of ‘Nicole Mincey,’ the Trump fan who may actually be a bot - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/the-curious-case-of-nicole-mincey-the-trump-fan-who-may-actually-be-a-russian-bot/2017/08/07/7aa67410-7b96-11e7-9026-4a0a64977c92_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T17:36:57.510749"
+        }
+    ],
+    "connected-comps": [
+        {
+            "nodes": [
+                8,
+                26
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                24,
+                25
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 1
+        },
+        {
+            "nodes": [
+                30,
+                47
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                0,
+                39,
+                13,
+                19,
+                22
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "event",
+                "color": "green"
+            },
+            "avg-degree": 3.2,
+            "density": 0.8,
+            "unique-source-count": 5
+        },
+        {
+            "nodes": [
+                34,
+                44,
+                37
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.3333333333333333,
+            "density": 0.6666666666666666,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                35,
+                20
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        },
+        {
+            "nodes": [
+                9,
+                21
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 2
+        }
+    ],
+    "timestamp": "2017-08-08T17:36:57.657914Z"
+}

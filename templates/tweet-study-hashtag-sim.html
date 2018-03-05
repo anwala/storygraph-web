@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset="utf-8">
+    <title>Media Manipulation - Quantifying consensus Vis</title>
+    <link rel="stylesheet" href="/static/tweet-study-tweet-sim-style.css">
+    <link rel="stylesheet" href="/static/pure-min.css">
+    <link rel="stylesheet" href="/static/grids-responsive-min.css">
+
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.11.0.css">
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <script src="/static/common.js"></script>
+</head>
+
+<body>
+
+	<div style="margin: auto; width: 95%; cursor:pointer;">
+		<span style="width: 10%; font-size:30px;" id="advBtn">ᐁ</span>
+		<span style="font-size:30px">Quantifying consensus of links using tweets</span>
+
+        <br>
+	    <input id='sortSimMatRowChk' type="checkbox" onclick="sortSimMatrixRowChk(this)" checked> Sort similarity matrix (rows by <a href="https://en.wikipedia.org/wiki/Norm_(mathematics)" target="_blank">L2-Norm</a>)<br>
+		<input id='sortSimMatColChk' type="checkbox" onclick="sortSimMatrixColChk(this)" checked> Sort similarity matrix (cols)<br>
+        <input id="uploadMatrix" class="pure-button pure-button-primary" type="file" value="upload graph">
+    </div>
+	
+	<div style="margin: auto;width: 95%; text-align:center;">
+        <div id="alertMessage"></div>
+    </div>
+	
+	<div class="pure-form pure-form-stacked" style="margin:auto; width:95%; display:none;" id="advMenu">
+        <br>
+        <br><strong><legend style="text-align:center">Dimension</legend></strong><br>
+
+        <fieldset>
+        	<div class="pure-g" id='topKDomainsSet'>
+	        </div>
+        </fieldset>
+
+        <br><strong><legend id='rowsStainLegend' style="text-align:center">Stain rows for top k retweeted domains</legend></strong><br>
+
+         <fieldset>
+        	<div class="pure-g" id='dimensionSet'>
+	        </div>
+        </fieldset>
+
+
+        <br><strong><legend style="text-align:center">Settings</legend></strong><br>
+        <fieldset>
+        	<div class="pure-g">
+
+		        <div class="pure-u-1 pure-u-md-1-4">
+		        	<label>Similarity measure</label>
+		        	<input type="radio" name="simMeasure" value="cosine" checked  onclick="simBtnClick(this)"> Cosine<br>
+					<input type="radio" name="simMeasure" value="jaccard"  onclick="simBtnClick(this)"> Jaccard index<br>
+					<input type="radio" name="simMeasure" value="overlap"  onclick="simBtnClick(this)"> Overlap coefficient
+		        </div>
+
+        	</div>
+        </fieldset>
+
+    </div>
+
+	<hr class="style13">
+	
+	<div id="tooltipDiv" class="tooltip">
+	</div>
+
+	<!---->
+	<div id='charts'>
+		<div onmousedown='mouseDown()' onmouseup='mouseUp()' id='simMatrixChart' class='disable_text_highlighting'></div>
+		<div id='mdsChart'></div>
+	</div>
+
+	<hr class="style13">
+	<!--<div id="distanceMatrixChart"></div>-->
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script>
+    	
+        var width = 0.95 * window.innerWidth;
+        var height = 0.8 * window.innerHeight;
+
+    	document.getElementById('charts').setAttribute('style', 'width: 100%; height: 100%');
+
+	    var x = d3.scale.ordinal().rangePoints([0, width], 1),
+            y = {},
+            dragging = {};
+
+        var dimensionsDict = {};
+
+        var line = d3.svg.line(),
+            axis = d3.svg.axis().orient("left"),
+            background,
+            foreground;
+
+        var tip = d3.tip()
+			  .attr('class', 'd3-tip')
+			  .direction('s')
+			  .offset( [10, 0] )
+			  .html(function(col) 
+			  {
+				  	var toWrite = "<strong>URL:</strong> <span style='color:orange'>" + col.link + "</span><br><br>";
+				  	toWrite += "<strong>URL-parent:</strong> <span style='color:orange'>" + col.parent.link + "</span><br><br>";
+				  	toWrite += getHashtagTooltip( col['hashtags'] );
+
+				  	return toWrite;
+			  });
+
+		var globalConfig = {};		
+		var globalDimensionDict = {};//dict switch for dimensions
+		var globalDimensionMapping = {};
+		var globalURIContextData;
+		var globalSimMatrixMapping = {};
+		var globalTopKDomainsDict = {};
+		var globalSimMatrixLabels = [];
+		var globalCircleParams = {fill: '#1f77b4', opacity: 0.2, radius: 10};
+
+		Set.prototype.intersection = function(setB) 
+		{
+		    var intersection = new Set();
+		    for (var elem of setB) 
+		    {
+		        if (this.has(elem)) 
+		        {
+		            intersection.add(elem);
+		        }
+		    }
+		    return intersection;
+		};
+
+		Set.prototype.union = function(setB) 
+		{
+		    var union = new Set(this);
+		    for (var elem of setB) 
+		    {
+		        union.add(elem);
+		    }
+		    return union;
+		};
+		
+		main();
+
+		function main()
+    	{
+    		console.log('\nmain()');
+
+    		//settings - start
+    		globalConfig['sort-sim-matrix-row'] = document.getElementById('sortSimMatRowChk').checked;
+    		globalConfig['sort-sim-matrix-col'] = document.getElementById('sortSimMatColChk').checked;
+    		globalConfig['sim-measure'] = 'cosine';
+    		globalConfig.scrubbing = {};
+
+    		globalConfig.colors = {};
+    		globalConfig.colors['border-color'] = 'rgb(240, 50, 230)';
+    		//settings - end
+    		
+		    var advBtn = document.getElementById("advBtn");
+            document.getElementById('uploadMatrix').addEventListener('change', uploadMatrixClick, false);
+
+		    advBtn.onclick = function()
+		    {
+		        if (document.getElementById('advMenu').style.display === 'none')
+		        {
+		            document.getElementById('advMenu').style.display = 'block';
+		            advBtn.innerHTML = 'ᐃ';
+		        }
+		        else
+		        {
+		            document.getElementById('advMenu').style.display = 'none';
+		            advBtn.innerHTML = 'ᐁ';
+		        }
+		    };
+    	}
+
+    	function getHashtagTooltip(hashtags)
+    	{
+    		var counter = 0;
+    		var toWrite = '';
+
+		  	for( var hashtag in hashtags )
+		  	{
+		  		if( globalDimensionMapping[hashtag] === true )
+		  		{
+		  			toWrite += "<strong>" + (counter+1) + ". " + hashtag + ": </strong><span style='color:orange'>" + hashtags[hashtag] + "</span><br><hr>";
+		  		}
+		  		else
+		  		{
+		  			toWrite += "<strong><del>" + (counter+1) + ". " + hashtag + "</del>: </strong><del><span style='color:orange'>" + hashtags[hashtag] + "</span></del><br><hr>";
+		  		}
+
+			  	counter++;
+		  	}
+
+		  	return toWrite;
+    	}
+
+    	function getRowDetailFromMatrix(row)
+    	{
+    		if( globalSimMatrixMapping[row] !== undefined )
+    		{
+    			var modRowIndx = globalSimMatrixMapping[row]['original-row'];
+    			return globalURIContextData['matrix-row-details'][modRowIndx];
+    		}
+    		else
+    		{
+    			return {}
+    		}
+    	}
+
+    	function getColDetailFromMatrix(row, col)
+    	{
+    		if( globalSimMatrixMapping[row] !== undefined )
+    		{
+    			if( globalSimMatrixMapping[row]['original-cols'][col] !== undefined )
+    			{
+    				var modColIndx = globalSimMatrixMapping[row]['original-cols'][col];
+    				return globalURIContextData['matrix-row-details'][modColIndx];
+    			}    			
+    		}
+    		
+    		return {}
+    	}
+
+    	function getTooltipHTMLText(row, col, similarity)
+    	{
+    		var modRowDetails = getRowDetailFromMatrix(row);
+    		var modColDetails = getColDetailFromMatrix(row, col);
+
+    		var toWrite = '';
+    		var breakFlag = false;
+    		var items = [modRowDetails, modColDetails];
+    		var prefix = "<span style='color: red;'><strong>(ROW, COL): (" + row + ", " + col + "), SIM: " + similarity + " (" + globalConfig['sim-measure'] + ")</strong></span><br><br>";
+
+    		if( modRowDetails.link === modColDetails.link )
+    		{
+    			breakFlag = true;
+    		}
+
+    		toWrite += prefix;
+    		for( var i=0; i<items.length; i++ )
+    		{
+    			var retweetFlag = '';
+    			if( items[i].parent.parent.length !== 0 )
+    			{
+    				retweetFlag = ' (RT)';
+    			}
+
+    			toWrite += "<strong>URL:</strong> <span style='color:orange'>" + items[i].link + "</span> (freq: " + items[i].freq + ")<br><br>";
+			  	toWrite += "<strong>URL-parent:</strong> <span style='color:orange'>" + items[i].parent.link + retweetFlag + "</span><br><br>";
+			  	
+			  	if( retweetFlag.length !== 0 )
+			  	{
+			  		toWrite += "<strong>URL-original:</strong> <span style='color:orange'>" + items[i].parent.parent + "</span><br><br>";
+			  	}
+
+			  	toWrite += "<strong>Text-parent:</strong> <span style='color:orange'>" + items[i].parent.text + "</span><br><br>";
+			  	toWrite += "<strong style='color: red;'>Hashtags:</strong><br>";
+			  	toWrite += getHashtagTooltip( items[i]['hashtags'] );
+
+			  	if( breakFlag )
+			  	{
+			  		break;
+			  	}
+
+			  	if( i != items.length - 1 )
+			  	{
+			  		toWrite += "<hr>";
+			  	}
+    		}
+
+    		//tooltipDiv.innerHTML += '<br><strong>Distance: ' + similarity + ' (cur row:' + row + ', col:' + col + ')</strong>';
+			//tooltipDiv.innerHTML += '<br><strong> (old row:' + modRowIndx + ', col:' + modColIndx + ')</strong>';
+		  	
+		  	return toWrite;
+    	}
+
+        function uploadMatrixClick(evt)
+        {
+            console.log('\nuploadMatrixClick():');
+            //credit to: http://www.html5rocks.com/en/tutorials/file/dndfiles/
+            var files = evt.target.files;
+
+            if( files.length == 0 )
+            {
+                return;
+            }
+
+            f = files[0];
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function(theFile)
+            {
+                return function(data)
+                {   
+                    var matrix = JSON.parse(data.target.result);
+                    console.log('\n\tUPLOAD Request');
+                    setDimensionDict(genContextMatrix, matrix);
+                };
+            })(f);
+
+            reader.readAsText(f);
+        }
+
+    	function sortSimMatrixRowChk(sender)
+    	{
+    		globalConfig['sort-sim-matrix-row'] = sender.checked;
+    		setDimensionDict(genContextMatrix);
+    	}
+
+    	function sortSimMatrixColChk(sender)
+    	{
+    		globalConfig['sort-sim-matrix-col'] = sender.checked;
+    		setDimensionDict(genContextMatrix);
+    	}
+
+    	function resetChart()
+    	{
+    		console.log('\nresetChart():');
+    		setDimensionDict(genContextMatrix);
+    	}
+
+    	function simBtnClick(sender)
+    	{
+    		globalConfig['sim-measure'] = sender.value;
+    		console.log(globalConfig['sim-measure']);
+    		resetChart();
+    	}
+
+
+    	function dimensionCheck(sender, index)
+    	{
+    		console.log('\ndimensionCheck():');
+
+    		if( globalDimensionDict[index] !== undefined )
+    		{
+    			console.log('\t', sender.value, sender.checked);
+
+    			globalDimensionDict[index].active = sender.checked;
+    			globalDimensionMapping[sender.value] = sender.checked;
+
+    			genContextMatrix(globalURIContextData);
+    		}
+    		else
+    		{
+    			console.log('\t', sender.value, 'not in globalDimensionDict');
+    		}
+    	}
+
+    	function topKDomainCheck(sender, sortCriteria)
+    	{
+    		if( sender.checked === true )
+    		{
+    			//set color
+    			for(var i=0; i<globalTopKDomainsDict.colors.length; i++)
+	    		{
+	    			var colorDict = globalTopKDomainsDict.colors[i];
+	    			if( colorDict.active === false )
+	    			{
+	    				//sender.value is ith domain
+	    				colorDict.active = true;
+	    				globalTopKDomainsDict['top-k-domains'][sender.value] = {'sort-criteria': sortCriteria, 'sort-criteria-result': sender.getAttribute(sortCriteria), color: colorDict.color, on: true, 'color-index': i};
+	    				document.getElementById('topK-' + sender.value).style['background-color'] = colorDict.color;
+	    				break;
+	    			}
+	    		}
+    		}
+    		else
+    		{
+    			//unset color
+    			var colorIndex = globalTopKDomainsDict['top-k-domains'][sender.value]['color-index'];
+    			globalTopKDomainsDict['top-k-domains'][sender.value].on = false;
+    			globalTopKDomainsDict.colors[colorIndex].active = false;
+    			document.getElementById('topK-' + sender.value).style['background-color'] = '#EEE';//consider review
+    		}
+
+			genContextMatrix(globalURIContextData);
+    	}	
+
+    	function getVectorForRow(vectorOfObjs) 
+		{
+			var vect = [];
+			
+			for(var i =0; i<vectorOfObjs.length; i++)
+			{
+				vect.push( vectorOfObjs[i].sim );
+			}
+
+			return vect;
+		}
+
+    	function sortSimMatrix(simMatrix, sortRowFlag, sortColFlag)
+    	{
+    		if( sortRowFlag === true )
+    		{
+    			simMatrix.sort
+    			(
+		    		function(vectA, vectB) 
+		    		{	
+		    			var magA = vecMagnitude( getVectorForRow(vectA.vector) );
+		    			var magB = vecMagnitude( getVectorForRow(vectB.vector) );
+					    
+					    if( magA === magB ) 
+					    {
+					        return 0;
+					    }
+					    else 
+					    {
+					        return (magA > magB) ? -1 : 1;
+					    }
+					}
+				);
+    		}
+    		
+    		if( sortColFlag === true )
+    		{
+    			for(var i=0; i<simMatrix.length; i++)
+    			{
+    				simMatrix[i].vector.sort
+    				(
+						function(objA, objB) 
+						{
+							return (objA.sim < objB.sim) ? 1 : ((objB.sim < objA.sim) ? -1 : 0);
+						}
+    				); 
+    			}
+    		}
+    	}
+
+    	function getMatrixFromData(data)
+    	{
+    		//create matrix based on natural row order - start
+    		var matrixSelector = 'matrix';//'matrix' or 'doc-term-matrix';
+			var matrix = [];
+			for(var row=0; row<data[matrixSelector].length; row++)
+			{
+				var vector = [];
+				for(var col=0; col<data[matrixSelector][row].length; col++)
+				{
+					if( globalDimensionDict[col].active === true )
+					{
+						//this dimension is on
+						vector.push( data[matrixSelector][row][col] );
+					}
+				}
+				matrix.push( vector );
+			}
+			//create matrix based on natural row order - end
+
+			return matrix;
+    	}
+
+    	function getSimilarityMatrix(data)
+    	{
+    		console.log('\ngetSimilarityMatrix()');
+    		var matrix = getMatrixFromData(data);
+
+    		if( matrix.length == 0 )
+    		{
+    			console.log('\tmatrix is empty, exiting');
+    			return [];
+    		}
+
+    		var similarityMatrix = [];
+			for(var i=0; i<matrix.length; i++)
+			{
+				similarityMatrix.push( {row: i, vector:[]} );
+				for(var j=0; j<matrix.length; j++)
+				{
+					var similarity = 0;
+					if( i == j )
+					{
+						similarity = 1;
+					}
+					else
+					{
+						
+						if( globalConfig['sim-measure'] === 'cosine' )
+						{
+							similarity = cosineSimilarity( matrix[i], matrix[j] );
+						}
+						else
+						{
+							var setA = data['matrix-row-details'][i].hashtags;
+							var setB = data['matrix-row-details'][j].hashtags;
+
+							setA = new Set( Object.keys(setA) );
+							setB = new Set( Object.keys(setB) );
+
+							if( globalConfig['sim-measure'] === 'jaccard' )
+							{
+								similarity = jaccardSimilarity( setA, setB );
+							}
+							else if( globalConfig['sim-measure'] === 'overlap' )
+							{
+								similarity = overlapSimilarity( setA, setB );
+							}
+						}
+					}
+
+					if( isNaN(similarity) === true || similarity < 0 )
+					{
+						//NAN or floating point error, (small number)
+						similarity = 0;
+					}
+
+					similarity = +similarity.toFixed(2);
+
+					similarityMatrix[similarityMatrix.length-1].vector.push( {col: j, sim: similarity} );
+				}
+			}
+
+			return similarityMatrix;
+    	}
+
+    	function setDimensionDict(callback, data)
+    	{
+    		console.log('\nsetDimensionDict()');
+			globalURIContextData = data;
+
+			var dimensionColumnCount = 5;
+			popMatDimensn( data['matrix-columns-details'], dimensionColumnCount );
+			popTopKDomains( data['matrix-row-details'], dimensionColumnCount );
+
+			console.log('\tcallback:', callback.name);
+			callback(data);
+    	}
+
+    	function popTopKDomains(matrixRows, columnCount)
+    	{
+    		console.log('\npopTopKDomains():');
+    		var k = 20;
+
+    		var getSortedKeys = function(obj) 
+    		{
+			    var keys = []; 
+			    for(var key in obj) 
+			    {
+			    	keys.push(key);
+			    }
+			    return keys.sort(function(a,b){return obj[b] - obj[a]});
+			};
+
+			var sortCriteria = 'parent-total-retweet-count';
+    		var topKDomainsDict = getTopDomains(matrixRows);
+    		globalTopKDomainsDict = {k: k, 'top-k-domains': topKDomainsDict, 'sort-criteria': sortCriteria};
+
+    		var sortedKeys = getSortedKeys( globalTopKDomainsDict['top-k-domains'] );
+
+    		//ensure colors.length == k
+    		var colors = 
+    		[
+    			{color: 'rgb(255, 0, 0)', active: false},   	//red
+    			{color: 'rgb(255, 255, 0)', active: false}, 	//yellow
+    			{color: 'rgb(0, 255, 255)', active: false}, 	//cyan
+    			{color: 'rgb(255, 0, 255)', active: false}, 	//fuchsia
+    			{color: 'rgb(0, 255, 0)', active: false}, 		//lime
+    			{color: 'rgb(255, 165, 0)', active: false}, 	//orange
+    			{color: 'rgb(0, 128, 128)', active: false}, 	//teal
+    			{color: 'rgb(144, 238, 144)', active: false}, 	//lightgreen
+    			{color: 'rgb(65, 105, 225)', active: false}, 	//royalblue
+    			{color: 'rgb(165, 42, 42)', active: false}, 	//brown
+    			{color: 'rgb(128, 128, 0)', active: false}, 	//olive
+    			{color: 'rgb(255, 192, 203)', active: false}, 	//pink
+    			{color: 'rgb(230, 230, 250)', active: false}, 	//lavender
+    			{color: 'rgb(255, 69, 0)', active: false}, 		//orangered
+    			{color: 'rgb(135, 206, 250)', active: false}, 	//lightskyblue
+    			{color: 'rgb(255, 248, 220)', active: false}, 	//cornsilk
+    			{color: 'rgb(210, 180, 140)', active: false}, 	//tan
+    			{color: 'rgb(169, 169, 169)', active: false}, 	//darkgray
+    			{color: 'rgb(192, 192, 192)', active: false}, 	//silver
+    			{color: 'rgb(128, 0, 0)', active: false} 		//maroon
+    		];
+
+    		if( k !== colors.length )
+    		{
+    			console.log('\tinsuffient colors, returning');
+    			return;
+    		}
+    		globalTopKDomainsDict.colors = colors;
+
+    		document.getElementById('rowsStainLegend').innerHTML = 'Stain rows for top ' + k + ' retweeted domains';
+
+			var cardinality = matrixRows.length/columnCount | 0;
+			var dimensionSet = document.getElementById('topKDomainsSet');
+			dimensionSet.innerHTML = '';
+
+			if( cardinality === 0 )
+			{
+				cardinality = matrixRows.length;
+			}
+
+			var divsList = [];
+			for(var i = 0; i<sortedKeys.length; i++)
+			{
+				if( i%cardinality == 0 )
+				{
+					divsList.push( document.createElement('div') );
+					divsList[ divsList.length-1 ].className = 'pure-u-1 pure-u-md-1-' + columnCount;
+					divsList[ divsList.length-1 ].appendChild( document.createTextNode('(total retweets)') );
+					divsList[ divsList.length-1 ].appendChild( document.createElement('br') );
+				}
+
+				var domain = sortedKeys[i];
+				var sortCriteriaResult = globalTopKDomainsDict['top-k-domains'][domain];
+
+				var input = document.createElement('input');
+				input.type = 'checkbox';
+				input.checked = false;
+				input.value = domain;
+				input.setAttribute('onclick', 'topKDomainCheck(this, "' + sortCriteria + '")');
+				input.setAttribute(sortCriteria, sortCriteriaResult);
+				divsList[ divsList.length-1 ].appendChild(input);
+
+				
+				var fontSize = Math.ceil(Math.log2(sortCriteriaResult));
+				if( fontSize > 24 )
+				{	
+					fontSize = '24';
+				}
+				else if( fontSize < 12 )
+				{
+					fontSize = '12';
+				}
+				fontSize = fontSize + 'px';
+				
+
+				var inputSpan = document.createElement('span');
+				inputSpan.id = 'topK-' + domain;
+				inputSpan.innerHTML = ' ' + (i+1) + '. ' + domain + ' (' + sortCriteriaResult + ')';
+				inputSpan.style['font-size'] = fontSize;
+
+				var br = document.createElement('br');
+				divsList[ divsList.length-1 ].appendChild( inputSpan );
+				divsList[ divsList.length-1 ].appendChild( br );
+				
+				dimensionSet.appendChild( divsList[divsList.length-1] );
+
+				if( i == k - 1 )
+				{
+					break;
+				}
+			}			
+    	}
+
+    	function customGetDomainFromURI(uri)
+    	{
+    		var aTag = document.createElement('a');
+			aTag.href = uri;
+			var domain = aTag.hostname.replace('www.', '');
+			
+			if( domain.indexOf('twitter.com') !== -1 )
+			{
+				var screenName = aTag.pathname.split('/status/');
+				if( screenName.length !== 0 )
+				{
+					domain += screenName[0];
+				}
+			}
+			else if( domain.indexOf('facebook.com') !== - 1 )
+			{
+				var fbName = aTag.pathname.split('/posts/');
+				if( fbName.length !== 0 )
+				{
+					domain += fbName[0];
+				}
+			}
+
+			return domain;
+    	}
+
+    	function getTopDomains(matrixRows)
+    	{
+
+    		//criteria: freq | parent-total-retweet-count | ...
+    		var topKDomainsDict = {};
+    		for(var i = 0; i<matrixRows.length; i++)
+    		{
+    			var domain = customGetDomainFromURI(matrixRows[i].link);
+    			
+    			if( topKDomainsDict[domain] === undefined )
+    			{
+    				topKDomainsDict[domain] = matrixRows[i].parent['total-retweet-count'];
+    			}
+    			else
+    			{
+    				topKDomainsDict[domain] += matrixRows[i].parent['total-retweet-count'];
+    			}
+    		}
+
+    		return topKDomainsDict;
+    	}
+
+    	function popMatDimensn(matrixColumns, dimensionColumnCount)
+    	{
+    		console.log('\npopMatDimensn():');
+			var cardinality = matrixColumns.length/dimensionColumnCount | 0;
+			var dimensionSet = document.getElementById('dimensionSet');
+			dimensionSet.innerHTML = '';
+
+			if( cardinality === 0 )
+			{
+				cardinality = matrixColumns.length;
+			}
+
+			console.log('\tdimensionColumnCount:', dimensionColumnCount);
+			console.log('\tcardinality:', cardinality);
+
+    		var divsList = [];
+			for( var i=0; i<matrixColumns.length; i++ )
+			{
+				var link = matrixColumns[i]['hashtag'];
+				if( i%cardinality == 0 )
+				{
+					divsList.push( document.createElement('div') );
+					divsList[ divsList.length-1 ].className = 'pure-u-1 pure-u-md-1-' + dimensionColumnCount;
+				}
+
+				globalDimensionDict[i] = {active: true, name: link};
+				globalDimensionMapping[link] = true;
+
+				var input = document.createElement('input');
+				input.type = 'checkbox';
+				input.checked = true;
+				input.value = link;
+				input.setAttribute('onclick', 'dimensionCheck(this,' + i + ')');
+				divsList[ divsList.length-1 ].appendChild(input);
+
+				var inputLabel = document.createTextNode( ' ' + (i+1) + '. #' + link + ' (' + matrixColumns[i]['freq'] + ')' );
+				var br = document.createElement('br');
+				divsList[ divsList.length-1 ].appendChild( inputLabel );
+				divsList[ divsList.length-1 ].appendChild( br );
+				
+				dimensionSet.appendChild( divsList[divsList.length-1] );
+			}
+    	}
+
+    	function genContextMatrix(data)
+    	{
+    		console.log('\ngenerateReportMatrix()');
+			
+			//get a similarity matrix, but note natural order before sorting
+			var preSimilarityMatrix = getSimilarityMatrix( data );
+			sortSimMatrix( preSimilarityMatrix, globalConfig['sort-sim-matrix-row'], globalConfig['sort-sim-matrix-col'] );//preSimilarityMatrix is out of order compared to original order in data['matrix'], but preSimilarityMatrix has original order in: preSimilarityMatrix[i].index
+			
+			var simMatrix = [];
+			globalSimMatrixLabels = [];
+			globalSimMatrixMapping = {};
+
+			for(var i=0; i<preSimilarityMatrix.length; i++)
+			{
+				//after similarity matrix has been sort, note original location information
+				simMatrix.push( getVectorForRow(preSimilarityMatrix[i].vector) );
+				globalSimMatrixLabels.push( data['matrix-row-details'][preSimilarityMatrix[i].row] );
+
+				globalSimMatrixMapping[i] = {'original-row': preSimilarityMatrix[i].row, 'original-cols': {}};
+				for(var j=0; j<preSimilarityMatrix[i].vector.length; j++)
+				{
+					globalSimMatrixMapping[i]['original-cols'][j] = preSimilarityMatrix[i].vector[j].col;
+				}
+			}
+
+			if( globalConfig['sort-sim-matrix-col'] === true )
+			{
+				swapOrigins(simMatrix);
+			}
+
+			drawSimMatrix( 
+                simMatrix, 
+                data['matrix-row-length-before-truc'], 
+                data['total-tweets'], 
+                formatURIContextName( data['name'] ) 
+            );
+			/*
+    			var chartDivID = 'mdsChart';
+    			document.getElementById(chartDivID).innerHTML = '';
+    			if( globalConfig['sort-sim-matrix-col'] === false )
+    			{
+    				drawMDSChart(simMatrix, chartDivID, globalSimMatrixLabels);
+    			}
+			*/
+    	}
+
+    	//drag - start
+    	function mouseDown() 
+    	{
+    		globalConfig['mouse-down'] = true;
+		}
+
+		function mouseUp()
+		{
+			if( Object.keys(globalConfig.scrubbing).length !== 0 )
+			{
+				console.log('scrubbing end:', globalConfig.scrubbing);
+				console.log('scrubbing end flush: globalConfig.scrubbing');
+				globalConfig.scrubbing = {};
+			}
+			
+			globalConfig['mouse-down'] = false;	
+		}
+    	//drag - end
+
+    	//similarity matrix - start
+    	function swapOrigins(simMatrix)
+    	{
+			for(var i=0; i<simMatrix.length; i++)
+			{
+				var indexOfOrigin = 0;
+				for(var j=0; j<simMatrix[i].length; j++)
+				{
+					if( globalSimMatrixMapping[i]['original-row'] == globalSimMatrixMapping[i]['original-cols'][j] )
+					{
+						indexOfOrigin = j;
+						break;
+					}
+				}
+				
+				if( indexOfOrigin !== 0 )
+				{
+					//swap
+					var tmp = simMatrix[i][indexOfOrigin];
+					simMatrix[i][indexOfOrigin] = simMatrix[i][0];
+					simMatrix[i][0] = tmp;
+
+					//swap mapping
+					tmp = globalSimMatrixMapping[i]['original-cols'][indexOfOrigin];
+					globalSimMatrixMapping[i]['original-cols'][indexOfOrigin] = globalSimMatrixMapping[i]['original-cols'][0];
+					globalSimMatrixMapping[i]['original-cols'][0] = tmp;
+				}
+			}
+    	}
+
+    	function simMatrixMouseOverOut(sender, row, col, similarity, overOrOut)
+    	{
+    		var tooltipDiv = document.getElementById('tooltipDiv');
+
+    		if( globalConfig['mouse-down'] === true )
+			{
+				//add element to scrubbing list
+				console.log('scrubbing adding');
+				tooltipDiv.style.display = 'none';
+
+				sender.style['border-color'] = globalConfig.colors['border-color'];
+    			sender.style['border-width'] = '2px';
+    			
+    			if( globalConfig.scrubbing[row] === undefined )
+    			{
+    				globalConfig.scrubbing[row] = {};
+    			}
+    			globalConfig.scrubbing[row][col] = true;
+    			
+				return;
+			}
+    		
+    		if( overOrOut == 'over' )
+    		{
+    			tooltipDiv.innerHTML = getTooltipHTMLText( row, col, similarity );
+    			
+    			tooltipDiv.style.display = 'block';
+    			tooltipDiv.style.position = 'absolute';
+				tooltipDiv.style.top = event.clientY + 'px';
+				
+				var centerPoint = window.width/2;
+				if( event.clientX < centerPoint )
+				{
+					tooltipDiv.style.left = (event.clientX) + 'px';
+				}
+				else
+				{
+					tooltipDiv.style.left = (event.clientX - centerPoint) + 'px';
+				}
+
+    			sender.style['border-color'] = globalConfig.colors['border-color'];
+    			sender.style['border-width'] = '2px';
+    		}
+    		else
+    		{
+    			tooltipDiv.style.display = 'none';
+    			sender.className = '';
+    			sender.style['border-color'] = 'black';
+    			sender.style['border-width'] = '1px';
+    		}
+    	}
+
+    	function simMatrixClick(row, col)
+    	{    		
+    		var modRowIndx = globalSimMatrixMapping[row]['original-row'];
+			var modRowDetails = globalURIContextData['matrix-row-details'][modRowIndx];
+
+			var strWindowFeatures = 'location=no,menubar=no,height=300,width=600,scrollbars=yes,status=yes';
+    		window.open( modRowDetails.parent.link, 'Row', strWindowFeatures );
+			var modColIndx = globalSimMatrixMapping[row]['original-cols'][col];
+
+			if( modRowIndx !== modColIndx )
+			{
+				var modColDetails = globalURIContextData['matrix-row-details'][modColIndx];
+	    		setTimeout(function()
+	    			{
+	    				window.open( modColDetails.parent.link, 'Cow', strWindowFeatures + ',left=610' );
+	    			}, 1000);
+			}
+    	}
+
+
+    	function drawSimMatrix(simMatrix, totalLinks, totalTweets, matrixName)
+    	{
+    		console.log('\ndrawSimMatrix():');
+    		console.log('\tinstances:', simMatrix.length);
+			
+			var outlineCellColor = '#A8A8A8';
+			var chartDivID = 'simMatrixChart';
+
+			var chartDiv = document.getElementById(chartDivID)
+			chartDiv.innerHTML = '';
+			
+
+			var tdArray = [];
+			for(var i=0; i<simMatrix.length; i++)
+			{
+				tdArray.push([]);
+				var standardStyle = 'height: 100%; padding:0; margin:0; text-align: center; cursor: pointer;';
+				var td = document.createElement('td');
+
+
+				//draw first row of numbers - start
+				if( i === 0 )
+				{
+					td = document.createElement('td');
+					td.appendChild( document.createTextNode('') );
+					td.style = standardStyle + 'background: ' + outlineCellColor;
+					tdArray[0].push(td);
+
+					for(var j=0; j<simMatrix[i].length; j++)
+					{
+						td = document.createElement('td');
+						td.appendChild( document.createTextNode(j) );
+						td.style = standardStyle + 'background: ' + outlineCellColor;
+						tdArray[0].push(td);
+					}
+
+					td = document.createElement('td');
+					td.appendChild( document.createTextNode('') );
+					td.style = standardStyle + 'background: ' + outlineCellColor;
+					tdArray[0].push(td);
+
+					tdArray.push([]);
+				}
+				//draw first row of numbers - end
+
+				//draw first column of numbers - start
+				td = document.createElement('td');
+				td.appendChild( document.createTextNode(i) );
+				td.style = standardStyle + 'background: ' + outlineCellColor;
+				tdArray[tdArray.length-1].push(td);
+				//draw first column of numbers - end
+
+
+				for(var j=0; j<simMatrix[i].length; j++)
+				{
+					var similarity = simMatrix[i][j] + '';
+
+					td = document.createElement('td');
+					td.setAttribute('onclick', 'simMatrixClick(' + i + ', ' + j + ')');
+					td.setAttribute('onmouseover', 'simMatrixMouseOverOut(this,' + i + ',' + j + ', ' + similarity + ', "over")');
+					td.setAttribute('onmouseout', 'simMatrixMouseOverOut(this,' + i + ',' + j + ', ' + similarity + ', "out")');
+
+					if( globalSimMatrixMapping[i]['original-row'] == globalSimMatrixMapping[i]['original-cols'][j] )
+					{
+						td.style = standardStyle + 'background: rgba(0, 100, 0, 1)';
+						//similarity = '1';
+					}
+					else
+					{
+						var cellColor = 'rgba(31, 119, 180, ' + similarity + ')';
+						var detail = getRowDetailFromMatrix(i);
+						var domain = customGetDomainFromURI(detail.link);
+						
+						if( globalTopKDomainsDict['top-k-domains'][domain] !== undefined )
+						{
+							if( globalTopKDomainsDict['top-k-domains'][domain].on === true )
+							{
+								cellColor = globalTopKDomainsDict['top-k-domains'][domain].color;
+								cellColor = cellColor.replace('rgb', 'rgba');
+								cellColor = cellColor.replace(')', ', ' + similarity + ')');
+							}
+						}
+
+						//td.style = standardStyle + 'background: rgba(31, 119, 180, ' + similarity + ');';
+						td.style = standardStyle + 'background: ' + cellColor + ';';
+
+						if( +similarity == 1 )
+						{
+							similarity = '1';
+						}
+						else if( +similarity == 0 || similarity === '0.0' )
+						{
+							//case: 0.0 and 0.0x
+							similarity = '0';
+						}
+						else if( similarity[0] === '0' )
+						{
+							//case: 0.x
+							similarity = similarity.substr(1, similarity.length);
+						}
+					}
+					
+					td.appendChild( document.createTextNode(similarity) );
+					tdArray[tdArray.length - 1].push(td);
+				}
+
+
+				//draw last column of numbers - start
+				td = document.createElement('td');
+				td.appendChild( document.createTextNode(i) );
+				td.style = standardStyle + 'background: ' + outlineCellColor;
+				tdArray[tdArray.length-1].push(td);
+				//draw last column of numbers - end
+
+
+				//draw last row of numbers - start
+				if( i === simMatrix.length - 1 )
+				{
+					tdArray.push([]);
+					td = document.createElement('td');
+					td.appendChild( document.createTextNode('') );
+					td.style = standardStyle + 'background: ' + outlineCellColor;
+					tdArray[tdArray.length-1].push(td);
+
+					for(var j=0; j<simMatrix[i].length; j++)
+					{
+						td = document.createElement('td');
+						td.appendChild( document.createTextNode(j) );
+						td.style = standardStyle + 'background: ' + outlineCellColor;
+						tdArray[tdArray.length-1].push(td);
+					}
+
+					td = document.createElement('td');
+					td.appendChild( document.createTextNode('') );
+					td.style = standardStyle + 'background: ' + outlineCellColor;
+					tdArray[tdArray.length-1].push(td);
+				}
+				//draw last row of numbers - end
+
+
+			}
+			
+			dynamicTable([], tdArray, '<h3>' + matrixName + ': Similarity matrix of top <span style="color: red">' + simMatrix.length + ' (out of ' + totalLinks + ')</span> URLs extracted from <span style="color: red;">' + totalTweets + '</span> tweets. Opacity encodes similarity. </h3>', chartDivID);
+    	}
+    	//similarity matrix - end
+
+    	function formatURIContextName(matrixName)
+    	{
+    		return matrixName;
+    	}
+
+    	//vector/set math - start
+
+    	//credit: https://gist.github.com/robertknight/5410420
+    	function vecDotProduct(vecA, vecB) 
+    	{
+			var product = 0;
+			for (var i = 0; i < vecA.length; i++) 
+			{
+				product += vecA[i] * vecB[i];
+			}
+
+			return product;
+		}
+
+		function vecMagnitude(vec) 
+		{
+			var sum = 0;
+			for (var i = 0; i < vec.length; i++) 
+			{
+				sum += vec[i] * vec[i];
+			}
+
+			return Math.sqrt(sum);
+		}
+
+		function cosineDistance(vecA, vecB)
+		{
+			return 1 - cosineSimilarity(vecA, vecB);
+		}
+
+    	function cosineSimilarity(vecA, vecB) 
+    	{
+			return vecDotProduct(vecA, vecB) / (vecMagnitude(vecA) * vecMagnitude(vecB));
+		}
+
+		function jaccardSimilarity(setA, setB)
+		{
+			var intersectionCount = setA.intersection(setB).size;
+			var setUnionCount = setA.union(setB).size;
+			var similarity = 0;
+
+			if( setUnionCount !== 0 )
+			{
+				similarity = intersectionCount/setUnionCount;
+			}
+
+			return similarity;
+		}
+
+		function overlapSimilarity(setA, setB)
+		{
+			var intersectionCount = setA.intersection(setB).size;
+			var min = Math.min(setA.size, setB.size);
+			var similarity = 0;
+
+			if( min !== 0 )
+			{
+				similarity = intersectionCount/min;
+			}
+
+			return similarity;
+		}
+    	//vector/set math - end
+    </script>
+
+</body>
+</html>

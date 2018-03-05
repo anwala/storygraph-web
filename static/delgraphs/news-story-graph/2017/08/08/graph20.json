@@ -1,0 +1,731 @@
+{
+    "links": [
+        {
+            "source": 20,
+            "target": 40,
+            "distance": 0.55,
+            "rank": 1,
+            "label": "1 (0.55)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 18,
+            "target": 40,
+            "distance": 0.61,
+            "rank": 2,
+            "label": "2 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 19,
+            "target": 40,
+            "distance": 0.61,
+            "rank": 3,
+            "label": "3 (0.61)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 18,
+            "target": 20,
+            "distance": 0.63,
+            "rank": 4,
+            "label": "4 (0.63)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 36,
+            "target": 37,
+            "distance": 0.68,
+            "rank": 5,
+            "label": "5 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 11,
+            "target": 40,
+            "distance": 0.7,
+            "rank": 6,
+            "label": "6 (0.7)",
+            "label-description": "rank (distance)"
+        }
+    ],
+    "nodes": [
+        {
+            "id": "bbc.co.uk-1",
+            "title": "British woman shot in Brazil 'after getting lost' - BBC News",
+            "published": "Mon, 07 Aug 2017 16:47:09 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-40847751",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:19:53.025935"
+        },
+        {
+            "id": "bbc.co.uk-2",
+            "title": "Firms face £17m fine if they fail to protect against hackers - BBC News",
+            "published": "Tue, 08 Aug 2017 00:34:40 GMT",
+            "link": "http://www.bbc.co.uk/news/business-40857219",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:19:55.550140"
+        },
+        {
+            "id": "bbc.co.uk-3",
+            "title": "South Africa MPs to vote in secret on Zuma no-confidence motion - BBC News",
+            "published": "Mon, 07 Aug 2017 17:28:30 GMT",
+            "link": "http://www.bbc.co.uk/news/world-africa-40850429",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:19:59.150113"
+        },
+        {
+            "id": "bbc.co.uk-4",
+            "title": "Kenya election 2017: President Kenyatta urges peaceful vote - BBC News",
+            "published": "Mon, 07 Aug 2017 23:39:49 GMT",
+            "link": "http://www.bbc.co.uk/news/world-africa-40855040",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:02.216030"
+        },
+        {
+            "id": "cnn.com-1",
+            "title": "Poll: Declining approval for Trump at 200 days - CNN Video",
+            "published": "Tue, 08 Aug 2017 00:32:07 GMT",
+            "link": "http://www.cnn.com/videos/politics/2017/08/07/donald-trump-approval-cnn-poll-chalian.cnn?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:04.219805"
+        },
+        {
+            "id": "money.cnn.com",
+            "title": "Trump economy: These charts show how it's really doing - Aug. 7, 2017",
+            "published": "Mon, 07 Aug 2017 19:39:48 GMT",
+            "link": "http://money.cnn.com/2017/08/07/investing/trump-economy-report-card/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:06.526878"
+        },
+        {
+            "id": "cnn.com-2",
+            "title": "Trump voter: 'They forgot about us deplorables'   - CNN Video",
+            "published": "Wed, 02 Aug 2017 18:53:41 GMT",
+            "link": "http://www.cnn.com/videos/politics/2017/07/28/trump-supporters-in-nebraska-marquardt-pkg.cnn?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:08.536917"
+        },
+        {
+            "id": "cnn.com-3",
+            "title": "Donald Trump's 'successes' after 6 months, rated - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 00:58:37 GMT",
+            "link": "http://www.cnn.com/2017/08/07/politics/trump-fact-check-tweet/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:11.008382"
+        },
+        {
+            "id": "insider.foxnews.com",
+            "title": "Loesch, NRA Face Backlash Over Ad Slamming NYT for 'Propaganda' & 'Fake News' | Fox News Insider",
+            "published": "Mon, 07 Aug 2017 22:07:22 EDT",
+            "link": "http://insider.foxnews.com/2017/08/07/dana-loesch-nra-ad-new-york-times-backlash-promoting-violence",
+            "favicon": "http://insider.foxnews.com/sites/insider.foxnews.com/themes/insider_boot/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:13.156119"
+        },
+        {
+            "id": "foxnews.com-1",
+            "title": "Manchin says he doesn't give a s--- about getting reelected | Fox News",
+            "published": "Mon, 07 Aug 2017 22:07:22 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/07/manchin-says-doesnt-give-s-about-getting-reelected.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:15.277688"
+        },
+        {
+            "id": "foxnews.com-2",
+            "title": "Arizona woman, 29, who locked 10-year-old cousin in trunk, sentenced to death | Fox News",
+            "published": "Mon, 07 Aug 2017 22:07:22 EDT",
+            "link": "http://www.foxnews.com/us/2017/08/07/arizona-woman-29-who-locked-10-year-old-cousin-in-trunk-sentenced-to-death.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:17.433443"
+        },
+        {
+            "id": "foxnews.com-3",
+            "title": "US spy satellites detect North Korea moving anti-ship cruise missiles to patrol boat | Fox News",
+            "published": "Mon, 07 Aug 2017 22:07:22 EDT",
+            "link": "http://www.foxnews.com/world/2017/08/07/us-spy-satellites-detect-north-korea-moving-anti-ship-cruise-missiles-to-patrol-boat.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:20:19.547926"
+        },
+        {
+            "id": "npr.org-1",
+            "title": "Federal Report Calls For $275 Million To Stop Asian Carp : The Two-Way : NPR",
+            "published": "Mon, 07 Aug 2017 19:59:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/07/542116993/federal-report-calls-for-275-million-to-stop-asian-carp?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:21.758238"
+        },
+        {
+            "id": "npr.org-2",
+            "title": "Wealthy San Francisco Neighborhood Fails To Pay Taxes, Loses Private Street : The Two-Way : NPR",
+            "published": "Mon, 07 Aug 2017 18:14:00 -0400",
+            "link": "http://www.npr.org/2017/08/07/542076983/wealthy-san-francisco-neighborhood-fails-to-pay-taxes-loses-private-street?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:23.956632"
+        },
+        {
+            "id": "npr.org-3",
+            "title": "A Cartoon's Black Star Prompts A Fight: What Did Roman Britain Look Like? : The Two-Way : NPR",
+            "published": "Mon, 07 Aug 2017 17:48:00 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/07/542077027/a-cartoons-black-star-prompts-a-fight-what-did-roman-britain-look-like?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:26.225982"
+        },
+        {
+            "id": "npr.org-4",
+            "title": "Smartphones Are Making Today's Teens Unhappy, Psychologist Says : Shots - Health News : NPR",
+            "published": "Mon, 07 Aug 2017 17:35:00 -0400",
+            "link": "http://www.npr.org/sections/health-shots/2017/08/07/542016165/how-smartphones-are-making-kids-unhappy?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:28.499713"
+        },
+        {
+            "id": "nytimes.com-1",
+            "title": "Trump Likes When C.I.A. Chief Gets Political, but Officers Are Wary - The New York Times",
+            "published": "Mon, 07 Aug 2017 23:01:15 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/us/politics/mike-pompeo-cia.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:30.858520"
+        },
+        {
+            "id": "nytimes.com-2",
+            "title": "Mike Pompeo, Trump’s Outspoken C.I.A. Director - Video - NYTimes.com",
+            "published": "Mon, 07 Aug 2017 23:40:23 GMT",
+            "link": "https://www.nytimes.com/video/us/politics/100000005343149/mike-pompeo-trumps-cia-director.html?partner=rss&emc=rss",
+            "favicon": "https://css.nyt.com/images/icons/nyt.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:32.841757"
+        },
+        {
+            "id": "nytimes.com-3",
+            "title": "North Korea Rails Against New Sanctions. Whether They Will Work Is Unclear. - The New York Times",
+            "published": "Tue, 08 Aug 2017 01:08:22 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/world/asia/north-korea-responds-sanctions-united-states.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:20:35.116981"
+        },
+        {
+            "id": "nytimes.com-4",
+            "title": "A Rare Round of Diplomacy From North Korea’s Top Diplomat - The New York Times",
+            "published": "Mon, 07 Aug 2017 13:10:11 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/world/asia/north-korea-asean-tillerson.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:20:37.466847"
+        },
+        {
+            "id": "reuters.com-1",
+            "title": "China says willing to pay the price for new North Korea sanctions | Reuters",
+            "published": "Mon, 07 Aug 2017 21:21:48 -0400",
+            "link": "http://www.reuters.com/article/us-northkorea-missiles-china-idUSKBN1AO011?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:20:39.700270"
+        },
+        {
+            "id": "reuters.com-2",
+            "title": "Online lenders upbeat about turnaround progress, but worries linger | Reuters",
+            "published": "Mon, 07 Aug 2017 20:04:39 -0400",
+            "link": "http://www.reuters.com/article/us-online-lenders-results-idUSKBN1AN2LN?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:41.938546"
+        },
+        {
+            "id": "reuters.com-3",
+            "title": "Military can destroy drones over domestic U.S. bases: Pentagon | Reuters",
+            "published": "Mon, 07 Aug 2017 16:23:11 -0400",
+            "link": "http://www.reuters.com/article/us-usa-military-drone-idUSKBN1AN2BP?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:44.131520"
+        },
+        {
+            "id": "reuters.com-4",
+            "title": "Funds target 'unknown' stocks as Wall Street cuts analyst jobs | Reuters",
+            "published": "Mon, 07 Aug 2017 19:08:54 -0400",
+            "link": "http://www.reuters.com/article/us-usa-funds-research-idUSKBN1AN221?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:46.388807"
+        },
+        {
+            "id": "aljazeera.com-1",
+            "title": "Chandigarh stalking: Haryana police accused of cover-up | India News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 00:05:07 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/chandigarh-stalking-haryana-police-accused-cover-170807181059352.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:48.989351"
+        },
+        {
+            "id": "aljazeera.com-2",
+            "title": "UN sees early warning signs of genocide in CAR | Central African Republic News | Al Jazeera",
+            "published": "Mon, 07 Aug 2017 22:45:51 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/sees-early-warning-signs-genocide-car-170807215828039.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:51.385765"
+        },
+        {
+            "id": "aljazeera.com-3",
+            "title": "Can UK tackle growing wage gap among ethnic groups? | Human Rights | Al Jazeera",
+            "published": "Mon, 07 Aug 2017 21:44:28 GMT",
+            "link": "http://www.aljazeera.com/programmes/insidestory/2017/08/uk-tackle-growing-wage-gap-ethnic-groups-170807190620953.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:53.960262"
+        },
+        {
+            "id": "aljazeera.com-4",
+            "title": "Congo security forces kill at least 14 in rebel clashes | DR Congo News | Al Jazeera",
+            "published": "Mon, 07 Aug 2017 21:27:53 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/congo-security-forces-kill-14-rebel-clashes-170807205559250.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:56.551162"
+        },
+        {
+            "id": "usatoday.com-1",
+            "title": "Churches, community groups step up to address black health disparities",
+            "published": "Mon, 7 Aug 2017 13:35:22 -0400",
+            "link": "https://www.usatoday.com/story/news/politics/2017/08/07/churches-community-groups-step-up-address-black-health-disparities/530013001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:20:59.405603"
+        },
+        {
+            "id": "usatoday.com-2",
+            "title": "Everything you need to know about the Taylor Swift groping trial",
+            "published": "Mon, 7 Aug 2017 22:10:05 -0400",
+            "link": "https://www.usatoday.com/story/life/2017/08/07/everything-you-need-know-taylor-swift-groping-trial/544718001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:01.906254"
+        },
+        {
+            "id": "usatoday.com-3",
+            "title": "Millennials move back in with parents to save for a house.",
+            "published": "Mon, 7 Aug 2017 16:37:00 -0400",
+            "link": "https://www.usatoday.com/story/money/2017/08/07/millennials-move-back-parents-save-house/512027001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:04.667606"
+        },
+        {
+            "id": "usatoday.com-4",
+            "title": "HBO hackers demand millions in ransom, post more stolen files",
+            "published": "Mon, 7 Aug 2017 21:09:55 -0400",
+            "link": "https://www.usatoday.com/story/life/tv/2017/08/07/hbo-hackers-demand-millions-ransom-post-more-stolen-files/547523001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:07.687840"
+        },
+        {
+            "id": "boston.com-1",
+            "title": "See what you missed from Boston's first 'Caturday'",
+            "published": "Mon, 07 Aug 2017 19:16:41 +0000",
+            "link": "https://www.boston.com/culture/animals/2017/08/07/see-what-you-missed-from-bostons-first-caturday",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:09.899965"
+        },
+        {
+            "id": "boston.com-2",
+            "title": "Watch Brandin Cooks make a ridiculous one-handed catch at Patriots training camp",
+            "published": "Mon, 07 Aug 2017 19:05:26 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/07/watch-brandin-cooks-make-a-ridiculous-one-handed-catch-at-patriots-training-camp",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:12.098747"
+        },
+        {
+            "id": "boston.com-3",
+            "title": "Vince Wilfork announces he's retiring from the NFL, 'moving on to smoked meats'",
+            "published": "Mon, 07 Aug 2017 18:25:13 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/07/vince-wilfork-announces-hes-retiring-from-the-nfl-moving-on-to-smoked-meats",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:14.391465"
+        },
+        {
+            "id": "boston.com-4",
+            "title": "Don Baylor, former MVP and Manager of Year, dead at 68",
+            "published": "Thu, 01 Jan 1970 00:00:00 +0000",
+            "link": "https://www.boston.com/sports/mlb/2017/08/07/don-baylor-former-mvp-and-manager-of-year-dead-at-68",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:17.258829"
+        },
+        {
+            "id": "washingtonpost.com-1",
+            "title": "4 reasons why Stephen Miller may be more 'cosmopolitan' than he thinks - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/video/politics/4-reasons-why-stephen-miller-may-be-more-cosmopolitan-than-he-thinks/2017/08/07/ab1da0cc-7bce-11e7-b2b1-aeba62854dfa_video.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:21:19.391982"
+        },
+        {
+            "id": "washingtonpost.com-2",
+            "title": "Fact Check: Stephen Miller & Jim Acosta's heated exchange - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/video/politics/fact-check-stephen-miller-and-jim-acostas-heated-exchange/2017/08/07/91d88054-7bbb-11e7-b2b1-aeba62854dfa_video.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:21:21.490703"
+        },
+        {
+            "id": "washingtonpost.com-3",
+            "title": "The RNC says Trump’s jobs numbers are ‘unprecedented,’ because words don’t matter anymore - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/the-fix/wp/2017/08/07/the-rnc-says-trumps-jobs-numbers-are-unprecedented-because-words-dont-matter-anymore/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:23.836435"
+        },
+        {
+            "id": "washingtonpost.com-4",
+            "title": "Peru’s glaciers have made it a laboratory for adapting to climate change. It’s not going well. | The Washington Post",
+            "published": "",
+            "link": "http://www.washingtonpost.com/sf/world/2017/08/07/perus-glaciers-have-made-it-a-laboratory-for-adapting-to-climate-change-its-not-going-well/",
+            "favicon": "http://www.washingtonpost.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:26.559799"
+        },
+        {
+            "id": "washingtonpost.com-5",
+            "title": "North Korea says it won’t give up nuclear weapons and that entire U.S. mainland is within firing range - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/asia_pacific/north-korea-under-no-circumstances-will-give-up-its-nuclear-weapons/2017/08/07/33b8d319-fbb2-4559-8f7d-25e968913712_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T02:21:29.304767"
+        },
+        {
+            "id": "washingtonpost.com-6",
+            "title": "A photographer documents the lives of the Wayuu people of Colombia, who live in extreme poverty - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/in-sight/wp/2017/08/07/forgotten-in-the-dust-of-northern-colombia/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:31.413671"
+        },
+        {
+            "id": "washingtonpost.com-7",
+            "title": "British model feared for her life ‘second by second’ as kidnappers allegedly plotted online ‘auction’ - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/worldviews/wp/2017/08/07/british-model-feared-for-her-life-second-by-second-as-kidnappers-allegedly-plotted-online-auction/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:33.811614"
+        },
+        {
+            "id": "bbc.co.uk-0",
+            "title": "Judge approves suicidal girl care plan - BBC News",
+            "published": "Mon, 07 Aug 2017 17:39:20 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-40855771",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:36.871901"
+        },
+        {
+            "id": "cnn.com-0",
+            "title": "Trump at 200 days: Declining approval amid mistrust - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 00:10:51 GMT",
+            "link": "http://www.cnn.com/2017/08/07/politics/poll-trump-approval-down-amid-distrust/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:39.223944"
+        },
+        {
+            "id": "foxnews.com-0",
+            "title": "Sessions: Sanctuary city Chicago's hostility to law-enforcement protection 'astounding' | Fox News",
+            "published": "Mon, 07 Aug 2017 22:07:22 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/07/sessions-sanctuary-chicagos-hostility-to-law-enforcement-protection-astounding.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:41.488515"
+        },
+        {
+            "id": "npr.org-0",
+            "title": "Western Sage Grouse Protection Plan Revised By Trump Administration : The Two-Way : NPR",
+            "published": "Mon, 07 Aug 2017 21:03:09 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/07/542118338/trump-administration-revises-conservation-plan-for-western-sage-grouse?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:43.770527"
+        },
+        {
+            "id": "nytimes.com-0",
+            "title": "Government Report Finds Drastic Impact of Climate Change on U.S. - The New York Times",
+            "published": "Tue, 08 Aug 2017 00:28:10 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/climate/climate-change-drastic-warming-trump.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:45.994041"
+        },
+        {
+            "id": "reuters.com-0",
+            "title": "Specter of coup, surge in violence haunt Venezuela | Reuters",
+            "published": "Mon, 07 Aug 2017 20:57:06 -0400",
+            "link": "http://www.reuters.com/article/us-venezuela-politics-unrest-analysis-idUSKBN1AN2GB?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:48.384793"
+        },
+        {
+            "id": "aljazeera.com-0",
+            "title": "Venezuela launches manhunt for attackers of army base | Venezuela News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 00:51:52 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/venezuela-launches-manhunt-attackers-army-base-170807235127320.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:50.771686"
+        },
+        {
+            "id": "usatoday.com-0",
+            "title": "Boy scouts electrocuted in sailing tragedy: 3 dead",
+            "published": "Mon, 7 Aug 2017 18:41:08 -0400",
+            "link": "https://www.usatoday.com/story/news/nation/2017/08/07/two-boy-scouts-dead-third-clings-life-after-sailing-tragedy/544314001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:53.091946"
+        },
+        {
+            "id": "boston.com-0",
+            "title": "Ted Williams once spat at fans and defiantly declared, 'I'd spit again'",
+            "published": "Mon, 07 Aug 2017 19:39:13 +0000",
+            "link": "https://www.boston.com/sports/boston-red-sox/2017/08/07/ted-williams-once-spat-at-fans-and-defiantly-declared-id-spit-again",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:55.735975"
+        },
+        {
+            "id": "washingtonpost.com-0",
+            "title": "The curious case of ‘Nicole Mincey,’ the Trump fan who may actually be a Russian bot - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/the-curious-case-of-nicole-mincey-the-trump-fan-who-may-actually-be-a-russian-bot/2017/08/07/7aa67410-7b96-11e7-9026-4a0a64977c92_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T02:21:58.577562"
+        }
+    ],
+    "connected-comps": [
+        {
+            "nodes": [
+                40,
+                11,
+                18,
+                19,
+                20
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 2.0,
+            "density": 0.5,
+            "unique-source-count": 4
+        },
+        {
+            "nodes": [
+                36,
+                37
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 1
+        }
+    ],
+    "timestamp": "2017-08-08T02:21:58.729338Z"
+}

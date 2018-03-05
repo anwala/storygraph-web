@@ -1,0 +1,787 @@
+{
+    "links": [
+        {
+            "source": 8,
+            "target": 21,
+            "distance": 0.51,
+            "rank": 1,
+            "label": "1 (0.51)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 20,
+            "target": 41,
+            "distance": 0.58,
+            "rank": 2,
+            "label": "2 (0.58)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 36,
+            "target": 41,
+            "distance": 0.64,
+            "rank": 3,
+            "label": "3 (0.64)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 4,
+            "target": 7,
+            "distance": 0.67,
+            "rank": 4,
+            "label": "4 (0.67)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 11,
+            "target": 36,
+            "distance": 0.68,
+            "rank": 5,
+            "label": "5 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 41,
+            "target": 46,
+            "distance": 0.68,
+            "rank": 6,
+            "label": "6 (0.68)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 20,
+            "target": 46,
+            "distance": 0.69,
+            "rank": 7,
+            "label": "7 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 36,
+            "target": 38,
+            "distance": 0.69,
+            "rank": 8,
+            "label": "8 (0.69)",
+            "label-description": "rank (distance)"
+        },
+        {
+            "source": 8,
+            "target": 51,
+            "distance": 0.7,
+            "rank": 9,
+            "label": "9 (0.7)",
+            "label-description": "rank (distance)"
+        }
+    ],
+    "nodes": [
+        {
+            "id": "bbc.co.uk-1",
+            "title": "Helicopter sex film officer Adrian Pogmore jailed - BBC News",
+            "published": "Tue, 08 Aug 2017 11:10:38 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-england-40863585",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:05.972362"
+        },
+        {
+            "id": "bbc.co.uk-2",
+            "title": "World Championships: Gastroenteritis outbreak at official team hotel - BBC Sport",
+            "published": "Tue, 08 Aug 2017 08:59:12 GMT",
+            "link": "http://www.bbc.co.uk/sport/athletics/40857720",
+            "favicon": "http://static.bbci.co.uk/onesport/2.11.199/images/web-icons/bbc-sport-180.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:08.540174"
+        },
+        {
+            "id": "bbc.co.uk-3",
+            "title": "Milan kidnap case: Chloe Ayling was to be 'sold in Middle East' - BBC News",
+            "published": "Tue, 08 Aug 2017 10:24:12 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-40858323",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:11.243367"
+        },
+        {
+            "id": "bbc.co.uk-4",
+            "title": "Game of Thrones hackers demand ransom - BBC News",
+            "published": "Tue, 08 Aug 2017 08:28:23 GMT",
+            "link": "http://www.bbc.co.uk/news/technology-40860785",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:13.684133"
+        },
+        {
+            "id": "cnn.com-1",
+            "title": "In decisive Rust Belt, Trump is starting to look like Romney - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 10:56:19 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/trumps-approval-is-starting-to-look-like-romneys/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:16.465967"
+        },
+        {
+            "id": "cnn.com-2",
+            "title": "Tapper: Trump dislikes a story, calls it 'fake' - CNN Video",
+            "published": "Mon, 07 Aug 2017 20:57:08 GMT",
+            "link": "http://www.cnn.com/videos/politics/2017/08/07/jake-tapper-trump-fake-news-real-stories-facebook-lead.cnn?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:18.421147"
+        },
+        {
+            "id": "cnn.com-3",
+            "title": "Dems' road to a House majority runs through California - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 10:10:15 GMT",
+            "link": "http://www.cnn.com/2017/08/08/politics/california-house-democrats-7-seats/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:21.012326"
+        },
+        {
+            "id": "cnn.com-4",
+            "title": "Why 2018 might not be such an amazing election for Democrats  - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 05:22:35 GMT",
+            "link": "http://www.cnn.com/2017/08/07/politics/2018-midterms-trump/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:23.256470"
+        },
+        {
+            "id": "foxnews.com-1",
+            "title": "Google fires employee behind controversial memo on diversity, reports say | Fox News",
+            "published": "Tue, 08 Aug 2017 05:32:49 EDT",
+            "link": "http://www.foxnews.com/tech/2017/08/07/google-fires-employee-behind-controversial-memo-on-diversity-reports-say.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:25.413831"
+        },
+        {
+            "id": "foxnews.com-2",
+            "title": "Pope Francis attacks conservative Catholics - and Trump? | Fox News",
+            "published": "Tue, 08 Aug 2017 05:32:49 EDT",
+            "link": "http://www.foxnews.com/opinion/2017/08/08/pope-francis-attacks-conservative-catholics-and-trump.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:27.545331"
+        },
+        {
+            "id": "foxnews.com-3",
+            "title": "White House officials hope to refocus Trump on issues that resonate with base | Fox News",
+            "published": "Tue, 08 Aug 2017 05:32:49 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/08/white-house-officials-hope-to-refocus-trump-on-issues-that-resonate-with-base.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:29.732326"
+        },
+        {
+            "id": "foxnews.com-4",
+            "title": "Sessions: Sanctuary city Chicago's hostility to law-enforcement protection 'astounding' | Fox News",
+            "published": "Tue, 08 Aug 2017 05:36:22 EDT",
+            "link": "http://www.foxnews.com/politics/2017/08/07/sessions-sanctuary-chicagos-hostility-to-law-enforcement-protection-astounding.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:31.887108"
+        },
+        {
+            "id": "npr.org-1",
+            "title": "The Cubist Revolution: Minecraft For All : NPR Ed : NPR",
+            "published": "Tue, 08 Aug 2017 05:05:00 -0400",
+            "link": "http://www.npr.org/sections/ed/2017/08/08/538580856/the-cubist-revolution-minecraft-for-all?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:34.386040"
+        },
+        {
+            "id": "npr.org-2",
+            "title": "Chip Reprograms Cells To Speed Healing In Mice : Shots - Health News : NPR",
+            "published": "Tue, 08 Aug 2017 05:00:29 -0400",
+            "link": "http://www.npr.org/sections/health-shots/2017/08/08/542057520/a-chip-that-reprograms-cells-helps-healing-at-least-in-mice?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:36.856012"
+        },
+        {
+            "id": "npr.org-3",
+            "title": "A Solar Eclipse Packs An Emotional Wallop, Chasers Say : The Two-Way : NPR",
+            "published": "Tue, 08 Aug 2017 05:00:29 -0400",
+            "link": "http://www.npr.org/sections/thetwo-way/2017/08/08/539553696/go-see-it-eclipse-chasers-urge-your-first-time-is-always-special?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:39.736386"
+        },
+        {
+            "id": "npr.org-4",
+            "title": "Nashville Mayor, Mourning Son's Overdose Death, Aims To Save Other Children's Lives : NPR",
+            "published": "Tue, 08 Aug 2017 05:00:00 -0400",
+            "link": "http://www.npr.org/2017/08/08/542116681/nashville-mayor-mourning-sons-overdose-death-aims-to-save-other-children?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:42.127651"
+        },
+        {
+            "id": "nytimes.com-1",
+            "title": "Climate Change, Kenya, Google: Your Tuesday Briefing - The New York Times",
+            "published": "Tue, 08 Aug 2017 10:42:47 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/briefing/climate-change-kenya-google.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:44.385862"
+        },
+        {
+            "id": "nytimes.com-2",
+            "title": "New York Today: Ferry Journeys - The New York Times",
+            "published": "Tue, 08 Aug 2017 10:57:41 GMT",
+            "link": "https://www.nytimes.com/2017/08/08/nyregion/new-york-today-ferry-journeys.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:46.591536"
+        },
+        {
+            "id": "nytimes.com-3",
+            "title": "Trump Likes When C.I.A. Chief Gets Political, but Officers Are Wary - The New York Times",
+            "published": "Mon, 07 Aug 2017 23:01:15 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/us/politics/mike-pompeo-cia.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:48.857679"
+        },
+        {
+            "id": "nytimes.com-4",
+            "title": "Mike Pompeo, Trump’s Outspoken C.I.A. Director - Video - NYTimes.com",
+            "published": "Mon, 07 Aug 2017 23:40:23 GMT",
+            "link": "https://www.nytimes.com/video/us/politics/100000005343149/mike-pompeo-trumps-cia-director.html?partner=rss&emc=rss",
+            "favicon": "https://css.nyt.com/images/icons/nyt.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:51.598555"
+        },
+        {
+            "id": "reuters.com-1",
+            "title": "China says willing to pay the price for new North Korea sanctions | Reuters",
+            "published": "Tue, 08 Aug 2017 06:35:07 -0400",
+            "link": "http://www.reuters.com/article/us-northkorea-missiles-china-idUSKBN1AO011?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:53.817933"
+        },
+        {
+            "id": "reuters.com-2",
+            "title": "Google fires employee behind anti-diversity memo | Reuters",
+            "published": "Tue, 08 Aug 2017 03:59:15 -0400",
+            "link": "http://www.reuters.com/article/us-google-diversity-idUSKBN1AO088?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:18:56.031961"
+        },
+        {
+            "id": "reuters.com-3",
+            "title": "Opening salvo set for Taylor Swift trial against Denver DJ accused of groping | Reuters",
+            "published": "Tue, 08 Aug 2017 06:14:24 -0400",
+            "link": "http://www.reuters.com/article/us-people-taylorswift-idUSKBN1AO105?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:18:58.240045"
+        },
+        {
+            "id": "reuters.com-4",
+            "title": "Mazda announces breakthrough in long-coveted engine technology | Reuters",
+            "published": "Tue, 08 Aug 2017 06:57:34 -0400",
+            "link": "http://www.reuters.com/article/us-mazda-strategy-idUSKBN1AO0E7?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:00.450266"
+        },
+        {
+            "id": "aljazeera.com-1",
+            "title": "Qatar-Gulf crisis: All the latest updates | Qatar News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 10:44:41 GMT",
+            "link": "http://www.aljazeera.com/news/2017/06/qatar-diplomatic-crisis-latest-updates-170605105550769.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:06.005507"
+        },
+        {
+            "id": "aljazeera.com-2",
+            "title": "Burning towers and the future of the world's urban poor | Poverty & Development | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 10:05:13 GMT",
+            "link": "http://www.aljazeera.com/indepth/opinion/2017/08/burning-towers-future-world-urban-poor-170804113756067.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:08.688662"
+        },
+        {
+            "id": "aljazeera.com-3",
+            "title": "Six political scandals President Zuma has survived |  News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 09:15:43 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/political-scandals-president-zuma-survived-170808082727236.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:10.922190"
+        },
+        {
+            "id": "aljazeera.com-4",
+            "title": "Kenya goes to the polls in closely contested election | Kenya News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 08:50:13 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/kenya-polls-closely-contested-election-170807202930346.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:13.182992"
+        },
+        {
+            "id": "usatoday.com-1",
+            "title": "Analysis: Why the latest sanctions on North Korea may fail",
+            "published": "Mon, 7 Aug 2017 12:53:06 -0400",
+            "link": "https://www.usatoday.com/story/news/world/2017/08/07/analysis-why-latest-sanctions-north-korea-may-fail/544866001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:16.782034"
+        },
+        {
+            "id": "usatoday.com-2",
+            "title": "'Bachelorette' finale: Rachel chooses a fiancé and America does not agree",
+            "published": "Tue, 8 Aug 2017 05:56:03 -0400",
+            "link": "https://www.usatoday.com/story/life/entertainthis/2017/08/07/bachelorette-finale-rachel-choses-fiance-and-america-does-not-agree/547648001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:19.168941"
+        },
+        {
+            "id": "usatoday.com-3",
+            "title": "My Google and Facebook investments made a fortune, but now they are a menace",
+            "published": "Tue, 8 Aug 2017 03:15:02 -0400",
+            "link": "https://www.usatoday.com/story/opinion/2017/08/08/my-google-and-facebook-investments-made-fortune-but-now-they-menace/543755001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:21.447978"
+        },
+        {
+            "id": "usatoday.com-4",
+            "title": "The Ocho, Tropical Storm Franklin; 5 things to know Tuesday",
+            "published": "Tue, 8 Aug 2017 06:26:50 -0400",
+            "link": "https://www.usatoday.com/story/news/2017/08/08/5-things-you-need-to-know-tuesday/545114001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:23.595114"
+        },
+        {
+            "id": "boston.com-1",
+            "title": "See what you missed from Boston's first 'Caturday'",
+            "published": "Mon, 07 Aug 2017 19:16:41 +0000",
+            "link": "https://www.boston.com/culture/animals/2017/08/07/see-what-you-missed-from-bostons-first-caturday",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:25.737253"
+        },
+        {
+            "id": "boston.com-2",
+            "title": "Watch Brandin Cooks make a ridiculous one-handed catch at Patriots training camp",
+            "published": "Mon, 07 Aug 2017 19:05:26 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/07/watch-brandin-cooks-make-a-ridiculous-one-handed-catch-at-patriots-training-camp",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:27.888650"
+        },
+        {
+            "id": "boston.com-3",
+            "title": "Vince Wilfork announces he's retiring from the NFL, 'moving on to smoked meats'",
+            "published": "Mon, 07 Aug 2017 18:25:13 +0000",
+            "link": "https://www.boston.com/sports/new-england-patriots/2017/08/07/vince-wilfork-announces-hes-retiring-from-the-nfl-moving-on-to-smoked-meats",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:30.148440"
+        },
+        {
+            "id": "boston.com-4",
+            "title": "Don Baylor, former MVP and Manager of Year, dead at 68",
+            "published": "Thu, 01 Jan 1970 00:00:00 +0000",
+            "link": "https://www.boston.com/sports/mlb/2017/08/07/don-baylor-former-mvp-and-manager-of-year-dead-at-68",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:32.874810"
+        },
+        {
+            "id": "washingtonpost.com-1",
+            "title": "The Daily 202: No, Donald Trump’s base is not ‘far bigger and stronger than ever before’ - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/powerpost/paloma/daily-202/2017/08/08/daily-202-no-donald-trump-s-base-is-not-far-bigger-and-stronger-than-ever-before/5989138230fb045fdaef1196/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:19:36.281358"
+        },
+        {
+            "id": "washingtonpost.com-2",
+            "title": "Fact-checking the Stephen Miller-Jim Acosta exchange on immigration - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/fact-checker/wp/2017/08/08/fact-checking-the-stephen-miller-jim-acosta-exchange-on-immigration/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:39.021399"
+        },
+        {
+            "id": "washingtonpost.com-3",
+            "title": "4 reasons why Stephen Miller may be more 'cosmopolitan' than he thinks - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/video/politics/4-reasons-why-stephen-miller-may-be-more-cosmopolitan-than-he-thinks/2017/08/07/ab1da0cc-7bce-11e7-b2b1-aeba62854dfa_video.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:19:41.059432"
+        },
+        {
+            "id": "washingtonpost.com-4",
+            "title": "In attacking Blumenthal, Trump opens himself to criticism over the military again - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/the-fix/wp/2017/08/07/in-attacking-blumenthal-trump-opens-himself-to-criticism-over-the-military-again/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:43.725973"
+        },
+        {
+            "id": "washingtonpost.com-5",
+            "title": "Weakened South Africa president faces new no-confidence vote by Parliament - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/weakened-south-africa-president-faces-new-no-confidence-vote-by-parliament/2017/08/08/b1524160-7baf-11e7-b2b1-aeba62854dfa_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:46.096430"
+        },
+        {
+            "id": "washingtonpost.com-6",
+            "title": "North Korea says it won’t give up nuclear weapons and that entire U.S. mainland is within firing range - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/world/asia_pacific/north-korea-under-no-circumstances-will-give-up-its-nuclear-weapons/2017/08/07/33b8d319-fbb2-4559-8f7d-25e968913712_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:19:48.751383"
+        },
+        {
+            "id": "washingtonpost.com-7",
+            "title": "Peru’s glaciers have made it a laboratory for adapting to climate change. It’s not going well. | The Washington Post",
+            "published": "",
+            "link": "http://www.washingtonpost.com/sf/world/2017/08/07/perus-glaciers-have-made-it-a-laboratory-for-adapting-to-climate-change-its-not-going-well/",
+            "favicon": "http://www.washingtonpost.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:51.471437"
+        },
+        {
+            "id": "washingtonpost.com-8",
+            "title": "Who are the men competing to be president of Kenya? - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/news/worldviews/wp/2017/08/08/who-are-the-two-men-competing-to-be-president-of-kenya/",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:53.826434"
+        },
+        {
+            "id": "bbc.co.uk-0",
+            "title": "PKU funding battle: Family wins High Court challenge over drug - BBC News",
+            "published": "Tue, 08 Aug 2017 10:57:43 GMT",
+            "link": "http://www.bbc.co.uk/news/uk-40862045",
+            "favicon": "http://static.bbci.co.uk/news/1.204.01845/apple-touch-icon-57x57-precomposed.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:57.275842"
+        },
+        {
+            "id": "cnn.com-0",
+            "title": "Trump at 200 days: Declining approval amid mistrust - CNNPolitics",
+            "published": "Tue, 08 Aug 2017 11:09:45 GMT",
+            "link": "http://www.cnn.com/2017/08/07/politics/poll-trump-approval-down-amid-distrust/index.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+rss%2Fcnn_topstories+%28RSS%3A+CNN+-+Top+Stories%29",
+            "favicon": "http://www.cnn.com/favicon.ie9.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:19:59.810855"
+        },
+        {
+            "id": "foxnews.com-0",
+            "title": "Haley: North Korea needs to brace for combined pressure from US and the world | Fox News",
+            "published": "Tue, 08 Aug 2017 05:32:49 EDT",
+            "link": "http://www.foxnews.com/world/2017/08/07/haley-north-korea-needs-to-brace-for-combined-pressure-from-us-and-world.html",
+            "favicon": "http://global.fncstatic.com/static/v/fn2/img/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:20:01.979897"
+        },
+        {
+            "id": "npr.org-0",
+            "title": "At Long Last, Signs That College Tuition Might Come Down : NPR Ed : NPR",
+            "published": "Tue, 08 Aug 2017 06:00:29 -0400",
+            "link": "http://www.npr.org/2017/08/08/541216412/at-long-last-signs-that-college-tuition-might-come-down?utm_medium=RSS&utm_campaign=news",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:04.297825"
+        },
+        {
+            "id": "nytimes.com-0",
+            "title": "Government Report Finds Drastic Impact of Climate Change on U.S. - The New York Times",
+            "published": "Tue, 08 Aug 2017 02:28:55 GMT",
+            "link": "https://www.nytimes.com/2017/08/07/climate/climate-change-drastic-warming-trump.html?partner=rss&emc=rss",
+            "favicon": "https://static01.nyt.com/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:06.646843"
+        },
+        {
+            "id": "reuters.com-0",
+            "title": "Tillerson in Thailand presses for more action on North Korea | Reuters",
+            "published": "Tue, 08 Aug 2017 06:36:42 -0400",
+            "link": "http://www.reuters.com/article/us-tillerson-asia-thailand-idUSKBN1AO0CU?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29",
+            "favicon": "https://s3.reutersmedia.net/resources_v2/images/favicon/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:08.949268"
+        },
+        {
+            "id": "aljazeera.com-0",
+            "title": "More than $84,000 raised after Minnesota mosque bombing | USA News | Al Jazeera",
+            "published": "Tue, 08 Aug 2017 10:47:56 GMT",
+            "link": "http://www.aljazeera.com/news/2017/08/84000-raised-minnesota-mosque-bombing-170808092111277.html",
+            "favicon": "http://www.aljazeera.com/mritems/assets/images/touch-icon-iphone.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:11.128526"
+        },
+        {
+            "id": "usatoday.com-0",
+            "title": "Engineer behind Google anti-diversity memo reportedly fired",
+            "published": "Tue, 8 Aug 2017 05:35:25 -0400",
+            "link": "https://www.usatoday.com/story/tech/2017/08/07/engineer-behind-google-anti-diversity-memo-reportedly-fired/547348001/?utm_source=feedblitz&utm_medium=FeedBlitzRss&utm_campaign=usatoday-newstopstories",
+            "favicon": "https://www.gannett-cdn.com/sites/usatoday/images/favicon.png",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "extraction-time": "2017-08-08T11:20:13.470409"
+        },
+        {
+            "id": "boston.com-0",
+            "title": "Ted Williams once spat at fans and defiantly declared, 'I'd spit again'",
+            "published": "Mon, 07 Aug 2017 19:39:13 +0000",
+            "link": "https://www.boston.com/sports/boston-red-sox/2017/08/07/ted-williams-once-spat-at-fans-and-defiantly-declared-id-spit-again",
+            "favicon": "https://www.boston.com/wp-content/themes/bdc/images/favicons/favicon.ico",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:16.148805"
+        },
+        {
+            "id": "washingtonpost.com-0",
+            "title": "The curious case of ‘Nicole Mincey,’ the Trump fan who may actually be a Russian bot - The Washington Post",
+            "published": "",
+            "link": "https://www.washingtonpost.com/politics/the-curious-case-of-nicole-mincey-the-trump-fan-who-may-actually-be-a-russian-bot/2017/08/07/7aa67410-7b96-11e7-9026-4a0a64977c92_story.html",
+            "favicon": "",
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": ""
+            },
+            "extraction-time": "2017-08-08T11:20:18.833906"
+        }
+    ],
+    "connected-comps": [
+        {
+            "nodes": [
+                8,
+                51,
+                21
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.3333333333333333,
+            "density": 0.6666666666666666,
+            "unique-source-count": 3
+        },
+        {
+            "nodes": [
+                36,
+                38,
+                41,
+                11,
+                46,
+                20
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 2.0,
+            "density": 0.4,
+            "unique-source-count": 3
+        },
+        {
+            "nodes": [
+                4,
+                7
+            ],
+            "node-details": {
+                "annotation": "event-cluster",
+                "connected-comp-type": "cluster",
+                "color": "red"
+            },
+            "avg-degree": 1.0,
+            "density": 1.0,
+            "unique-source-count": 1
+        }
+    ],
+    "timestamp": "2017-08-08T11:20:19.061416Z"
+}

@@ -8,6 +8,7 @@ import os, sys
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask import send_file
 from GraphStories import GraphStories
 
 from os.path import dirname, abspath
@@ -99,11 +100,21 @@ def tweetStudyTweetSim():
 	return render_template( 'tweet-study-tweet-sim.html' )
 
 
+@app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])
+def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
+	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json.gz
+	filename = '/data/graphs/' + storygraph + '/' + YYYY + '/' + MM + '/' + DD + '/' + graph
+	
+	if( os.path.exists(filename) ):
+		return send_file(filename, mimetype='application/json')
+	else:
+		return jsonify( {} )
+
 
 @app.route('/graphs/pointers/<storygraph>/', methods=['GET'])
 def storyGraphDetails(storygraph):
 
-	graphIndexDetails = getConfigParameters( workingFolder() + 'graphs/' + storygraph + '/' + 'graphIndex.json' )	
+	graphIndexDetails = getConfigParameters( '/data/graph-cursors/' + storygraph + '/' + 'graphIndex.json' )	
 	
 	if( 'cursor' in graphIndexDetails ):
 		cursor = graphIndexDetails['cursor']
@@ -150,6 +161,6 @@ if __name__ == '__main__':
 	'''
 
 
-	globalConfig = getConfigParameters( workingFolder() + 'generic/serviceClusterStories.config.json', 'default-config' )
+	globalConfig = getConfigParameters( '/data/generic/serviceClusterStories.config.json', 'default-config' )
 	globalHist = globalConfig['history-count']
 	app.run(host='0.0.0.0', threaded=True)

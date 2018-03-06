@@ -1,3 +1,7 @@
+.git
+.gitignore
+*.md
+Dockerfile
 docker-compose.yml
 docker-run-server.sh
 scratch.py

@@ -228,7 +228,7 @@ function populateGraphSet(endPoint)
 {
     console.log('\npopulateGraphSet()');
 
-    d3.json('/static/graphs' + endPoint + globalURIParamsDict['cur-path'] + '/' + 'menu.json', function(error, menu)
+    d3.json('/graphs' + endPoint + globalURIParamsDict['cur-path'] + '/' + 'menu.json', function(error, menu)
     {
         if( error )
         {
@@ -1546,7 +1546,7 @@ function main(storyGraphFilename, timestamp, optionalGraph)
     if( optionalGraph === undefined )
     {
         var endPoint = getEndpointFromURI();
-        d3.json('/static/graphs' + endPoint + storyGraphFilename, function(error, graph)
+        d3.json('/graphs' + endPoint + storyGraphFilename, function(error, graph)
         {
             if( error )
             {

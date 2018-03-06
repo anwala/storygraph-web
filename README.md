@@ -11,7 +11,3 @@ $ docker build -t storygraph-web:latest .
 ```
 $ docker run -d -p [Port]:5000 [/Path/To/StoryGraphData/]:/data storygraph-web
 ```
-
-Where 
-[Port]: 11111
-[/Path/To/StoryGraphData/]: /data/anwala/IMLS/StoryGraph

@@ -9,5 +9,6 @@ $ docker build -t storygraph-web:latest .
 
 ## To run server container
 ```
-$ docker run -d -p [Port]:5000 [/Path/To/StoryGraphData/]:/data storygraph-web
+$ docker run -d -p [Port]:5000 [/host/path/to/data/]:/data storygraph-web
 ```
+Sample content of ```[/host/path/to/data/]``` can be found [here](https://github.com/anwala/storygraph-data)

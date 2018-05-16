@@ -40,7 +40,7 @@ var globalNodeTypes = {};
 function getGraphName()
 {
     //CAUTION, coupling with populateGraphSet()
-    return 'graph' + globalURIParamsDict.cursor + '.json.gz';
+    return 'graph' + globalURIParamsDict.cursor + '.json';
 }
 
 function advanceButton(prevOrNext)
@@ -235,7 +235,12 @@ function populateGraphSet(endPoint)
             console.log('Error:', error);
             return;
         }
+        if( menu.menu == undefined )
+        {
+            return;
+        }
 
+        menu = menu.menu;
         var sortedGraphNames = Object.keys(menu);
         var graphSet = document.getElementById('graphSet');
         graphSet.innerHTML = '';
@@ -247,11 +252,11 @@ function populateGraphSet(endPoint)
                 //a example a = 'graph0.json'
                 return (+a.split('.')[0].replace('graph', '')) - (+b.split('.')[0].replace('graph', ''));
             });
-
+        
         for(var i = 0; i<sortedGraphNames.length; i++)
         {
             var option = document.createElement('option');
-            option.value = sortedGraphNames[i] + '.gz';//CAUTION coupling with getGraphName()
+            option.value = sortedGraphNames[i];//CAUTION coupling with getGraphName()
 
             var localTime = menu[sortedGraphNames[i]].timestamp;
             localTime = specialDateFormat(localTime);
@@ -571,8 +576,19 @@ function main(storyGraphFilename, timestamp, optionalGraph)
     var drawGraph = function (graph) 
     {
         globalGraph = JSON.parse(JSON.stringify(graph));
-        setTimestamp('timestamp', graph['timestamp']);
+        if( globalGraph == null )
+        {
+            setTimestamp('timestamp', '');
+            return;
+        }
 
+        if( Object.keys(globalGraph).length == 0 )
+        {
+            setTimestamp('timestamp', '');
+            return;
+        }
+
+        setTimestamp('timestamp', graph['timestamp']);
         document.getElementById('showLabelsChkbox').addEventListener('change', genericToggle, false);
         document.getElementById('showEdgeLabelsChkbox').addEventListener('change', genericToggle, false);
         document.getElementById('trackSubGraphChkbox').addEventListener('change', trackingChkboxClick, false);

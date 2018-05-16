@@ -2,6 +2,7 @@
 
 import re
 import json
+import gzip
 import subprocess
 import os, sys
 
@@ -18,6 +19,12 @@ app = Flask(__name__)
 
 globalConfig = {}
 globalHist = 0
+globalDebugFlag = True
+
+if( globalDebugFlag ):
+	globalPrefix = '/data/anwala/IMLS/StoryGraph/'
+else:
+	globalPrefix = '/data/'
 
 #copied from genericCommon.py - start
 def getConfigParameters(configPathFilename, keyValue=''):
@@ -41,10 +48,29 @@ def getConfigParameters(configPathFilename, keyValue=''):
 		else:
 			returnValue = jsonFile[keyValue]
 	except:
-		print('\tFile open error.')
+		print('\tFile open error:', configPathFilename)
 
 	return returnValue
+
+def getTextFromGZ(path):
+	try:
+		infile = gzip.open(path, 'rb')
+		txt = infile.read()
+		infile.close()
+
+		return txt
+	except:
+		genericErrorInfo()
+
+	return ''
 #copied from genericCommon.py - end
+
+def getDictFromGZPath(path):
+	try:
+		return json.loads(getTextFromGZ(path))
+	except:
+		print('\tFile open error:', path)
+		return {}
 
 @app.route('/unlisted/', methods=['GET'])
 def index():
@@ -102,19 +128,36 @@ def tweetStudyTweetSim():
 
 @app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])
 def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
-	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json.gz
-	filename = '/data/graphs/' + storygraph + '/' + YYYY + '/' + MM + '/' + DD + '/' + graph
+	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json
+	filename = globalPrefix + 'graphs/' + storygraph + '/' + YYYY + '/' + MM + '/' + DD + '/' + graph
 	
-	if( os.path.exists(filename) ):
-		return send_file(filename, mimetype='application/json')
-	else:
+	graphFlag = False
+	if( graph.lower().find('graph') != -1 ):
+		#graphs are compressed
+		filename = filename + '.gz'
+		graphFlag = True
+		
+	if( os.path.exists(filename) == False ):
 		return jsonify( {} )
 
+	if( graphFlag ):
+		f = getDictFromGZPath( filename )
+	else:
+		f = getConfigParameters( filename )
+
+	if( graph.lower().find('menu') != -1 ):
+		#menu file requires special packaging
+		f = {'menu': f, 'self': request.url}
+	else:
+		f['self'] = request.url
+	return jsonify( f )
+	#return send_file(filename, mimetype='application/json')
+	
 
 @app.route('/graphs/pointers/<storygraph>/', methods=['GET'])
 def storyGraphDetails(storygraph):
 
-	graphIndexDetails = getConfigParameters( '/data/graph-cursors/' + storygraph + '/' + 'graphIndex.json' )	
+	graphIndexDetails = getConfigParameters( globalPrefix + 'graph-cursors/' + storygraph + '/' + 'graphIndex.json' )	
 	
 	if( 'cursor' in graphIndexDetails ):
 		cursor = graphIndexDetails['cursor']
@@ -130,12 +173,12 @@ def storyGraphDetails(storygraph):
 def add_header(response):
 
 	contentType = response.headers['Content-Type'].lower()
-	#response.headers['X-Debug'] = request.url
+	response.headers['X-Self'] = request.url
 
 	if( contentType.find('json') != -1 ):
 		
-		if( request.url.endswith('.json.gz') ):
-			response.headers['Content-Encoding'] = 'gzip'		
+		#if( request.url.endswith('.json.gz') ):
+		#	response.headers['Content-Encoding'] = 'gzip'		
 
 		response.cache_control.max_age = 0
 
@@ -159,8 +202,7 @@ if __name__ == '__main__':
 		proc.kill()
 		genericErrorInfo()
 	'''
+	globalConfig = getConfigParameters( globalPrefix + 'generic/serviceClusterStories.config.json', 'default-config' )
 
-
-	globalConfig = getConfigParameters( '/data/generic/serviceClusterStories.config.json', 'default-config' )
 	globalHist = globalConfig['history-count']
-	app.run(host='0.0.0.0', threaded=True)
+	app.run(host='0.0.0.0', threaded=True, debug=globalDebugFlag)

@@ -125,6 +125,10 @@ def tweetStudyHashtagSim():
 def tweetStudyTweetSim():
 	return render_template( 'tweet-study-tweet-sim.html' )
 
+@app.route('/tweet-studies/tweet-ira/', methods=['GET'])
+def tweetStudyTweetTrolls():
+	return render_template( 'tweet-study-ira.html' )
+
 
 @app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])
 def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
@@ -152,7 +156,23 @@ def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
 		f['self'] = request.url
 	return jsonify( f )
 	#return send_file(filename, mimetype='application/json')
+
+@app.route('/files/<filetype>/<storygraph>/<filename>/', methods=['GET'])
+def storyGraphFiles(filetype, storygraph, filename):
+
+	f = {}
 	
+	filetype = filetype.strip()
+	storygraph = storygraph.strip()
+	filename = filename.strip()
+
+	if( filetype == 'config' ):
+		config = globalPrefix + 'generic/config-versions/' + filename + '.json'
+		print('try:', config)
+		if( os.path.exists(config) ):
+			f = getConfigParameters( config )
+
+	return jsonify( f )
 
 @app.route('/graphs/pointers/<storygraph>/', methods=['GET'])
 def storyGraphDetails(storygraph):
@@ -193,16 +213,7 @@ def workingFolder():
 
 if __name__ == '__main__':
 	
-	'''
-	#run on a local machine
-	proc = ''
-	try:
-		proc = subprocess.Popen('./serviceClusterStories.py')
-	except:
-		proc.kill()
-		genericErrorInfo()
-	'''
 	globalConfig = getConfigParameters( globalPrefix + 'generic/serviceClusterStories.config.json', 'default-config' )
-
 	globalHist = globalConfig['history-count']
 	app.run(host='0.0.0.0', threaded=True, debug=globalDebugFlag)
+	

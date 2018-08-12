@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/static/tweet-study-ira.css">
+	<link rel="stylesheet" href="/static/pure-min.css">
+	<link rel="stylesheet" href="/static/grids-responsive-min.css">
+
+	<title></title>
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+</head>
+
+<body onload="main()">
+
+	<br>
+    <div style='margin: auto;width: 95%; text-align:center; font-weight: bold;'>
+    	<span style='float:left;' id='canonicalURL'>Please upload IRA file:</span>
+    </div>
+    <br>
+	
+	
+	<script src="/static/tweet-study-ira.js"></script>
+
+	<div class="pure-form pure-form-stacked" style="margin:auto; width: 95%; text-align: center;">
+    	<fieldset>
+            <div class="pure-g">
+
+            	 <div class="pure-u-1 pure-u-md-1-6">
+                    <input id="uploadFile" type="file" class="pure-button pure-button-primary" value="upload graph">
+                </div>
+
+             </div>
+        </fieldset>
+	</div>
+
+	<hr class="style13">
+	<div class="title"><h3>IRA Accounts created between May 2015 - November 2016</h3></div>
+	<div id='chart1'>
+	</div>
+
+	<hr class="style13">
+	<div class="title"><h3>Count of tweets vs time</h3></div>
+	<div id='chart2'></div>
+
+
+	<hr class="style13">
+	<div class="title"><h3>Tweet text summary (Top 10 ngrams)</h3></div>
+	<div id='chart3' style="font-size: 18px;"></div>
+
+	<div class="title"><h3>Tweet description summary (Top 10 ngrams)</h3></div>
+	<div id='chart4' style="font-size: 18px;"></div>
+
+	<hr class="style13">
+	<div class="title"><h3>Top users per criteria:</h3></div>
+	<div id='chart5'></div>
+
+	<hr class="style13">
+	<div class="title"><h3>Top tweets per criteria:</h3></div>
+	<div id='chart6'></div>
+    
+</body>
+
+</html>

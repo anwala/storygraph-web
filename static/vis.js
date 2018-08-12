@@ -505,6 +505,21 @@ function preMain()
         );
 }
 
+function formatGraph(graph)
+{
+    if( graph.links )
+    {
+        for(var i = 0; i<graph.links.length; i++)
+        {
+            graph.links[i].label = graph.links[i].rank + ' (' + graph.links[i].sim + ')';
+            graph.links[i]['label-description'] = 'rank (sim)';
+
+        }
+    }
+
+    return graph;
+}
+
 function main(storyGraphFilename, timestamp, optionalGraph)
 {
     console.log('\nmain():');
@@ -575,7 +590,10 @@ function main(storyGraphFilename, timestamp, optionalGraph)
 
     var drawGraph = function (graph) 
     {
-        globalGraph = JSON.parse(JSON.stringify(graph));
+        formatGraph(graph);
+        globalGraph = JSON.parse(JSON.stringify(graph));//create a non-ref copy
+        
+
         if( globalGraph == null )
         {
             setTimestamp('timestamp', '');
@@ -600,7 +618,7 @@ function main(storyGraphFilename, timestamp, optionalGraph)
         {
             linkedByIndex[d.source + "," + d.target] = true;
         });
-
+        
         force
             .nodes(graph.nodes)
             .links(graph.links)

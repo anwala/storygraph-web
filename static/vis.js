@@ -5,7 +5,7 @@ var focus_node = null,
 highlight_node = null;
 
 var text_center = false;
-var outline = false;
+var nodeFillFlag = false;
 
 var min_score = 0;
 var max_score = 1;
@@ -13,10 +13,10 @@ var max_score = 1;
 var highlight_color = "red";
 var highlight_trans = 0.1;
 
-var default_node_color = "#70B8FF";
+var default_node_color = "darkblue";
 var default_link_color = "black";
 
-var nominal_base_node_size = 8;
+var nominal_base_node_size = 10;//***affected without thumbnail
 var nominal_text_size = 12;
 var max_text_size = 24;
 var nominal_stroke = 1.5;
@@ -26,7 +26,6 @@ var max_base_node_size = 36;
 var globalConfig = {};
 var globalGraph = {};
 var globalURIParamsDict = {};
-var globalThumbnailFlag = true;
 var globalNodeKey = 'title';
 var globalMaxTitleLength = 60;
 var globalZoomed;
@@ -36,11 +35,25 @@ var globalTranslate = [0, 0];
 var globalEdgelabels;
 var globalEdgepaths;
 var globalNodeTypes = {};
+var globalStoryGraphFilename = '';
 
 function getGraphName()
 {
     //CAUTION, coupling with populateGraphSet()
     return 'graph' + globalURIParamsDict.cursor + '.json';
+}
+
+function getCurPath()
+{
+    if( globalURIParamsDict.endpoint == '/generic/' )
+    {
+        if( globalURIParamsDict.ap )
+        {
+            return globalURIParamsDict.ap.replace(/-/g, '/');
+        }
+    }
+    
+    return globalURIParamsDict['cur-path'];
 }
 
 function advanceButton(prevOrNext)
@@ -56,7 +69,7 @@ function advanceButton(prevOrNext)
             globalURIParamsDict.cursor = globalURIParamsDict.hist - 1;
         }
     }
-    else
+    else if( prevOrNext == 'next' )
     {
         globalURIParamsDict.cursor++;
         if( globalURIParamsDict.cursor >= globalURIParamsDict.hist )
@@ -68,14 +81,15 @@ function advanceButton(prevOrNext)
     console.log('\tglobalURIParamsDict:', globalURIParamsDict);
 
     setURI(globalURIParamsDict.cursor);
-    main( globalURIParamsDict['cur-path'] + '/' + getGraphName() );
+    main( getCurPath() + '/' + getGraphName() );
+    //watch-2
 }
 
 function downloadGraphClick()
 {
     console.log('\ndownloadGraphClick():');
     globalGraph['self'] = location.href;
-    globalGraph['graph-pointer'] = {cursor: globalURIParamsDict.cursor, hist: globalURIParamsDict.hist, 'cur-path': globalURIParamsDict['cur-path']};
+    globalGraph['graph-pointer'] = {cursor: globalURIParamsDict.cursor, hist: globalURIParamsDict.hist, 'cur-path': getCurPath()};
     var typeDict = {json: 'application/json', txt: 'text/plain'};
     var blob = new Blob([JSON.stringify(globalGraph, null, 2)],
     {
@@ -90,62 +104,6 @@ function downloadGraphClick()
     aTag.href = url;
     aTag.style.display = 'none';
     aTag.click();
-}
-
-function graphTimeChange_obsolete()
-{
-    var graphTime = document.getElementById('graphTime').value;
-    if( graphTime.length === 0 )
-    {
-        return;
-    }
-
-
-    var graphDate = globalGraph['timestamp'].split('T')[0];
-    var curPath = graphDate.replace(/-/g, '/'); 
-    var t0 = globalGraph['timestamp'];
-
-    var t1 = graphTime;
-    if( t1.length == 5 )//HH:MM
-    {
-        t1 = t1 + ':00';
-    }
-    t1 = graphDate + 'T' + t1 + 'Z';
-
-    t0 = new Date(t0);
-    t1 = new Date(t1);
-    
-    var diffMinutes = t1 - t0;
-    diffMinutes = Math.round((diffMinutes/1000)/60);
-    
-    var pagination = 0;
-    if( globalURIParamsDict.interval )
-    {
-        pagination = diffMinutes / globalURIParamsDict.interval;
-    }
-    else
-    {
-        pagination = diffMinutes / 10;
-    }
-    pagination = Math.round(+globalURIParamsDict.cursor + pagination);
-
-    if( pagination >= globalURIParamsDict.hist )
-    {
-        pagination = globalURIParamsDict.hist - 1;
-    }
-    else if( pagination < 0 )
-    {
-        pagination = 0;
-    }
-
-    console.log('\tpagination:', pagination);
-    console.log('\tcurPath:', curPath);
-
-    globalURIParamsDict.cursor = pagination;
-    globalURIParamsDict['cur-path'] = curPath;
-
-    setURI(globalURIParamsDict.cursor);
-    main( curPath + '/' + getGraphName() );
 }
 
 function homeButtonClick()
@@ -170,49 +128,6 @@ function graphDateLocalChange()
     main( curPath + '/' + getGraphName() );
 }
 
-function graphDatetimeLocalChange_obsolete()
-{
-    console.log('graphDatetimeLocalChange():', this.value);
-
-    if( this.value.length === 0 )
-    {
-        return;
-    }
-    var datetime = new Date(this.value);
-
-    var yyyy = datetime.getUTCFullYear();
-    var mm = datetime.getUTCMonth() + 1 + '';
-    if( mm.length === 1 )
-    {
-        mm = '0' + mm;
-    }
-    var dd = datetime.getUTCDate() + '';
-    if( dd.length === 1 )
-    {
-        dd = '0' + dd;
-    }
-
-    var hours = datetime.getUTCHours() + '';
-    if( hours.length === 1 )
-    {
-        hours = '0' + hours;
-    }
-    var minutes = datetime.getUTCMinutes() + '';
-    if( minutes.length === 1 )
-    {
-        minutes = '0' + minutes;
-    }
-    var seconds = datetime.getUTCSeconds() + '';
-    if( seconds.length === 1 )
-    {
-        seconds = '0' + seconds;
-    }
-
-    document.getElementById('graphDate').value = yyyy + '-' + mm + '-' + dd;
-    document.getElementById('graphTime').value = hours + ':' + minutes + ':' + seconds;
-    graphTimeChange();
-}
-
 function graphSetChange()
 {
     document.getElementById('refreshGraph').checked = false;
@@ -221,14 +136,16 @@ function graphSetChange()
     globalURIParamsDict.cursor = newCursor;
 
     setURI( globalURIParamsDict.cursor );
-    main( globalURIParamsDict['cur-path'] + '/' + this.value );
+    main( getCurPath() + '/' + this.value );
+    //watch-3
 }
 
 function populateGraphSet(endPoint)
 {
     console.log('\npopulateGraphSet()');
-
-    d3.json('/graphs' + endPoint + globalURIParamsDict['cur-path'] + '/' + 'menu.json', function(error, menu)
+    
+    //watch-5
+    d3.json('/graphs' + endPoint + getCurPath() + '/' + 'menu.json', function(error, menu)
     {
         if( error )
         {
@@ -283,6 +200,8 @@ function uploadGraphClick(evt)
         return;
     }
 
+    document.getElementById('graphEndpoint').innerHTML = '...loading, please wait';
+
     f = files[0];
     var reader = new FileReader();
 
@@ -291,19 +210,31 @@ function uploadGraphClick(evt)
     {
         return function(data)
         {   
-            var graph = JSON.parse(data.target.result);
-            //verify update of uri based on upload, perform simple check before upload
-            //if( graph['graph-pointer'].hist && graph['graph-pointer'].cursor )
-            //{
-                console.log('\tUPLOAD Request');
-                document.getElementById('refreshGraph').checked = false;
-                setGraphState( graph['graph-pointer'] );    
+            var graph = {};
+            try 
+            {
+                graph = JSON.parse(data.target.result);
+            }
+            catch(e) 
+            {
+                document.getElementById('graphEndpoint').innerHTML = 'Graph load error.';
+                return;
+            }
+            
+            document.getElementById('refreshGraph').checked = false;
+            var gEndPoint = getEndpointFromURI( graph.self );
+            var curEndPoint = getEndpointFromURI();
+
+            if( gEndPoint != curEndPoint )
+            {
+                alert('Endpoint mismatch: Will redirect to correct endpoint for you to re-upload graph.');
+                window.location.href = window.location.href.split('#')[0].replace(curEndPoint, gEndPoint);
+            }
+            else
+            {
+                setGraphState( graph['graph-pointer'], gEndPoint );
                 main('', graph.timestamp, graph);
-            //}
-            //else
-            //{
-            //    console.log('\tBAD UPLOAD Request:', graph);
-            //}
+            }
         };
     })(f);
 
@@ -319,6 +250,17 @@ function enableOrDisableNextButton_obsolete()
     else
     {
         document.getElementById('nextButton').disabled = false;
+    }
+}
+
+function showGraphDetail()
+{
+    if( globalGraph.custom )
+    {
+        if( globalGraph.custom.description )
+        {
+            alert(globalGraph.custom.description);
+        }
     }
 }
 
@@ -348,13 +290,28 @@ function setGraphState(graphDetails)
         globalURIParamsDict['cur-path'] = globalURIParamsDict['cur-path'].replace(/-/g, '/');
     }
 
+
+    globalURIParamsDict.endpoint = getEndpointFromURI();
     initURI();
     console.log('\tglobalURIParamsDict:', globalURIParamsDict);
 }
 
 function initURI()
 {
-    window.location.href = window.location.href.split('#')[0] + '#cursor=' + globalURIParamsDict.cursor + '&hist=' + globalURIParamsDict.hist;
+    var apFlag = '';
+    if( globalURIParamsDict.endpoint == '/generic/' )
+    {
+        if( globalURIParamsDict.ap )
+        {
+            apFlag = '&ap=' + globalURIParamsDict.ap;
+        }
+        else
+        {
+            apFlag = '&ap=' + globalURIParamsDict['cur-path'].replace(/\//g, '-');
+        }
+    }
+    
+    window.location.href = window.location.href.split('#')[0] + '#cursor=' + globalURIParamsDict.cursor + '&hist=' + globalURIParamsDict.hist + apFlag;
 }
 
 function setURI(graphIndexer)
@@ -392,26 +349,45 @@ function processURI()
     return URIParamsDict;
 }
 
-function addPageDetailsForEndpoint(endPoint)
+function addPageDetailsForEndpoint(graphName)
 {
-    endPoint = endPoint.replace(/-/g, ' ').toUpperCase();
-    document.getElementById('graphEndpoint').innerHTML = endPoint
-    document.getElementsByTagName('title')[0].innerHTML = 
-    document.getElementsByTagName('title')[0].innerHTML.split(': ')[0] + ': ' + endPoint;
+    if( globalGraph.custom )
+    {
+        if( globalGraph.custom.name )
+        {
+            graphName = globalGraph.custom.name;
+        }
+    }
+
+    if( graphName.length > 30 )
+    {
+        graphName = graphName.substr(0, 30) + '...';
+    }
+
+    graphName = graphName.replace(/-/g, ' ').toUpperCase();
+    graphName = graphName.replace(/\//g, '');
+
+    document.getElementById('graphEndpoint').innerHTML = graphName;
+    document.getElementsByTagName('title')[0].innerHTML.split(': ')[0] + ': ' + graphName;
 }
 
-function getEndpointFromURI()
+function getEndpointFromURI(optionalURI)
 {
     var splitFlag = '/graphs/';
-    if( window.location.href.indexOf('/graphs/dev/') !== -1 )
+    if( optionalURI == undefined )
+    {
+        optionalURI = window.location.href;
+    }
+
+    if( optionalURI.indexOf('/graphs/dev/') !== -1 )
     {
         splitFlag += 'dev/';
     }
 
-    var endPoint = window.location.href.split(splitFlag)[1].trim();
+    var endPoint = optionalURI.split(splitFlag)[1].trim();
     endPoint = endPoint.split('/')[0].trim();
     
-    addPageDetailsForEndpoint(endPoint);
+    //addPageDetailsForEndpoint(endPoint);
 
     console.log('\ngetEndpointFromURI():', endPoint);
 
@@ -425,15 +401,15 @@ function processNonURIRequest()
     {
         if( error )
         {
-            console(error);
+            console.log(error);
         }
         setGraphState(graphDetails);
         
-        storyGraphFilename = globalURIParamsDict['cur-path'] + '/' + getGraphName();
-        main(storyGraphFilename);
+        globalStoryGraphFilename = getCurPath() + '/' + getGraphName();
+        //watch-0
+        main(globalStoryGraphFilename);
     });
 }
-
 
 
 function preMain()
@@ -490,8 +466,9 @@ function preMain()
         console.log('\tURI REQUEST');
         setGraphState(URIParamsDict);
 
-        storyGraphFilename = globalURIParamsDict['cur-path'] + '/' + getGraphName();
-        main(storyGraphFilename, URIParamsDict.t);
+        globalStoryGraphFilename = getCurPath() + '/' + getGraphName();
+        //watch-1
+        main(globalStoryGraphFilename, URIParamsDict.t);
     }
     else
     {
@@ -520,15 +497,17 @@ function formatGraph(graph)
     return graph;
 }
 
-function main(storyGraphFilename, timestamp, optionalGraph)
+function main(globalStoryGraphFilename, timestamp, optionalGraph)
 {
     console.log('\nmain():');
-    console.log('\tstoryGraphFilename:', storyGraphFilename);
+    console.log('\globalStoryGraphFilename:', globalStoryGraphFilename);
+    document.getElementById('graphEndpoint').innerHTML = '...loading, please wait';
 
+    var endpoint = getEndpointFromURI();
     setTimeout(function()
     {
         //graphset is a variable, so should be updated constantly
-        populateGraphSet( getEndpointFromURI() );
+        populateGraphSet( endpoint );
     }, 10);
     
     
@@ -606,12 +585,26 @@ function main(storyGraphFilename, timestamp, optionalGraph)
             return;
         }
 
+        addPageDetailsForEndpoint(endpoint);
         setTimestamp('timestamp', graph['timestamp']);
         document.getElementById('showLabelsChkbox').addEventListener('change', genericToggle, false);
         document.getElementById('showEdgeLabelsChkbox').addEventListener('change', genericToggle, false);
         document.getElementById('trackSubGraphChkbox').addEventListener('change', trackingChkboxClick, false);
         document.getElementById('refreshGraph').addEventListener('change', refreshGraphToggle, false);
+        document.getElementById('thumbNailsChkbox').addEventListener('change', advanceButton, false);
 
+        var getNodeSize = function(d)
+        {
+            if( d.custom )
+            {
+                if(d.custom.important)
+                {
+                    return '50px';
+                }
+            }
+
+            return '20px';
+        };
 
         var linkedByIndex = {};
         graph.links.forEach(function(d)
@@ -642,7 +635,7 @@ function main(storyGraphFilename, timestamp, optionalGraph)
         }
 
         var node;
-        if( globalThumbnailFlag === true )
+        if( document.getElementById('thumbNailsChkbox').checked === true )
         {
             var defs = svg.append('defs');
             var allpatterns = defs.selectAll("pattern")
@@ -653,8 +646,14 @@ function main(storyGraphFilename, timestamp, optionalGraph)
                 {
                     return d.id;
                 })
-                .attr("width", "20px")
-                .attr("height", "20px")
+                .attr("width", function(d)
+                {
+                    return getNodeSize(d);
+                })
+                .attr("height", function(d)
+                {
+                    return getNodeSize(d);
+                })
                 .append("image")
                 .attr('xlink:href', function(d)
                 {
@@ -668,8 +667,14 @@ function main(storyGraphFilename, timestamp, optionalGraph)
 
                     return getFaviconFromLink(d.link);
                 })
-                .attr("width", "20px")
-                .attr("height", "20px");
+                .attr("width", function(d)
+                {
+                    return getNodeSize(d);
+                })
+                .attr("height", function(d)
+                {
+                    return getNodeSize(d);
+                });
 
             
             node = g.selectAll(".node")
@@ -679,8 +684,14 @@ function main(storyGraphFilename, timestamp, optionalGraph)
             .attr("ry", '10px')
             .attr("x", "-12px")
             .attr("y", "-12px")
-            .attr("width", "20px")
-            .attr("height", "20px")
+            .attr("width", function(d)
+            {
+                return getNodeSize(d);
+            })
+            .attr("height", function(d)
+            {
+                return getNodeSize(d);
+            })
             .attr("class", "node")
             .attr('fill', function(d)
             {
@@ -703,31 +714,33 @@ function main(storyGraphFilename, timestamp, optionalGraph)
         
         
         /*
-        node.on("dblclick", function(d)
-        {
-            d3.event.stopPropagation();
-            var dcx = (window.innerWidth / 2 - d.x * zoom.scale());
-            var dcy = (window.innerHeight / 2 - d.y * zoom.scale());
-            zoom.translate([dcx, dcy]);
-            g.attr("transform", "translate(" + dcx + "," + dcy + ")scale(" + zoom.scale() + ")");
-        });
+            node.on("dblclick", function(d)
+            {
+                d3.event.stopPropagation();
+                var dcx = (window.innerWidth / 2 - d.x * zoom.scale());
+                var dcy = (window.innerHeight / 2 - d.y * zoom.scale());
+                zoom.translate([dcx, dcy]);
+                g.attr("transform", "translate(" + dcx + "," + dcy + ")scale(" + zoom.scale() + ")");
+            });
         */       
 
 
         var tocolor = "fill";
-        var towhite = "stroke";
+        var strokeOrFill = "stroke";
+        var strokeOrFillColor = 'white';
 
-        if (outline)
+        if (nodeFillFlag == true)
         {
             tocolor = "stroke";
-            towhite = "fill";
+            strokeOrFill = "fill";
         }
 
+        
         var circle = node.append("path")
             .attr("d", d3.svg.symbol()
                 .size(function(d)
                 {
-                    return Math.PI * Math.pow(size(d.size) || nominal_base_node_size, 2);
+                    return 0;Math.PI * Math.pow(size(d.size) || nominal_base_node_size, 2);
                 })
                 .type(function(d)
                 {
@@ -735,10 +748,17 @@ function main(storyGraphFilename, timestamp, optionalGraph)
                 }))
             .style(tocolor, function(d)
             {
-                return default_node_color;
+                if( d.color )
+                {
+                    return d.color;
+                }
+                else
+                {
+                    return default_node_color;
+                }
             })
             .style("stroke-width", nominal_stroke)
-            .style(towhite, "white");
+            .style(strokeOrFill, strokeOrFillColor);
 
         var text = g.selectAll(".text")
             .data(graph.nodes)
@@ -867,30 +887,30 @@ function main(storyGraphFilename, timestamp, optionalGraph)
         trackSubgraph();
 
         node.on("mouseover", function(d)
+        {
+            mouseover_event_handler(d);
+            tip.show(d);
+        })
+        .on("mousedown", function(d)
+        {
+            mouseover_event_handler(d);
+        }).on("mouseout", function(d)
+        {
+            tip.hide();
+            link.style("stroke-opacity", globalConfig['link-opacity']);
+            if (focus_node !== null)
             {
-                mouseover_event_handler(d);
-                tip.show(d);
-            })
-            .on("mousedown", function(d)
-            {
-                mouseover_event_handler(d);
-            }).on("mouseout", function(d)
-            {
-                tip.hide();
-                link.style("stroke-opacity", globalConfig['link-opacity']);
-                if (focus_node !== null)
+                focus_node = null;
+                if (highlight_trans < 1)
                 {
-                    focus_node = null;
-                    if (highlight_trans < 1)
-                    {
-                        circle.style("opacity", 1);
-                        text.style("opacity", 1);
-                        link.style("opacity", 1);
-                    }
+                    circle.style("opacity", 1);
+                    text.style("opacity", 1);
+                    link.style("opacity", 1);
                 }
+            }
 
-                exit_highlight();
-            });
+            exit_highlight();
+        });
 
         node.on("click", function(d)
         {
@@ -1129,7 +1149,7 @@ function main(storyGraphFilename, timestamp, optionalGraph)
                 svg.style("cursor", "move");
                 if (highlight_color != "white")
                 {
-                    circle.style(towhite, "white");
+                    circle.style(strokeOrFill, strokeOrFillColor);
                     text.style("font-weight", "normal");
                     link.style("stroke", function(o)
                     {
@@ -1182,9 +1202,9 @@ function main(storyGraphFilename, timestamp, optionalGraph)
 
             if (highlight_color != "white")
             {
-                circle.style(towhite, function(o)
+                circle.style(strokeOrFill, function(o)
                 {
-                    return isConnected(d, o) ? highlight_color : "white";
+                    return isConnected(d, o) ? highlight_color : strokeOrFillColor;
                 });
                 
                 text.style("font-weight", function(o)
@@ -1580,7 +1600,7 @@ function main(storyGraphFilename, timestamp, optionalGraph)
     if( optionalGraph === undefined )
     {
         var endPoint = getEndpointFromURI();
-        d3.json('/graphs' + endPoint + storyGraphFilename, function(error, graph)
+        d3.json('/graphs' + endPoint + globalStoryGraphFilename, function(error, graph)
         {
             if( error )
             {
@@ -1863,3 +1883,7 @@ function resetTrackingDetails()
     globalConfig.tracking['nodes-index'] = -1;
     globalConfig.tracking.entities = {};
 }
+/*
+Trash remove:
+
+*/

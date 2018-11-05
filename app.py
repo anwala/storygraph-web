@@ -133,8 +133,26 @@ def tweetStudyTweetTrolls():
 @app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])
 def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
 	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json
-	filename = globalPrefix + 'graphs/' + storygraph + '/' + YYYY + '/' + MM + '/' + DD + '/' + graph
-	
+
+	#handle generic/non-generic requests - start
+	if( YYYY == '0' ):
+		YYYY = ''
+	else:
+		YYYY = YYYY + '/'
+
+	if( MM == '0' ):
+		MM = ''
+	else:
+		MM = MM + '/'
+
+	if( DD == '0' ):
+		DD = ''
+	else:
+		DD = DD + '/'
+	#handle generic/non-generic requests - end
+
+
+	filename = globalPrefix + 'graphs/' + storygraph + '/' + YYYY + MM + DD + graph
 	graphFlag = False
 	if( graph.lower().find('graph') != -1 ):
 		#graphs are compressed
@@ -154,6 +172,7 @@ def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
 		f = {'menu': f, 'self': request.url}
 	else:
 		f['self'] = request.url
+
 	return jsonify( f )
 	#return send_file(filename, mimetype='application/json')
 
@@ -185,6 +204,7 @@ def storyGraphDetails(storygraph):
 	else:
 		cursor = 0
 		path = ''
+		graphIndexDetails = {}
 
 	graphIndexDetails['hist'] = globalHist
 	return jsonify( graphIndexDetails )
@@ -216,4 +236,3 @@ if __name__ == '__main__':
 	globalConfig = getConfigParameters( globalPrefix + 'generic/serviceClusterStories.config.json', 'default-config' )
 	globalHist = globalConfig['history-count']
 	app.run(host='0.0.0.0', threaded=True, debug=globalDebugFlag)
-	

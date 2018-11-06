@@ -364,7 +364,7 @@ function addPageDetailsForEndpoint(graphName)
         graphName = graphName.substr(0, 30) + '...';
     }
 
-    graphName = graphName.replace(/-/g, ' ').toUpperCase();
+    graphName = graphName.replace(/-/g, ' ');
     graphName = graphName.replace(/\//g, '');
 
     document.getElementById('graphEndpoint').innerHTML = graphName;
@@ -592,12 +592,14 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         document.getElementById('trackSubGraphChkbox').addEventListener('change', trackingChkboxClick, false);
         document.getElementById('refreshGraph').addEventListener('change', refreshGraphToggle, false);
         document.getElementById('thumbNailsChkbox').addEventListener('change', advanceButton, false);
+        document.getElementById('annotateChkbox').addEventListener('change', advanceButton, false);
 
         var getNodeSize = function(d)
         {
+
             if( d.custom )
             {
-                if(d.custom.important)
+                if(d.custom.important && document.getElementById('annotateChkbox').checked == true )
                 {
                     return '50px';
                 }
@@ -712,7 +714,6 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
             .call(force.drag);         
         }
         
-        
         /*
             node.on("dblclick", function(d)
             {
@@ -740,7 +741,7 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
             .attr("d", d3.svg.symbol()
                 .size(function(d)
                 {
-                    return 0;Math.PI * Math.pow(size(d.size) || nominal_base_node_size, 2);
+                    return 0;//Math.PI * Math.pow(size(d.size) || nominal_base_node_size, 2);
                 })
                 .type(function(d)
                 {
@@ -812,11 +813,19 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         {
             text.attr("dx", function(d)
             {
+                if( d.custom )
+                {
+                    if( d.custom.important )
+                    {
+                        return 50;
+                    }
+                }
+                
                 return (size(d.size) || nominal_base_node_size);
             })
             .text(function(d)
             {
-                return '\u2002' + formatNodeText( d.id + ': ' + d[globalNodeKey], globalMaxTitleLength );
+                return formatNodeText( d[globalNodeKey], globalMaxTitleLength );
             });
         }
 
@@ -840,7 +849,15 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
             circle.attr("d", d3.svg.symbol()
                 .size(function(d)
                 {
-                    return Math.PI * Math.pow(size(d.size) * base_radius / nominal_base_node_size || base_radius, 2);
+                    var v = Math.PI * Math.pow(size(d.size) * base_radius / nominal_base_node_size || base_radius, 2);
+                    if( d.custom )
+                    {
+                        if( d.custom.important )
+                        {
+                            v = v * 4;
+                        }
+                    }       
+                    return v;
                 })
                 .type(function(d)
                 {
@@ -852,16 +869,17 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
                 text.attr("dx", 
                     function(d)
                     {
+                        if( d.custom )
+                        {
+                            if( d.custom.important )
+                            {
+                                return 50;
+                            }
+                        }
+                        
                         return (size(d.size) * base_radius / nominal_base_node_size || base_radius);
                     });
             }
-
-            var text_size = nominal_text_size;
-            if( nominal_text_size * zoom.scale() > max_text_size )
-            {
-                text_size = max_text_size / zoom.scale();
-            }
-            text.style("font-size", text_size + "px");
 
             if( d3.event === null )
             {
@@ -1434,6 +1452,31 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
                 text.style("display", 'none');
             }
 
+            //mark special nodes - start
+            if( document.getElementById('annotateChkbox').checked == true )
+            {
+                text.style("display", function(d)
+                {
+                    if( d.custom )
+                    {
+                        if( d.custom.important )
+                        {
+                            this.style.fontSize = '80px';
+                            this.style.stroke = 'black';
+                            this.style.strokeWidth = '3px';
+                            this.innerHTML = formatNodeText('clq ' + d.custom['clique-rank'] + ' (' + d.custom['clique-size'] + '): ' + d.title, globalMaxTitleLength);
+                        
+                            return 'inline';
+                        }
+                    }
+                    
+                    return this.style.display;
+                });
+            }
+            //mark special nodes - end
+
+
+
             if( edgeLabelFlag === true && atLeastOneEdgeVisibleFlag )
             {
                 addEdgeLabels();
@@ -1725,12 +1768,10 @@ function formatNodeText(text, titleLength)
     text = text.trim();
     if( titleLength < text.length )
     {
-        return text.substr(0, titleLength) + '...';    
+        text = text.substr(0, titleLength) + '...';    
     }
-    else
-    {
-        return text;
-    } 
+
+    return text;
 }
 
 function getFaviconFromLink(link)

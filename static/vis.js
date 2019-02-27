@@ -513,17 +513,39 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
     
     var visContainer = document.getElementById('visContainer');
     document.getElementById('uploadGraph').addEventListener('change', uploadGraphClick, false);
-
     visContainer.setAttribute('style', 'width: ' + widthPercent*100 + '%; height: 100%');
+
+    var addDetsToTitle = function(node, conComp)
+    {
+        if( node.title == undefined )
+        {
+            return '';
+        }
+
+        var avgDeg = -1;
+        var annotation = node.title;
+
+        for(var i = 0; i<conComp.length; i++)
+        {
+            if( conComp[i].nodes.indexOf(node.index) != -1 )
+            {
+                avgDeg = conComp[i]['avg-degree'].toFixed(2);
+                break;
+            }
+        }
+
+        annotation = '<br>Avg. degree: ' + avgDeg;        
+        return annotation;
+    };
 
     var tip = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
-        .html(function(d) 
+        .html(function(d, conComp)
         {
             if( d.title )
             {
-                return '<strong>' + d.title + '</strong>';
+                return '<strong>' + d.title + addDetsToTitle(d, conComp) + '</strong>';
             }
             else if( d.label )
             {
@@ -596,7 +618,6 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
 
         var getNodeSize = function(d)
         {
-
             if( d.custom )
             {
                 if(d.custom.important && document.getElementById('annotateChkbox').checked == true )
@@ -907,7 +928,7 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         node.on("mouseover", function(d)
         {
             mouseover_event_handler(d);
-            tip.show(d);
+            tip.show(d, graph['connected-comps']);
         })
         .on("mousedown", function(d)
         {

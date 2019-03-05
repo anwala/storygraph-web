@@ -90,6 +90,10 @@ def storyGraph(storygraph):
 def storyGraphDev(storygraph):
 	return render_template('story-graph-dev.html')
 
+@app.route('/stats/<parentFolder>/<childFolder>/', methods=['GET'])
+def storyGraphStats(parentFolder, childFolder):
+	return render_template('stats/' + parentFolder + '/' + childFolder + '/' + 'index.html')
+
 @app.route('/graphs/ops/sim/', methods=['POST'])
 def graphsOpsSim():
 	

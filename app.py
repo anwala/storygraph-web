@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 globalConfig = {}
 globalHist = 0
-globalDebugFlag = False
+globalDebugFlag = True
 
 if( globalDebugFlag ):
 	globalPrefix = '/data/anwala/IMLS/StoryGraph/'
@@ -72,15 +72,14 @@ def getDictFromGZPath(path):
 		print('\tFile open error:', path)
 		return {}
 
-@app.route('/unlisted/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
 	return render_template('index.html')
 
-@app.errorhandler(404)
-def pageNotFound(e):
-	return render_template('404.html'), 404
-
-
+@app.route('/stats/', methods=['GET'])
+def statsIndex():
+	return render_template('stats/index.html')
+	
 
 @app.route('/graphs/<storygraph>/', methods=['GET'])
 def storyGraph(storygraph):
@@ -113,25 +112,33 @@ def graphsOpsSim():
 
 
 
+@app.route('/unlisted/', methods=['GET'])
+def unlistedIndex():
+	return render_template('media-manip/index.html')
+
+@app.errorhandler(404)
+def pageNotFound(e):
+	return render_template('404.html'), 404
+
 @app.route('/tweet-studies/users/', methods=['GET'])
 def tweetStudyUsers():
-	return render_template( 'tweet-study-users.html' )
+	return render_template( 'media-manip/tweet-study-users.html' )
 
 @app.route('/tweet-studies/users-stories/', methods=['GET'])
 def tweetStudyUsersStories():
-	return render_template( 'tweet-study-users-stories.html' )
+	return render_template( 'media-manip/tweet-study-users-stories.html' )
 
 @app.route('/tweet-studies/hashtag-sim/', methods=['GET'])
 def tweetStudyHashtagSim():
-	return render_template( 'tweet-study-hashtag-sim.html' )
+	return render_template( 'media-manip/tweet-study-hashtag-sim.html' )
 
 @app.route('/tweet-studies/tweet-sim/', methods=['GET'])
 def tweetStudyTweetSim():
-	return render_template( 'tweet-study-tweet-sim.html' )
+	return render_template( 'media-manip/tweet-study-tweet-sim.html' )
 
 @app.route('/tweet-studies/tweet-ira/', methods=['GET'])
 def tweetStudyTweetTrolls():
-	return render_template( 'tweet-study-ira.html' )
+	return render_template( 'media-manip/tweet-study-ira.html' )
 
 
 @app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])

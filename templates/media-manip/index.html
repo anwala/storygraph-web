@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Media analysis</title>
+</head>
+
+<body>
+	<h3><a href="https://www.google.com/chrome/" target="_blank">Please use with the latest version of Google Chrome</a></h3>
+	<ol>
+		<li>
+			<h3><a href="/graphs/polar-media-consensus-graph/" target="_blank">Polar Media Consensus Graph:</a></h3>
+			This utility periodically computes the similarity of news stories (nodes) from left/center/right news media, and draws an edge between highly similar stories. The graph can be used to track the development of a news event, identify exclusive consensus within left, center, or right media, or consensus across all (left-right). The method can also be used to track a story over time.
+		</li>
+
+		<li>
+			<h3>
+				Tweet studies
+			</h3>
+		</li>
+
+		<ol>
+			<li>
+				<h3><a href="/tweet-studies/tweet-ira/" target="_blank">IRA trolls study</a></h3>
+				
+			</li>
+			
+			<li>
+				<h3><a href="/tweet-studies/users/" target="_blank">User-focused activity for a URL:</a></h3>
+				This utility can be used to identify the major "players" in spreading a story, and potentially identify bot activity.
+				<br><br>
+				Visualizes the network of users who shared a link on Twitter. The proportion of the nodes represent the magnitude of the share - users (nodes) who tweeted a lot about the link have larger nodes than users who tweeted a little about the link. If a user <em>A</em>, retweets a user <em>B</em>, you would see an arrow from <em>A</em> to <em>B</em> (inlink to <em>B</em>). A user with a tweet that has a high volume of retweets is represented by a node with a high proportion of inlinks. A user who retweets at a high volume, is represented by a node with a high proportion of outlinks. Colors represent the various sources of the tweet (e.g, Twitter web client or an automatic tweeting system like ift.tt).
+				<br><br>
+				<em>To test: upload files in ClintonCash folder</em>
+			</li>
+
+			<li>
+				<h3><a href="/tweet-studies/hashtag-sim/" target="_blank">Quantifying consensus of links using tweets:</a></h3>
+				This utility can be used to identify links that are used in similar contexts. In other words the utility identifies links that are similar
+				based on how they are used by users on Twitter. Hashtags encode the use intent or association of a tweet author to a link. Consequently, similar links may co-occur with a common set of hashtags and vice versa.
+				<br><br>
+				
+				This utility quantifies the similarity of stories (links) embedded in tweets indirectly by calculating the similarity of the hashtags that co-occur with the links. The higher (~1.0) the similarity between two links, the higher the blue opacity of the cell that represents the similarity score of the link pair, and vice versa. For example, the cell representing similarity score of 1.0 (100% in common) of a link pair has a blue opacity, but the cell representing the similarity score of 0 (nothing in common) of a link pair is represented by a white color.
+				<br><br>
+				<em>To test: upload files in Election folder</em>
+			</li>
+
+			<li>
+				<h3><a href="/tweet-studies/users-stories/" target="_blank">(Implementation pending) Activities for users and stories:</a></h3>
+				This utility is very similar to 2.1, but differs as follows:
+				2.1 focuses on the activity for a single story by exploring the users (nodes) who shared the story and the interactions (edges) between the users. However, this utility focuses on multiple stories unlike 2.1.
+				<br><br>
+				This utility explores the various user activities across multiple stories. It can be used to identify the most actively shared stories and the interaction dynamics (retweets & tweets) of users who shared them.
+				There are two kinds of nodes, namely, user nodes and story nodes. Consider the following:
+				<br><br>
+
+				- An edge from a user node to story node indicates that the user shared the story (arrow from the user to the story)
+				<br>- An edge from a user node <em>A</em> to a user node <em>B</em> indicates that user <em>A</em> retweeted user <em>B</em> for a given story.
+				<br>- The size of a user node is proportional to the amount of retweets a user received.
+				<br>- The size of a story node is proportional to the amount of users who shared the story.
+			</li>
+
+			<li>
+				<h3><a href="/tweet-studies/tweet-sim/" target="_blank">(Implementation pending) Similarity of tweet texts:</a></h3>
+				This utility can be used to identify highly similar/duplicate tweets for a story. Some bot or coordinated messaging activities can be identified by a high degree of similarity in tweet texts.
+				<br><br>
+				This matrix shows a way of identifying high similarity (dense collection of blue). Given a pair of tweets, a similarity value of 1 (100% in common) is represented by a blue cell, and a similarity of 0 (nothing in common) is represented by a white cell. Large clusters of blue indicate highly similar tweets.
+			</li>
+
+		</ol>
+
+	</ol>
+</body>
+
+</html>

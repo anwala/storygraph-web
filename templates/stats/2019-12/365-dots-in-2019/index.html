@@ -4,13 +4,13 @@
 
 <head>
 	<meta charset="utf-8">
-    <title>365 dots in 2018: Top news stories of 2018</title>
+    <title>365 dots in 2019: Top news stories of 2019</title>
     <link rel="stylesheet" href="/static/365-dots-in-2018/style.css">
     <link rel="stylesheet" href="/static/pure-min.css">
     <link rel="stylesheet" href="/static/grids-responsive-min.css">
 
-    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.11.0.css">
-    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.11.0.css">
+    <script src="https://code.jquery.com/qunit/qunit-1.11.0.js"></script>
 
     <style type="text/css">
     		path { 
@@ -69,7 +69,7 @@
 </head>
 
 <body>
-
+	
 	<ul class="nav">
 	  <li><a href="/">Home</a></li>
 	  <li><a href="/graphs/polar-media-consensus-graph/" target="_blank">Polar Consensus Graph</a></li>
@@ -80,9 +80,9 @@
 
 	<div style="margin: auto; width: 95%; text-align:center;">
         <h3 style="margin: 10px 0 0 0;">
-        	365 dots in 2018
+        	365 dots in 2019
         </h3>
-        <h4 style="margin: 0 0 0 0;">(<a href="https://ws-dl.blogspot.com/2019/03/2019-03-05-365-dots-in-2018-top-news.html" target="_blank">Explanation</a>, <a href="/static/365-dots-in-2018/365-dots-in-2018.json" target="_blank">Dataset</a>, Hover for details, click dot to visit story graph)</h4>
+        <h4 style="margin: 0 0 0 0;">(<a href="#" target="_blank">Explanation</a>, <a href="/static/365-dots-in-2019/365-dots-in-2019.json" target="_blank">Dataset</a>, Hover for details, click dot to visit story graph)</h4>
     </div>
 	
 	<div style="margin: auto;width: 95%; text-align:center;">
@@ -128,7 +128,7 @@
     		console.log('\nmain()');
     		var parseDate = d3.time.format("%Y-%m-%d").parse;
 
-			d3.json('/static/365-dots-in-2018/365-dots-in-2018.json', function(error, report)
+			d3.json('/static/365-dots-in-2019/365-dots-in-2019.json', function(error, report)
     		{
     			if( error )
     			{
@@ -136,7 +136,7 @@
     				return;
     			}
 
-    			var payload = getChartDat(report);
+    			var payload = getChartDat(report.max_graphs.daily);
     			drawChart1( payload.chart1 );
     			drawChart2( payload.chart2 );
     		});
@@ -154,10 +154,10 @@
 			params.chartTitle = '1 day = 1 dot. 1 dot = average degree of Connected Component with largest average degree (top story) across all story graphs.'
 
 			params.legend = [
-				{class: 'Kavanaugh Hearings (25 days)', shape: 'circle', color: 'red'},
-				{class: 'Nunes Memo (7 days)', shape: 'circle', color: 'blue'},
-				{class: 'Trump-Kim Summit (1 day)', shape: 'circle', color: 'green'},
-				{class: '"Trump" in title (197 days)', shape: 'circle', color: 'orange'}
+				{class: 'Mueller Report release (5 days)', shape: 'circle', color: 'red'},
+				{class: 'Pelosi announces impeachment (3 days)', shape: 'circle', color: 'blue'},
+				{class: 'Impeachment inquiry public testimonies (10 days)', shape: 'circle', color: 'green'},
+				{class: '"Trump" in title (178 days)', shape: 'circle', color: 'orange'}
 			];
 
 			genericLineChartVarGlyph(chrtDat, params);
@@ -173,10 +173,10 @@
 
 			params.chartTitle = '1 day = 1 dot. 1 dot = avg. degree of the Giant Connected Component (GCC, aka biggest event) of the news story graph.'
 
-			params.legend = [
+			/*params.legend = [
 				{class: 'General', shape: 'diamond', color: 'blue'},
 				{class: 'News Vertical', shape: 'square', color: 'orange'}
-			];
+			];*/
 
 			var cmp = function(a, b)
 			{
@@ -199,22 +199,29 @@
 				chrtDat[0][i].xPos = i+1;
 			}
 			
-			console.log( chrtDat );
-			//genericLineChartVarGlyph(chrtDat, params);
-    	}
+			/*
+			console.log('To track top news stories (commented out)');
+			console.log( 'drawChart2:', chrtDat );
+			for(var i=0; i<50; i++)
+			{
+				console.log( chrtDat[0][i] );
+			}
+			*/
+    	}	
 
     	function getChartDat(report)
     	{
+    		let trumpCounter = 0;
     		var points1 = [[]];
     		var points2 = [[]];
 
     		var dayCounter = 0;
-			var months = Object.keys(report.payload).sort(); 
+			var months = Object.keys(report).sort(); 
 
 			for(var i=0; i<months.length; i++)
 			{
 				var month = months[i];
-				var days = Object.keys(report.payload[month]).sort();
+				var days = Object.keys(report[month]).sort();
 				
 				for(var j=0; j<days.length; j++)
 				{
@@ -225,20 +232,29 @@
 					{
 						dd = '0' + dd;
 					}
-					var date = report.year + '-' + month + '-' + dd;
+					var date = month + '-' + dd;
 					
+
 					dayCounter += 1;
 					var point1 = 
 					{
 						xPos: d3.time.format("%Y-%m-%d").parse(date),
-						uri: report.payload[month][day].graph,
-						tooltip: report.payload[month][day].dets['max-node-title'],
-						yPos: report.payload[month][day].score,
-						shape: shapeMap(report.payload[month][day].dets),
+						uri: report[month][day].graph,
+						tooltip: report[month][day].dets['max_node_title'],
+						yPos: report[month][day].avg_degree,
+						shape: shapeMap(report[month][day].dets),
+						maxNodeId: report[month][day].dets.max_node_id,
 						date: date
 					};
+
+					if( report[month][day].dets.max_node_title.toLowerCase().indexOf('trump') != -1 )
+					{
+						report[month][day].dets.trump_in_title = true;
+						trumpCounter++;
+					}
+
 					point1.tooltip = date + ' (avg. deg: ' + point1.yPos.toFixed(2) + '): ' + point1.tooltip;
-					point1.color = colorMap( report.payload[month][day].dets, point1.yPos );
+					point1.color = colorMap( report[month][day].dets, point1.yPos );
 
 					var point2 = JSON.parse( JSON.stringify(point1) );
 					point2.xPos = dayCounter;
@@ -247,6 +263,8 @@
 					points2[0].push(point2);
 				}
 			}
+
+			console.log('trumpCounter:', trumpCounter);
 
 			return {
 				chart1: points1,
@@ -257,28 +275,29 @@
     	function colorMap(pntDet, avgDeg)
 		{
 			/*
-			if( avgDeg >= 20 )
-			{
-				return 'red';
-			}
-			else if( avgDeg >= 15 )
-			{
-				return 'blue';
-			}
-			else if( avgDeg >= 10 )
-			{
-				return 'green';
-			}
-			else if( avgDeg >= 5 )
-			{
-				return 'orange';
-			}
+				if( avgDeg >= 20 )
+				{
+					return 'red';
+				}
+				else if( avgDeg >= 15 )
+				{
+					return 'blue';
+				}
+				else if( avgDeg >= 10 )
+				{
+					return 'green';
+				}
+				else if( avgDeg >= 5 )
+				{
+					return 'orange';
+				}
 			*/
 			if( pntDet.color )
 			{
+				
 				return pntDet.color;
 			}
-			else if( pntDet['trump-in-title'] )
+			else if( pntDet['trump_in_title'] )
 			{
 				return 'orange';
 			}
@@ -559,8 +578,11 @@
 
 				        	if (d.tooltip)
 					        {
-					        	d.tooltip = formatToolTip(d.tooltip, 200);
+					        	d.tooltip = formatToolTip(d.tooltip, 100);
 					        	alertMessage.innerText = d.tooltip;
+					        	
+					        	//console.log( d.tooltip.trim() );
+					        	//console.log(d)
 					        }
 
 					        tip.show(d);
@@ -648,7 +670,7 @@
 		    
 
 		    // Add the X Axis
-		    svg.append("g")
+		   svg.append("g")
 		        .attr("class", "x axis")
 		        .attr("transform", "translate(0," + height + ")")
 		        .call(xAxis);
@@ -682,7 +704,16 @@
 		    .html(params.chartTitle);
 
 		    // Add the Y Axis label
-		    svg.append("g").attr("class", "y axis").call(yAxis).append("text").attr("class", "label").attr("transform", "rotate(-90)").attr("y", -50).attr("dy", ".71em").style("text-anchor", "end").text(params.yAxisLabel);
+		    svg.append("g")
+		    .attr("class", "y axis")
+		    .call(yAxis)
+		    .append("text")
+		    .attr("class", "label")
+		    .attr("transform", "rotate(-90)")
+		    //.attr("y", 6).attr("dy", ".71em")
+		    .attr("y", -50).attr("dy", ".71em")
+		    .style("text-anchor", "end")
+		    .text(params.yAxisLabel);
 		}
 
     </script>

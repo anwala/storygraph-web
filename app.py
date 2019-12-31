@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 globalConfig = {}
 globalHist = 0
-globalDebugFlag = True
+globalDebugFlag = False
 
 if( globalDebugFlag ):
 	globalPrefix = '/data/anwala/IMLS/StoryGraph/'

@@ -2,6 +2,7 @@ body {
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
       font-size: 14px;
       background-color: #EEE;
+      margin: 0;
 }
 
 svg a text{
@@ -16,7 +17,6 @@ p.msg{
 ul.nav {
   list-style-type: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
   background-color: #000030;/*#333;*/
 }

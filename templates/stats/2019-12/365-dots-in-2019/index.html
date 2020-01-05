@@ -3,6 +3,15 @@
 
 
 <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155186973-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-155186973-1');
+	</script>
+
 	<meta charset="utf-8">
     <title>365 dots in 2019: Top news stories of 2019</title>
     <link rel="stylesheet" href="/static/365-dots-in-2018/style.css">
@@ -82,7 +91,7 @@
         <h3 style="margin: 10px 0 0 0;">
         	365 dots in 2019
         </h3>
-        <h4 style="margin: 0 0 0 0;">(<a href="#" target="_blank">Explanation</a>, <a href="/static/365-dots-in-2019/365-dots-in-2019.json" target="_blank">Dataset</a>, Hover for details, click dot to visit story graph)</h4>
+        <h4 style="margin: 0 0 0 0;">(<a href="https://ws-dl.blogspot.com/2020/01/2020-01-04-365-dots-in-2019-top-news.html" target="_blank">Explanation</a>, <a href="/static/365-dots-in-2019/365-dots-in-2019.json" target="_blank">Dataset</a>, Hover for details, click dot to visit story graph)</h4>
     </div>
 	
 	<div style="margin: auto;width: 95%; text-align:center;">
@@ -154,10 +163,10 @@
 			params.chartTitle = '1 day = 1 dot. 1 dot = average degree of Connected Component with largest average degree (top story) across all story graphs.'
 
 			params.legend = [
-				{class: 'Mueller Report release (5 days)', shape: 'circle', color: 'red'},
+				{class: 'Mueller Report release (6 days)', shape: 'circle', color: 'red'},
 				{class: 'Pelosi announces impeachment (3 days)', shape: 'circle', color: 'blue'},
 				{class: 'Impeachment inquiry public testimonies (10 days)', shape: 'circle', color: 'green'},
-				{class: '"Trump" in title (178 days)', shape: 'circle', color: 'orange'}
+				{class: '"Trump" in title (193 days)', shape: 'circle', color: 'orange'}
 			];
 
 			genericLineChartVarGlyph(chrtDat, params);
@@ -199,14 +208,17 @@
 				chrtDat[0][i].xPos = i+1;
 			}
 			
-			/*
+			
 			console.log('To track top news stories (commented out)');
+			console.log('dots:', chrtDat[0].length );
 			console.log( 'drawChart2:', chrtDat );
+			/*
 			for(var i=0; i<50; i++)
 			{
-				console.log( chrtDat[0][i] );
+				console.log( chrtDat[0][i].uri );
 			}
 			*/
+			
     	}	
 
     	function getChartDat(report)

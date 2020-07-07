@@ -1634,6 +1634,7 @@ function toggleRightPanel(node)
             if( ccComps[i]['avg-degree'] > maxDets.avgDeg && ccComps[i]['node-details']['connected-comp-type'] == 'event' )
             {
                maxDets.pos = i;
+               maxDets.avgDeg = ccComps[i]['avg-degree'];
             }
         }
 

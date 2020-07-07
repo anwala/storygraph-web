@@ -33,7 +33,7 @@
 
     <div style='margin: auto;width: 95%; text-align:center; font-weight: bold;'>
 
-        <a href="/"><span style='float:left; color:blue; cursor:pointer;'> << home &nbsp; &nbsp; </span></a>
+        <a href="/"><span style='float:left; color:blue; cursor:pointer;'> << home &nbsp; </span></a>
         <span onclick='showGraphDetail()' style='float:left; text-decoration: underline; color:blue; cursor:pointer;' id="graphEndpoint">
         Graph-based Event Detection Study
         </span>
@@ -57,8 +57,10 @@
 
     <br>
 
-    <div id="visContainer">
-      <script src="/static/vis.js"></script>
+    <div class="flex-container">
+        <div id="visContainer" class="flex-first-child">
+          <script src="/static/vis.js"></script>
+        </div>
     </div>
     
     <div class="pure-form pure-form-stacked" style="margin:auto; width: 95%; text-align: center;">
@@ -101,7 +103,7 @@
                 </div>
 
                 <div class="pure-u-1 pure-u-md-1-6">
-                    <input id="trackSubGraphChkbox" type="checkbox"> <span>Track subgraph</span>
+                    <a href="https://twitter.com/intent/user?screen_name=storygraphbot" target="_blank">Follow @StoryGraphBot</a>
                 </div>
 
                 <!--

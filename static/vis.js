@@ -1620,16 +1620,37 @@ function toggleRightPanel(node)
 
         return nodeIndices.sort(function(first, second) {return second.score - first.score;});
     };
+
+    let getFirstEventCC = function(ccComps)
+    {
+        if( ccComps.length == 0 )
+        {
+            return -1;
+        }
+
+        let maxDets = {pos: 0, avgDeg: 0};
+        for(let i=0; i<ccComps.length; i++)
+        {
+            if( ccComps[i]['avg-degree'] > maxDets.avgDeg && ccComps[i]['node-details']['connected-comp-type'] == 'event' )
+            {
+               maxDets.pos = i;
+            }
+        }
+
+        return maxDets.pos;
+    };
+
+
     let ccPos = -1;
     if( node == undefined )
     {
         //here means function is called without mouse hover on story node, so pick first cc
-        ccPos = 0;
+        ccPos = getFirstEventCC( globalGraph['connected-comps'] );
     }
     else if( node.index == undefined )  
     {
         //here also means function is called without mouse hover on story node, so pick first cc
-        ccPos = 0;
+        ccPos = getFirstEventCC( globalGraph['connected-comps'] );
     }
     else
     {
@@ -1708,11 +1729,7 @@ function toggleRightPanel(node)
         n = globalGraph.nodes[n];
 
         tdArray.push([]);
-        
-
-        let td = document.createElement('td');
-        td.appendChild( document.createTextNode(i+1) );
-        tdArray[tdArray.length-1].push(td);
+        let td;
 
 
         td = document.createElement('td');
@@ -1728,15 +1745,16 @@ function toggleRightPanel(node)
         let aTag = document.createElement('a');
         aTag.href = n.link;
         aTag.text = n.title;
+        aTag.title = n.title;
         aTag.target = '_blank';
 
         td.appendChild( aTag );
-        tdArray[tdArray.length-1].push(td);    
+        tdArray[tdArray.length-1].push(td);
     }
     
     let title = 'Connected Component Rank: ' + (ccPos + 1) + ' of ' + globalGraph['connected-comps'].length + ', Average Degree: ' + globalGraph['connected-comps'][ccPos]['avg-degree'].toFixed(2);
     dynamicTable(
-        ['', '', title],
+        ['', title],
         tdArray,
         '',
         'visDetailsTable'

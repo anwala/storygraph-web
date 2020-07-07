@@ -1629,8 +1629,16 @@ function toggleRightPanel(node)
         }
 
         let maxDets = {pos: 0, avgDeg: 0};
+        let maxDetsBackup = {pos: 0, avgDeg: 0};
+        
         for(let i=0; i<ccComps.length; i++)
         {
+            if( ccComps[i]['avg-degree'] > maxDetsBackup.avgDeg )
+            {
+                maxDetsBackup.pos = i;
+                maxDetsBackup.avgDeg = ccComps[i]['avg-degree'];
+            }
+
             if( ccComps[i]['avg-degree'] > maxDets.avgDeg && ccComps[i]['node-details']['connected-comp-type'] == 'event' )
             {
                maxDets.pos = i;
@@ -1638,6 +1646,13 @@ function toggleRightPanel(node)
             }
         }
 
+        if( maxDets.avgDeg == 0 )
+        {
+            //here means no event found, so just take largest cc
+            maxDets.pos = maxDetsBackup.pos;
+        }
+
+        //account for possibility of no event, then get largest avgDeg
         return maxDets.pos;
     };
 

@@ -456,6 +456,7 @@ function preMain()
     var refreshSecs = 300;
     globalConfig['link-opacity'] = 0.4;
     globalConfig['stopwatch-paused-at'] = {'refresh-seconds': refreshSecs, 'max-refresh-seconds': refreshSecs};
+    resetTrackingDetails();
     //settings - end
 
     var URIParamsDict = processURI();
@@ -509,8 +510,9 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         populateGraphSet( endpoint );
     }, 10);
     
-    document.getElementById('uploadGraph').addEventListener('change', uploadGraphClick, false);
+    
     var visContainer = document.getElementById('visContainer');
+    document.getElementById('uploadGraph').addEventListener('change', uploadGraphClick, false);
     visContainer.setAttribute('style', 'width: ' + widthPercent*100 + '%; height: 100%');
 
     var addDetsToTitle = function(node, conComp)
@@ -580,7 +582,7 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         .attr('width', '100%')
         .attr('height', h);
     
-    globalTranslate[0] = window.innerWidth/15.5;//3.5
+    globalTranslate[0] = window.innerWidth/3.5;
     globalTranslate[1] = h / 4;
     
     svg.style("cursor", "move");
@@ -609,6 +611,7 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         setTimestamp('timestamp', graph['timestamp']);
         document.getElementById('showLabelsChkbox').addEventListener('change', genericToggle, false);
         document.getElementById('showEdgeLabelsChkbox').addEventListener('change', genericToggle, false);
+        document.getElementById('trackSubGraphChkbox').addEventListener('change', trackingChkboxClick, false);
         document.getElementById('refreshGraph').addEventListener('change', refreshGraphToggle, false);
         document.getElementById('thumbNailsChkbox').addEventListener('change', advanceButton, false);
         document.getElementById('annotateChkbox').addEventListener('change', advanceButton, false);
@@ -920,12 +923,12 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         zoom.on("zoom", globalZoomed);
         svg.call(zoom);
         genericToggle(true);
+        trackSubgraph();
 
         node.on("mouseover", function(d)
         {
             mouseover_event_handler(d);
             tip.show(d, graph['connected-comps']);
-            toggleRightPanel(d);
         })
         .on("mousedown", function(d)
         {
@@ -950,6 +953,11 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
 
         node.on("click", function(d)
         {
+            if( document.getElementById('trackSubGraphChkbox').checked === true )
+            {
+                setTrackingDetails(d);
+            }
+
             if( document.getElementById('stickyNodesChkbox').checked === false )
             {
                 d3.select('#visContainer').classed("fixed", d.fixed = false); 
@@ -959,7 +967,6 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
 
         force.on("tick", tick);
         globalZoomed();
-        genericAfterGraphDrawn( globalGraph );
 
         function addEdgeLabels()
         {
@@ -1029,9 +1036,6 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
             filterContainer.innerHTML = '';
             var shouldColorFlag = true;
 
-            
-            /*
-            //responsible for setting left/center/right graphTypes
             for(var graphType in graphTypes)
             {
                 var input = document.createElement('input');
@@ -1051,32 +1055,22 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
                 filterContainer.appendChild(inputSpan);
                 shouldColorFlag = false;
             }
-            */
             
             var inputList = [
                 { 
                     name: ' events ', 
                     id: 'staticShowEvents',
-                    color: 'green',
-                    evnt: genericToggle
+                    color: 'green'
                 },
                 { 
                     name: ' clusters ', 
                     id: 'staticShowClusters',
-                    color: 'red',
-                    evnt: genericToggle
+                    color: 'red'
                 },
                 { 
                     name: ' isolate stories ', 
                     id: 'staticShowIsolatedNodes',
-                    color: 'black',
-                    evnt: genericToggle
-                },
-                { 
-                    name: ' right panel ', 
-                    id: 'staticShowRightPanel',
-                    color: 'black',
-                    evnt: toggleRightPanel
+                    color: 'black'
                 }
             ];
 
@@ -1086,7 +1080,7 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
                 input.type = 'checkbox';
                 input.setAttribute('checked', 'true');
                 input.id = inputList[i].id;
-                input.addEventListener('change', inputList[i].evnt, false);
+                input.addEventListener('change', genericToggle, false);
 
                 var inputSpan = document.createElement('span');
                 inputSpan.innerHTML = inputList[i].name;
@@ -1515,6 +1509,58 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
         }
 
         //tracking - start
+        function getNodeDetail(index, indexer)
+        {
+            if( index < 0 || index >= globalGraph.nodes.length )
+            {
+                return {};
+            }
+
+            if( indexer === undefined )
+            {
+                return globalGraph.nodes[index];
+            }
+            else
+            {
+                return globalGraph.nodes[index][indexer];
+            }
+        }
+
+        function getNodeDetails(nodes)
+        {
+            var nodeDetails = [];
+
+            for(var i = 0; i<nodes.length; i++)
+            {
+                nodeDetails.push( getNodeDetail(nodes[i]) );
+            }
+
+            return nodeDetails;
+        }
+
+        function getEntitiesForNodes(nodes)
+        {
+            var entities = [];
+            
+            for(var i = 0; i<nodes.length; i++)
+            {
+                var singleEntitySet = getNodeDetail(nodes[i], 'entities');
+                entities = entities.concat(singleEntitySet);
+            }
+
+            return entities;
+        }
+
+        function trackingChkboxClick()
+        {
+            if( document.getElementById('trackSubGraphChkbox').checked === false )
+            {
+                //reset tracking state
+                subgraphHighlight(globalConfig.tracking.nodes, '');
+                resetTrackingDetails();
+            }
+        }
+
         function subgraphHighlight(nodes, color)
         {           
             for(var i=0; i<nodes.length; i++)
@@ -1530,6 +1576,88 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
                 }               
             }
         }
+
+        function trackSubgraph()
+        {
+            if( document.getElementById('trackSubGraphChkbox').checked === false || globalConfig.tracking.nodes.length === 0 )
+            {
+                return;
+            }
+
+            console.log('\ntrackSubgraph():');
+            console.log( globalConfig.tracking.nodes );
+            
+            console.log('vs');
+            console.log('NULL');
+
+            for(var i = 0; i<globalGraph['connected-comps'].length; i++)
+            {
+                var query = {
+                    'A': globalConfig.tracking.entities, 
+                    'B': getEntitiesForNodes(globalGraph['connected-comps'][i].nodes)//these are candidates for comparing
+                };
+
+                httpPost(
+                    query , 
+                    '/graphs/ops/sim/', 
+                    trackResultIn, 
+                    getNodeDetails(globalGraph['connected-comps'][i].nodes)
+                );
+            }
+        }
+
+        function trackResultIn(result, source)
+        {
+            if( result.dist <= 0.7 )
+            {
+                console.log('\nMATCH:', result.dist);
+                subgraphHighlight(source, 'green');
+            }
+        }
+
+        function setTrackingDetails(member)
+        {
+
+            if( globalConfig.tracking.nodes.length !== 0 )
+            {
+                //since tracking state exists don't replace
+                return;
+            }
+
+            var trackingType = member['node-details']['connected-comp-type'];
+            if( trackingType === 'event' || trackingType === 'cluster' )
+            {
+                document.getElementById('refreshGraph').checked = false;
+                document.getElementById('showLabelsChkbox').checked = false;
+                genericToggle();
+                   
+                //get other members
+                for(var i = 0; i<globalGraph['connected-comps'].length; i++)
+                {
+                    if( globalGraph['connected-comps'][i].nodes.indexOf(member.index) !== -1 )
+                    {
+                        globalConfig.tracking['nodes-index'] = i;
+                        globalConfig.tracking.entities = getEntitiesForNodes( globalGraph['connected-comps'][i].nodes );
+
+                        //found members of subgraph
+                        for (var j=0; j<globalGraph['connected-comps'][i].nodes.length; j++)
+                        {
+                            var node = globalGraph['connected-comps'][i].nodes[j];
+                            globalConfig.tracking.nodes.push( 
+                                getNodeDetail(node)
+                            );
+                        }
+
+                        subgraphHighlight(globalConfig.tracking.nodes, 'green');
+                        //stop search since node membership is exclusive (one node cannot belong to multiple connected comps)
+                        break;
+                    }
+                }
+            }
+
+            
+        }
+
         //tracking - end
     };
 
@@ -1566,188 +1694,6 @@ function main(globalStoryGraphFilename, timestamp, optionalGraph)
     }    
 }
 
-function getCCPosForNode(conComps, nodeIndx)
-{
-    for(let i=0; i<conComps.length; i++)
-    {
-        if( conComps[i].nodes.indexOf(nodeIndx) != -1 )
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-function toggleRightPanel(node)
-{
-    //console.log('\ntoggleRightPanel():');
-
-    let sortNodesBySim = function(links, nodeIndices)
-    {
-        let nodeScores = {};
-        let sortedNodesIndx = [];
-        for(let i=0; i<links.length; i++)
-        {   
-            let src = links[i].source;
-            let tgt = links[i].target;
-            
-            if( nodeScores[src] == undefined )
-            {
-                nodeScores[src] = {score: 0, nodeIdx: src};
-            }
-
-            if( nodeScores[tgt] == undefined )
-            {
-                nodeScores[tgt] = {score: 0, nodeIdx: tgt};
-            }   
-
-            nodeScores[src].score += links[i].sim;
-            nodeScores[tgt].score += links[i].sim;
-        }
-
-        for(let i=0; i<nodeIndices.length; i++)
-        {
-            let nodeIdx = nodeIndices[i];
-            if( nodeScores[nodeIdx] )
-            {
-                nodeIndices[i] = nodeScores[nodeIdx];
-            }
-            else
-            {
-                nodeIndices[i] = {score: 0, nodeIdx: nodeIdx};
-            }
-        }
-
-        return nodeIndices.sort(function(first, second) {return second.score - first.score;});
-    };
-    let ccPos = -1;
-    if( node == undefined )
-    {
-        //here means function is called without mouse hover on story node, so pick first cc
-        ccPos = 0;
-    }
-    else if( node.index == undefined )  
-    {
-        //here also means function is called without mouse hover on story node, so pick first cc
-        ccPos = 0;
-    }
-    else
-    {
-        //here means node is defined, so check if node is part of cc, return -1 otherwise
-        ccPos = getCCPosForNode(globalGraph['connected-comps'], node.index);
-    }
-
-    
-    let masterPanel = document.getElementsByClassName('flex-container');
-    if( masterPanel.length == 0 )
-    {
-        //console.log("\tmasterPanel.length = 0, returning");
-        return;
-    }
-
-
-    masterPanel = masterPanel[0];
-    let rightPanel = masterPanel.getElementsByClassName('flex-second-child');
-    
-    //remove existing flex
-    
-    if( document.getElementById('staticShowRightPanel').checked == false )
-    {
-        //here means user has switched off right panel
-        for(let i=0; i<rightPanel.length; i++)
-        {
-            masterPanel.removeChild( rightPanel[i] );    
-        }
-        //console.log("\tcheckedState = false, returning");
-        return;
-    }
-    
-
-    if( ccPos == -1 )
-    {
-        //here means cc was not found, most likely hover over isolated node
-        //console.log("\tccPos = -1, returning");
-        return;
-    }
-
-    rightPanel = masterPanel.getElementsByClassName('flex-second-child');
-    for(let i=0; i<rightPanel.length; i++)
-    {
-        if( rightPanel[i].getAttribute('ccIndx') == ccPos )
-        {
-            //here means table already exists so don't remove and redraw
-            //console.log('ccIndx MATCH, returning');
-            return;
-        }
-
-        masterPanel.removeChild( rightPanel[i] );    
-    }
-
-    let secPanel = document.createElement('div');
-    secPanel.className = 'flex-second-child';
-
-    let tableDiv = document.createElement('div');
-    tableDiv.id = 'visDetailsTable';
-    secPanel.setAttribute('ccIndx', ccPos);
-    
-    secPanel.appendChild(tableDiv);
-    masterPanel.appendChild(secPanel);
-
-
-    //from here, draw graph details    
-    let tdArray = [];
-    let nodeIndices = JSON.parse(JSON.stringify(globalGraph['connected-comps'][ccPos].nodes));    
-    nodeIndices = sortNodesBySim(globalGraph.links, nodeIndices);
-    for(let i=0; i<12; i++)
-    {
-        if( i >= nodeIndices.length )
-        {
-            break;
-        }
-        let n = nodeIndices[i].nodeIdx;
-        n = globalGraph.nodes[n];
-
-        tdArray.push([]);
-        
-
-        let td = document.createElement('td');
-        td.appendChild( document.createTextNode(i+1) );
-        tdArray[tdArray.length-1].push(td);
-
-
-        td = document.createElement('td');
-        let img = document.createElement('img');
-        img.src = n.favicon;
-        img.width = 16;
-        img.height = 16;
-        td.appendChild( img );
-        tdArray[tdArray.length-1].push(td);   
-
-
-        td = document.createElement('td');
-        let aTag = document.createElement('a');
-        aTag.href = n.link;
-        aTag.text = n.title;
-        aTag.target = '_blank';
-
-        td.appendChild( aTag );
-        tdArray[tdArray.length-1].push(td);    
-    }
-    
-    let title = 'Connected Component Rank: ' + (ccPos + 1) + ' of ' + globalGraph['connected-comps'].length + ', Average Degree: ' + globalGraph['connected-comps'][ccPos]['avg-degree'].toFixed(2);
-    dynamicTable(
-        ['', '', title],
-        tdArray,
-        '',
-        'visDetailsTable'
-    );
-}
-
-function genericAfterGraphDrawn(graph)
-{
-    console.log('\ngenericAfterGraphDrawn(): to be used for services needed after rendering graph.');
-    toggleRightPanel();
-}
 
 
 function httpPost(jsonData, postURI, callback, callbackData)
@@ -1992,77 +1938,12 @@ function setTimestamp(id, timestamp)
     }
 }
 
-function dynamicTable(headerArray, tdArray, inCaptionText, containerID, extraParams)
+function resetTrackingDetails()
 {
-    if (containerID != undefined )
-    {
-        //d3.select('#' + containerID).select('table').remove();
-        var container = document.getElementById(containerID);
-        if( container == undefined )
-        {
-            console.log('\ndynamicTable() container is null, returning');
-            return;
-        }
-
-        var gridtable = container.getElementsByClassName('gridtable')[0];
-        if( gridtable != undefined )
-        {
-            container.removeChild(gridtable);
-        }
-    }
-
-    if( extraParams == undefined )
-    {
-        extraParams = {};
-    }
-
-
-    var table = document.createElement('table');
-    table.className += "gridtable";
-
-    if( extraParams.style )
-    {
-        table.style = extraParams.style;
-    }
-
-    var tr = document.createElement('tr');
-    for (var i = 0; i < headerArray.length; i++)
-    {
-        var headingText = document.createTextNode(headerArray[i]);
-        var header = document.createElement('th');
-
-        header.appendChild(headingText);
-        tr.appendChild(header);
-    }
-    table.appendChild(tr);
-
-    var caption = document.createElement('caption');
-    caption.id = 'tableCaption';
-    caption.innerHTML = inCaptionText;
-
-    var tableBody = document.createElement('tbody');
-    table.appendChild(tableBody);
-    table.appendChild(caption);
-
-    for (var i = 0; i < tdArray.length; i++)
-    {
-        var tr = document.createElement('tr');
-        tableBody.appendChild(tr);
-        for (var j = 0; j < tdArray[i].length; j++)
-        {
-            tr.appendChild(tdArray[i][j]);
-        }
-    }
-
-    if (containerID != undefined)
-    {
-        var container = document.getElementById(containerID);
-        container.appendChild(table);
-    }
-    else
-    {
-        document.body.appendChild(table);
-    }
+    globalConfig.tracking = {};
+    globalConfig.tracking.nodes = [];
+    globalConfig.tracking['nodes-index'] = -1;
+    globalConfig.tracking.entities = {};
 }
 /*
 Trash remove:

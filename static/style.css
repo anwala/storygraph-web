@@ -39,55 +39,35 @@ ul.nav li a:hover {
 }
 /*MENU BAR - END*/
 
-.flex-container {
-  display: flex;
-}
-
-.flex-first-child {
-  flex: 1;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.flex-second-child {
-  flex: 1;
-  margin-right: 10px;
-}
 
 #visContainer {
     background-color: white;
     border-style: solid;
     border-width: 1px;
     border-color: #999999;
-    /*margin:0 auto;*/   
+    margin:0 auto;
     border-radius: 8px;
 }
 
-.gridtable {
-    width: 97%;
-    margin: 0px auto;
-    color: #333333;
-    border-width: 1px;
-    border-color: #129FEA;
-    border-collapse: collapse;
-}
-
-.gridtable th {
-    border-width: 1px;
-    padding: 8px;
+/*for -dev-attempt-grid-graphs - start*/
+.visContainer {
+    background-color: white;
     border-style: solid;
-    border-color: #666666;
-    background-color: #dedede;
+    border-width: 1px;
+    border-color: #999999;
+    margin:0 auto;
 }
 
 .gridtable td {
-    text-align: left;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #666666;
-    background-color: #ffffff;
+  padding: 10px;
 }
+
+.gridtable{
+    width: 100%;
+    margin: 0px auto;
+    table-layout: fixed;
+  }
+/*for -dev-attempt-grid-graphs - end*/
 
 /* tip - start */
 .d3-tip {

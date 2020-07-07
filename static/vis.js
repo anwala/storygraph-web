@@ -1695,12 +1695,12 @@ function toggleRightPanel(node)
     rightPanel = masterPanel.getElementsByClassName('flex-second-child');
     for(let i=0; i<rightPanel.length; i++)
     {
-        if( rightPanel[i].getAttribute('ccIndx') == ccPos )
+        /*if( rightPanel[i].getAttribute('ccIndx') == ccPos )
         {
             //here means table already exists so don't remove and redraw
             //console.log('ccIndx MATCH, returning');
             return;
-        }
+        }*/
 
         masterPanel.removeChild( rightPanel[i] );    
     }

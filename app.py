@@ -101,7 +101,7 @@ def storyGraphStats(parentFolder, childFolder):
 
 @app.route('/stats/<parentFolder>/<childFolder>/', methods=['GET'])
 def storyGraphStats(parentFolder, childFolder):
-	return redirect('studies/' + parentFolder + '/' + childFolder + '/', code=301)
+	return redirect('/studies/' + parentFolder + '/' + childFolder + '/', code=301)
 
 @app.route('/studies/<date>/<study>/', methods=['GET'])
 def genericStudiesRoute(date, study):

@@ -13,7 +13,7 @@ from flask import send_file
 from GraphStories import GraphStories
 
 from os.path import dirname, abspath
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect
 
 app = Flask(__name__)
 
@@ -79,6 +79,11 @@ def index():
 @app.route('/stats/', methods=['GET'])
 def statsIndex():
 	return render_template('stats/index.html')
+
+@app.route('/studies/', methods=['GET'])
+def studiesIndex():
+	return render_template('studies/index.html')
+
 	
 
 @app.route('/graphs/<storygraph>/', methods=['GET'])
@@ -88,10 +93,19 @@ def storyGraph(storygraph):
 @app.route('/graphs/dev/<storygraph>/', methods=['GET'])
 def storyGraphDev(storygraph):
 	return render_template('story-graph-dev.html')
-
+'''
 @app.route('/stats/<parentFolder>/<childFolder>/', methods=['GET'])
 def storyGraphStats(parentFolder, childFolder):
 	return render_template('stats/' + parentFolder + '/' + childFolder + '/' + 'index.html')
+'''
+
+@app.route('/stats/<parentFolder>/<childFolder>/', methods=['GET'])
+def storyGraphStats(parentFolder, childFolder):
+	return redirect('studies/' + parentFolder + '/' + childFolder + '/', code=301)
+
+@app.route('/studies/<date>/<study>/', methods=['GET'])
+def genericStudiesRoute(date, study):
+	return render_template('studies/' + date + '/' + study + '/index.html')
 
 @app.route('/graphs/ops/sim/', methods=['POST'])
 def graphsOpsSim():

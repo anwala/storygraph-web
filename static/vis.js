@@ -1750,7 +1750,23 @@ function toggleRightPanel(node)
 
         td = document.createElement('td');
         let img = document.createElement('img');
-        img.src = n.favicon;
+        
+        if( n.favicon === undefined )
+        {
+            img.src = getFaviconFromLink(n.link);
+        }
+        else
+        {
+            if( n.favicon.length !== 0 )
+            {
+                img.src = n.favicon;
+            }
+            else
+            {
+                img.src = getFaviconFromLink(n.link);
+            }
+        }
+
         img.width = 16;
         img.height = 16;
         td.appendChild( img );

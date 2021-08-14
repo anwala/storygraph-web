@@ -160,20 +160,9 @@ def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
 	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json
 
 	#handle generic/non-generic requests - start
-	if( YYYY == '0' ):
-		YYYY = ''
-	else:
-		YYYY = YYYY + '/'
-
-	if( MM == '0' ):
-		MM = ''
-	else:
-		MM = MM + '/'
-
-	if( DD == '0' ):
-		DD = ''
-	else:
-		DD = DD + '/'
+	YYYY = '' if YYYY == '0' else YYYY + '/'
+	MM = '' if MM == '0' else MM + '/'
+	DD = '' if DD == '0' else DD + '/'
 	#handle generic/non-generic requests - end
 
 

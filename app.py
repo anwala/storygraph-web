@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
-import re
-import json
 import gzip
-import subprocess
+import json
 import os, sys
+import re
+import subprocess
 
+from datetime import datetime, timedelta
 from flask import Flask
 from flask import jsonify
+from flask import render_template, redirect
 from flask import request
 from flask import send_file
 from GraphStories import GraphStories
-
 from os.path import dirname, abspath
-from flask import render_template, redirect
 
 app = Flask(__name__)
 
@@ -27,6 +27,24 @@ else:
 	globalPrefix = '/data/'
 
 #copied from genericCommon.py - start
+def getDictFromJson(jsonStr):
+
+	try:
+		return json.loads(jsonStr)
+	except:
+		genericErrorInfo()
+
+	return {}
+
+def genericErrorInfo(slug=''):
+	exc_type, exc_obj, exc_tb = sys.exc_info()
+	fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+	
+	errMsg = fname + ', ' + str(exc_tb.tb_lineno)  + ', ' + str(sys.exc_info())
+	print(errMsg + slug)
+
+	return errMsg
+
 def getConfigParameters(configPathFilename, keyValue=''):
 
 	keyValue = keyValue.strip()
@@ -154,41 +172,39 @@ def tweetStudyTweetSim():
 def tweetStudyTweetTrolls():
 	return render_template( 'media-manip/tweet-study-ira.html' )
 
-
 @app.route('/graphs/<storygraph>/<YYYY>/<MM>/<DD>/<graph>', methods=['GET'])
 def storyGraphGetGraph(storygraph, YYYY, MM, DD, graph):
 	#http://localhost:11111/graphs/polar-media-consensus-graph/2018/03/05/graph99.json
 
-	#handle generic/non-generic requests - start
-	YYYY = '' if YYYY == '0' else YYYY + '/'
-	MM = '' if MM == '0' else MM + '/'
-	DD = '' if DD == '0' else DD + '/'
-	#handle generic/non-generic requests - end
+	menu = {'menu': []}
+	singleGraph = {}
 
+	yyyyMMDD = f'{YYYY}/{MM}/{DD}'
+	graphPath = f'{globalPrefix}graphs/{storygraph}/{YYYY}/{MM}/{DD}/graphs-{YYYY}-{MM}-{DD}.jsonl.gz'
+	cursor = graph.replace('graph', '').replace('.json', '')
+	cursor = int(cursor) if cursor.isnumeric() else -1
 
-	filename = globalPrefix + 'graphs/' + storygraph + '/' + YYYY + MM + DD + graph
-	graphFlag = False
-	if( graph.lower().find('graph') != -1 ):
-		#graphs are compressed
-		filename = filename + '.gz'
-		graphFlag = True
-		
-	if( os.path.exists(filename) == False ):
-		return jsonify( {} )
+	if( os.path.exists(graphPath) ):
+		try:
+			
+			with gzip.open(graphPath, 'rb') as f:
+				counter = 0
+				for graph in f:
+					
+					singleGraph = getDictFromJson(graph)
+					if( cursor == counter ):
+						break
+					
+					counter += 1
+					if( 'timestamp' in singleGraph ):
+						menu['menu'].append(singleGraph['timestamp'])
 
-	if( graphFlag ):
-		f = getDictFromGZPath( filename )
-	else:
-		f = getConfigParameters( filename )
+			singleGraph['self'] = request.url
+			menu['self'] = request.url
+		except:
+			genericErrorInfo()
 
-	if( graph.lower().find('menu') != -1 ):
-		#menu file requires special packaging
-		f = {'menu': f, 'self': request.url}
-	else:
-		f['self'] = request.url
-
-	return jsonify( f )
-	#return send_file(filename, mimetype='application/json')
+	return jsonify(menu) if cursor == -1 else jsonify(singleGraph)
 
 @app.route('/files/<filetype>/<storygraph>/<filename>/', methods=['GET'])
 def storyGraphFiles(filetype, storygraph, filename):
@@ -209,17 +225,29 @@ def storyGraphFiles(filetype, storygraph, filename):
 
 @app.route('/graphs/pointers/<storygraph>/', methods=['GET'])
 def storyGraphDetails(storygraph):
-
-	graphIndexDetails = getConfigParameters( globalPrefix + 'graph-cursors/' + storygraph + '/' + 'graphIndex.json' )	
 	
-	if( 'cursor' in graphIndexDetails ):
-		cursor = graphIndexDetails['cursor']
-		path = graphIndexDetails['cur-path']
-	else:
-		cursor = 0
-		path = ''
-		graphIndexDetails = {}
+	nowDate = datetime.utcnow()
+	graphIndexDetails = {}
 
+	for i in range(4000):
+
+		yyyyMMDD = nowDate.strftime('%Y/%m/%d')
+		graphPath = '{}graphs/{}/{}/graphs-{}.jsonl.gz'.format( globalPrefix, storygraph, yyyyMMDD, yyyyMMDD.replace('/', '-') )
+		
+		if( os.path.exists(graphPath) ):
+
+			graphIndexDetails = {'cur-path': yyyyMMDD, 'cursor': -1, 'refresh-seconds': 300}
+			try:
+				with gzip.open(graphPath, 'rb') as f:
+					for graph in f:
+						graphIndexDetails['cursor'] += 1
+			except:
+				genericErrorInfo()
+
+			break
+		else:
+			nowDate = nowDate + timedelta(days=-1)
+	
 	graphIndexDetails['hist'] = globalHist
 	return jsonify( graphIndexDetails )
 

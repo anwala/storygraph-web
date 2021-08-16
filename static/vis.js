@@ -144,6 +144,7 @@ function populateGraphSet(endPoint)
 {
     console.log('\npopulateGraphSet()');
     
+    //let allGraphsFilename = '/graphs' + endPoint + getCurPath() + '/graphs-' + getCurPath().replace(/\//g, '-') +'.jsonl.gz';
     //watch-5
     d3.json('/graphs' + endPoint + getCurPath() + '/' + 'menu.json', function(error, menu)
     {
@@ -158,24 +159,16 @@ function populateGraphSet(endPoint)
         }
 
         menu = menu.menu;
-        var sortedGraphNames = Object.keys(menu);
         var graphSet = document.getElementById('graphSet');
         graphSet.innerHTML = '';
         graphSet.onchange = graphSetChange;
 
-        sortedGraphNames.sort(
-            function(a, b)
-            {
-                //a example a = 'graph0.json'
-                return (+a.split('.')[0].replace('graph', '')) - (+b.split('.')[0].replace('graph', ''));
-            });
-        
-        for(var i = 0; i<sortedGraphNames.length; i++)
+        for(var i = 0; i<menu.length; i++)
         {
             var option = document.createElement('option');
-            option.value = sortedGraphNames[i];//CAUTION coupling with getGraphName()
+            option.value = 'graph' + i + '.json';//CAUTION coupling with getGraphName()
 
-            var localTime = menu[sortedGraphNames[i]].timestamp;
+            var localTime = menu[i];
             localTime = specialDateFormat(localTime);
 
             option.text =  'T' + i + ' - ' + 
@@ -188,6 +181,7 @@ function populateGraphSet(endPoint)
         graphSet.selectedIndex = globalURIParamsDict.cursor;
     });
 }
+
 
 function uploadGraphClick(evt)
 {
@@ -476,9 +470,9 @@ function preMain()
     }
 
     refreshTimer(
-            globalConfig['stopwatch-paused-at']['max-refresh-seconds'], 
-            globalConfig['stopwatch-paused-at']['max-refresh-seconds']
-        );
+        globalConfig['stopwatch-paused-at']['max-refresh-seconds'], 
+        globalConfig['stopwatch-paused-at']['max-refresh-seconds']
+    );
 }
 
 function formatGraph(graph)
